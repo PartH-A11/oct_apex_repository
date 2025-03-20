@@ -30,7 +30,7 @@ pipeline {
 
         stage('Deploy APEX Application') {
             steps {
-                bat "sqlcl -s \"${DB_CONN}\" @deploy_apex.sql"
+                bat "sqlcl -s \"${DB_CONN}\" @f100401.sql"
             }
         }
 
