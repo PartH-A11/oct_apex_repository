@@ -1,22 +1,33 @@
 pipeline {
     agent any
+
     environment {
         APEX_WORKSPACE = "edc_jcdc_dev"
         APEX_USERNAME = "parth.suthar"
-		APEX_PASSWORD = "Dell#123"
-        DB_USER = "edc_jcdc_dev"
-        DB_PASSWORD = "4*s2N$Ins6R(b#we@#a"  // Sensitive! Use Jenkins Credentials if possible.
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "OSPROD"
-        DB_CONN = "${DB_USER}/${DB_PASSWORD}@//${DB_HOST}:1521/${DB_SERVICE}"
     }
+
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/PartH-A11/oct_apex_repositoryt'
+                git branch: 'main', url: 'https://github.com/PartH-A11/oct_apex_repository'
             }
         }
         
+        stage('Retrieve Credentials') {
+            steps {
+                script {
+                    // Fetch credentials securely from Jenkins
+                    withCredentials([
+                        usernamePassword(credentialsId: 'apex-db-creds', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')
+                    ]) {
+                        env.DB_CONN = "${DB_USER}/${DB_PASSWORD}@//${DB_HOST}:1521/${DB_SERVICE}"
+                    }
+                }
+            }
+        }
+
         stage('Validate SQL Files') {
             steps {
                 script {
@@ -42,7 +53,7 @@ pipeline {
 
         stage('Notify') {
             steps {
-                echo "Deployment successful!"
+                echo "Deployment successful! APEX Application is live on: http://bkp2.octalsoft.com/apex"
             }
         }
     }
