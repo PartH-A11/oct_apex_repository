@@ -1,1 +1,0 @@
-select systimestamp from dual where rownum=1;
