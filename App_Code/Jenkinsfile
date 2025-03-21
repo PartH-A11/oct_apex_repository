@@ -1,4 +1,4 @@
-    pipeline {
+pipeline {
     agent any
 
     environment {
@@ -41,21 +41,20 @@
         }
 
         stage('Deploy APEX Application') {
-    steps {
-        script {
-            def files = findFiles(glob: '**/*.sql')
-            files.each { file ->
-                echo "Deploying SQL file: ${file.name}"
-                sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
+            steps {
+                script {
+                    def files = findFiles(glob: '**/*.sql')
+                    files.each { file ->
+                        echo "Deploying SQL file: ${file.name}"
+                        sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
+                    }
+                }
             }
         }
-    }
-}
-
 
         stage('Restart ORDS') {
             steps {
-                sh 'systemctl restart ords'
+                sh 'sudo systemctl restart ords'
             }
         }
 
