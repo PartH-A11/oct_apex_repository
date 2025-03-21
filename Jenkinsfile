@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        APEX_WORKSPACE = "APEX_PIPELINE"
+        APEX_WORKSPACE = "SUN_22001_DEV"
         APEX_USERNAME = "parth.suthar"
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "osprod.OSPROD"
