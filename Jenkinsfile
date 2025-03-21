@@ -1,20 +1,22 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'APEX_WORKSPACE', defaultValue: 'apex_pipeline', description: 'APEX Workspace Name')
+    }
+
     environment {
-        APEX_WORKSPACE = "apex_pipeline"
+        APEX_WORKSPACE = "${params.APEX_WORKSPACE}"
         APEX_USERNAME = "parth.suthar"
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "osprod.OSPROD"
-        FILE_NAME = "f234.sql"
-        APEX_URL = "https://bkp2.octalsoft.com/apex/r/apex/workspace-sign-in"
     }
 
     stages {
         stage('Checkout Code') {
             steps {
                 git branch: 'develop', url: 'https://github.com/PartH-A11/oct_apex_repository'
-                fingerprint FILE_NAME
+                fingerprint 'f234.sql'
             }
         }
         
@@ -30,27 +32,34 @@ pipeline {
             }
         }
 
-        stage('Upload APEX Application File') {
+        stage('Validate SQL Files') {
             steps {
                 script {
-                    def filePath = "${WORKSPACE}/${FILE_NAME}"
+                    def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
+                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @f234.sql", returnStatus: true)
+                    if (result != 0) {
+                        error "SQL validation failed! Check script for errors."
+                    }
+                }
+            }
+        }
 
-                    echo "Uploading APEX application file: ${FILE_NAME} to workspace: ${APEX_WORKSPACE}"
-
-                    sh """
-                    curl -X POST --user ${env.DB_USER}:${env.DB_PASSWORD} \\
-                        -F "workspace=${APEX_WORKSPACE}" \\
-                        -F "file=@${filePath}" \\
-                        "https://bkp2.octalsoft.com/apex/rest/upload"
-                    """
+        stage('Deploy APEX Application') {
+            steps {
+                script {
+                    def files = findFiles(glob: '**/*.sql')
+                    files.each { file ->
+                        echo "Deploying SQL file: ${file.name} to workspace ${APEX_WORKSPACE}"
+                        sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
+                    }
                 }
             }
         }
 
         stage('Notify') {
             steps {
-                echo "Upload successful! APEX application file ${FILE_NAME} has been uploaded to workspace: ${APEX_WORKSPACE}"
-                echo "Access the Oracle APEX application here: ${APEX_URL}"
+                echo "Deployment successful! APEX Application is live on: https://bkp2.octalsoft.com/apex/r/apex/workspace-sign-in"
+                echo "Deployed to APEX Workspace: ${APEX_WORKSPACE}"
             }
         }
     }
