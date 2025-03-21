@@ -40,17 +40,18 @@ pipeline {
             }
         }
 
+        /**
         stage('Deploy APEX Application') {
             steps {
                 script {
-                    def files = findFiles(glob: '**/*.sql')
+                    def files = findFiles(glob: '**//*.sql')
                     files.each { file ->
                         echo "Deploying SQL file: ${file.name}"
                         sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
                     }
                 }
             }
-        }
+        }*/
 
        /* stage('Restart ORDS') {
             steps {
