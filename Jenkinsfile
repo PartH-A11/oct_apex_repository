@@ -17,7 +17,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'develop', url: 'https://github.com/PartH-A11/oct_apex_repository'
-                fingerprint 'f234.sql'
+                fingerprint 'app_export.sql'
 
                 // Verify app_export.sql exists after checkout
                 script {
