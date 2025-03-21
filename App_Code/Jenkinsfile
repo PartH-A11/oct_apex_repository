@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/PartH-A11/oct_apex_repository'
+                git branch: 'devlop', url: 'https://github.com/PartH-A11/oct_apex_repository'
                 fingerprint 'f100401.sql'
             }
         }
