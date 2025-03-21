@@ -52,11 +52,11 @@ pipeline {
             }
         }
 
-       /* stage('Restart ORDS') {
+       stage('Restart ORDS') {
             steps {
                 sh 'sudo systemctl restart ords'
             }
-        }*/
+        }
 
         stage('Notify') {
             steps {
