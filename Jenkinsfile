@@ -4,8 +4,8 @@ pipeline {
     environment {
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "osprod.OSPROD"
-        WORKSPACE_DIR = "apex_pipeline"  // Target workspace
-        FILE_NAME = "f234.sql"           // Oracle APEX application file
+        WORKSPACE_DIR = "apex_pipeline"
+        FILE_NAME = "f234.sql"
     }
 
     stages {
@@ -21,6 +21,9 @@ pipeline {
                     withCredentials([
                         usernamePassword(credentialsId: 'DBpassword', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')
                     ]) {
+                        // Explicitly assign to environment variables
+                        env.DB_USER = DB_USER
+                        env.DB_PASSWORD = DB_PASSWORD
                         env.DB_CONN = "${DB_USER}/${DB_PASSWORD}@${DB_HOST}:1521/${DB_SERVICE}"
                     }
                 }
@@ -30,12 +33,12 @@ pipeline {
         stage('Upload APEX Application File') {
             steps {
                 script {
-                    def filePath = "${WORKSPACE_DIR}/${FILE_NAME}"  // Path to the APEX application file
+                    def filePath = "${WORKSPACE_DIR}/${FILE_NAME}"
 
                     echo "Uploading APEX application file: ${FILE_NAME} to workspace: ${WORKSPACE_DIR}"
 
                     sh """
-                    curl -X POST --user ${DB_USER}:${DB_PASSWORD} \\
+                    curl -X POST --user ${env.DB_USER}:${env.DB_PASSWORD} \\
                         -F "workspace=${WORKSPACE_DIR}" \\
                         -F "file=@${filePath}" \\
                         "https://bkp2.octalsoft.com/apex/rest/upload"
