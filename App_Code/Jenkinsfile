@@ -43,7 +43,7 @@ pipeline {
         stage('Deploy APEX Application') {
             steps {
                 script {
-                    def sqlFiles = findFiles(glob: 'App_Code/*.sql')
+                    def files = findFiles(glob: '**/*.sql')
                     sqlFiles.each { file ->
                         echo "Deploying SQL file: ${file.name}"
                         sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @App_Code/f100401.sql"
