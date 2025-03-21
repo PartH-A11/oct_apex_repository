@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([
-                        usernamePassword(credentialsId: 'DBpassword', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')
+                        usernamePassword(credentialsId: 'DB_PASSWORD', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')
                     ]) {
                         env.DB_CONN = "${DB_USER}/${DB_PASSWORD}@${DB_HOST}:1521/${DB_SERVICE}"
                     }
