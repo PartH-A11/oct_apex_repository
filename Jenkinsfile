@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
-                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @234.sql", returnStatus: true)
+                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @f234.sql", returnStatus: true)
                     if (result != 0) {
                         error "SQL validation failed! Check script for errors."
                     }
