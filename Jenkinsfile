@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'develop', url: 'https://github.com/PartH-A11/oct_apex_repository'
-                fingerprint 'f987456321.sql'
+                fingerprint 'f2341.sql'
             }
         }
         
@@ -32,7 +32,19 @@ pipeline {
             steps {
                 script {
                     def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
-                    def switchWorkspace = "BEGIN apex_util.set_workspace('${APEX_WORKSPACE}'); END;"
+                    def switchWorkspace = """
+                    DECLARE
+                        v_workspace_id NUMBER;
+                    BEGIN
+                        SELECT workspace_id INTO v_workspace_id 
+                        FROM apex_workspaces 
+                        WHERE workspace = '${APEX_WORKSPACE}';
+
+                        apex_util.set_workspace('${APEX_WORKSPACE}');
+                        apex_application_install.set_workspace_id(v_workspace_id);
+                    END;
+                    /
+                    """
                     sh(script: "echo \"${switchWorkspace}\" | \"${sqlclPath}\" -s \"${DB_CONN}\"")
                 }
             }
