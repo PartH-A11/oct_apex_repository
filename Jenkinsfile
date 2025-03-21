@@ -11,21 +11,13 @@ pipeline {
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "osprod.OSPROD"
         APEX_APPLICATION_ID = "${params.USER_APEX_APP_ID}"
+        SQLCL_PATH = "/u01/sqlcl/sqlcl/bin/sql"
     }
 
     stages {
         stage('Checkout Code') {
             steps {
                 git branch: 'develop', url: 'https://github.com/PartH-A11/oct_apex_repository'
-                fingerprint 'app_export.sql'
-
-                // Verify app_export.sql exists after checkout
-                script {
-                    def fileExists = sh(script: "[ -f app_export.sql ] && echo 'exists'", returnStdout: true).trim()
-                    if (fileExists != 'exists') {
-                        error "File 'app_export.sql' is missing! Ensure it is present in the repository."
-                    }
-                }
             }
         }
 
@@ -41,49 +33,52 @@ pipeline {
             }
         }
 
-        stage('Prepare APEX SQL File') {
+        stage('Export APEX Application Dynamically') {
             steps {
                 script {
-                    def appExportPath = "apex_app_${APEX_APPLICATION_ID}.sql"
+                    def exportFile = "apex_export_${APEX_APPLICATION_ID}.sql"
+                    
+                    // Export APEX app using SQLcl
+                    def exportStatus = sh(script: """
+                        echo "Exporting APEX application ${APEX_APPLICATION_ID}..."
+                        ${SQLCL_PATH} -s ${DB_CONN} <<EOF
+                        SET HEADING OFF
+                        SET FEEDBACK OFF
+                        SET PAGESIZE 0
+                        SET SERVEROUTPUT ON
+                        EXEC DBMS_APPLICATION_EXPORT.EXPORT_APPLICATION(${APEX_APPLICATION_ID}, 'FILE', '${exportFile}');
+                        EXIT;
+                        EOF
+                    """, returnStatus: true)
 
-                    // Ensure app_export.sql exists, or create it
-                    def fileExists = sh(script: "[ -f app_export.sql ] && echo 'exists'", returnStdout: true).trim()
-                    if (fileExists != 'exists') {
-                        echo "Creating 'app_export.sql' as it is missing!"
-                        sh "touch app_export.sql"
-                        sh "echo 'prompt Application: ${APEX_APPLICATION_ID} - APEX Export' > app_export.sql"
+                    if (exportStatus != 0) {
+                        error "APEX application export failed!"
                     }
 
-                    // Replace the Application ID
-                    sh """
-                        sed -i 's/^prompt Application: [0-9]\\+/prompt Application: ${APEX_APPLICATION_ID}/' app_export.sql
-                        mv app_export.sql ${appExportPath}
-                    """
+                    echo "APEX Application exported to: ${exportFile}"
                 }
             }
         }
 
-        stage('Validate SQL Files') {
+        stage('Upload APEX Application Dynamically') {
             steps {
                 script {
-                    def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
-                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @f234.sql", returnStatus: true)
-                    if (result != 0) {
-                        error "SQL validation failed! Check script for errors."
-                    }
-                }
-            }
-        }
+                    def importStatus = sh(script: """
+                        echo "Importing APEX application ${APEX_APPLICATION_ID} into workspace ${APEX_WORKSPACE}..."
+                        ${SQLCL_PATH} -s ${DB_CONN} <<EOF
+                        BEGIN
+                            APEX_APPLICATION_INSTALL.SET_WORKSPACE('${APEX_WORKSPACE}');
+                            APEX_APPLICATION_INSTALL.SET_SCHEMA('APEX_SCHEMA_NAME');
+                            APEX_APPLICATION_INSTALL.SET_APPLICATION_ID(${APEX_APPLICATION_ID});
+                            APEX_APPLICATION_INSTALL.SET_APPLICATION_ALIAS('APP_ALIAS_${APEX_APPLICATION_ID}');
+                        END;
+                        /
+                        @apex_export_${APEX_APPLICATION_ID}.sql
+                        EXIT;
+                        EOF
+                    """, returnStatus: true)
 
-        stage('Upload APEX Application') {
-            steps {
-                script {
-                    def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
-                    def appExportPath = "apex_app_${APEX_APPLICATION_ID}.sql"
-
-                    // Import the modified application
-                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @${appExportPath}", returnStatus: true)
-                    if (result != 0) {
+                    if (importStatus != 0) {
                         error "APEX application upload failed!"
                     }
                 }
