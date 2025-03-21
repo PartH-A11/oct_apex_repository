@@ -1,17 +1,10 @@
 pipeline {
     agent any
 
-    parameters {
-        string(name: 'USER_APEX_APP_ID', defaultValue: '12345', description: 'Enter the user-specific APEX Application ID')
-    }
-
     environment {
-        APEX_WORKSPACE = "APEX_PIPELINE"
-        APEX_USERNAME = "parth.suthar"
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "osprod.OSPROD"
-        APEX_APPLICATION_ID = "${params.USER_APEX_APP_ID}"
-        SQLCL_PATH = "/u01/sqlcl/sqlcl/bin/sql"
+        WORKSPACE_DIR = "apex_pipeline"  // Dynamically fetch workspace
     }
 
     stages {
@@ -20,12 +13,12 @@ pipeline {
                 git branch: 'develop', url: 'https://github.com/PartH-A11/oct_apex_repository'
             }
         }
-
+        
         stage('Retrieve Credentials') {
             steps {
                 script {
                     withCredentials([
-                        usernamePassword(credentialsId: 'DB_PASSWORD', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')
+                        usernamePassword(credentialsId: 'DBpassword', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')
                     ]) {
                         env.DB_CONN = "${DB_USER}/${DB_PASSWORD}@${DB_HOST}:1521/${DB_SERVICE}"
                     }
@@ -33,53 +26,29 @@ pipeline {
             }
         }
 
-        stage('Export APEX Application Dynamically') {
+        stage('Validate SQL Files') {
             steps {
                 script {
-                    def exportFile = "apex_export_${APEX_APPLICATION_ID}.sql"
+                    def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
+                    def sqlFiles = findFiles(glob: "${WORKSPACE_DIR}/**/*.sql")
                     
-                    // Export APEX app using SQLcl
-                    def exportStatus = sh(script: """
-                        echo "Exporting APEX application ${APEX_APPLICATION_ID}..."
-                        ${SQLCL_PATH} -s ${DB_CONN} <<EOF
-                        SET HEADING OFF
-                        SET FEEDBACK OFF
-                        SET PAGESIZE 0
-                        SET SERVEROUTPUT ON
-                        EXEC DBMS_APPLICATION_EXPORT.EXPORT_APPLICATION(${APEX_APPLICATION_ID}, 'FILE', '${exportFile}');
-                        EXIT;
-                        EOF
-                    """, returnStatus: true)
-
-                    if (exportStatus != 0) {
-                        error "APEX application export failed!"
+                    sqlFiles.each { file ->
+                        def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @${file.path}", returnStatus: true)
+                        if (result != 0) {
+                            error "SQL validation failed for ${file.name}! Check script for errors."
+                        }
                     }
-
-                    echo "APEX Application exported to: ${exportFile}"
                 }
             }
         }
 
-        stage('Upload APEX Application Dynamically') {
+        stage('Deploy APEX Application') {
             steps {
                 script {
-                    def importStatus = sh(script: """
-                        echo "Importing APEX application ${APEX_APPLICATION_ID} into workspace ${APEX_WORKSPACE}..."
-                        ${SQLCL_PATH} -s ${DB_CONN} <<EOF
-                        BEGIN
-                            APEX_APPLICATION_INSTALL.SET_WORKSPACE('${APEX_WORKSPACE}');
-                            APEX_APPLICATION_INSTALL.SET_SCHEMA('APEX_SCHEMA_NAME');
-                            APEX_APPLICATION_INSTALL.SET_APPLICATION_ID(${APEX_APPLICATION_ID});
-                            APEX_APPLICATION_INSTALL.SET_APPLICATION_ALIAS('APP_ALIAS_${APEX_APPLICATION_ID}');
-                        END;
-                        /
-                        @apex_export_${APEX_APPLICATION_ID}.sql
-                        EXIT;
-                        EOF
-                    """, returnStatus: true)
-
-                    if (importStatus != 0) {
-                        error "APEX application upload failed!"
+                    def sqlFiles = findFiles(glob: "${WORKSPACE_DIR}/**/*.sql")
+                    sqlFiles.each { file ->
+                        echo "Deploying SQL file: ${file.name}"
+                        sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
                     }
                 }
             }
