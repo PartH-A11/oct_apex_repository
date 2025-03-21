@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        APEX_WORKSPACE = "APEX_PIPELINE" // Ensure this is the correct workspace
+        APEX_WORKSPACE = "CORRECT_WORKSPACE_NAME" // Ensure this is the correct workspace
         APEX_USERNAME = "parth.suthar"
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "osprod.OSPROD"
@@ -58,6 +58,41 @@ pipeline {
                     if (result != 0) {
                         error "SQL validation failed! Check script for errors."
                     }
+                }
+            }
+        }
+
+        stage('Handle Duplicate Entries') {
+            steps {
+                script {
+                    def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
+                    def handleDuplicates = """
+                    DECLARE
+                        v_list_id NUMBER;
+                    BEGIN
+                        -- Check if the list already exists
+                        SELECT list_id INTO v_list_id
+                        FROM apex_application_lists
+                        WHERE application_id = &APP_ID.
+                        AND name = 'Data Load Wizard Progress - KIT_AUTO_TEMP_INSERT';
+
+                        -- If it exists, do not create it again
+                        IF v_list_id IS NOT NULL THEN
+                            DBMS_OUTPUT.PUT_LINE('List already exists. Skipping creation.');
+                        END IF;
+                    EXCEPTION
+                        -- If no record is found, create the list
+                        WHEN NO_DATA_FOUND THEN
+                            wwv_flow_imp_shared.create_list(
+                                p_id=>wwv_flow_imp.id(4267013831774190895),
+                                p_name=>'Data Load Wizard Progress - KIT_AUTO_TEMP_INSERT',
+                                p_list_status=>'PUBLIC',
+                                p_version_scn=>1
+                            );
+                    END;
+                    /
+                    """
+                    sh(script: "echo \"${handleDuplicates}\" | \"${sqlclPath}\" -s \"${DB_CONN}\"")
                 }
             }
         }
