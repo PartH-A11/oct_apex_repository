@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'develop', url: 'https://github.com/PartH-A11/oct_apex_repository'
-                fingerprint 'f100401.sql'
+                fingerprint 'f234.sql'
             }
         }
         
@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
-                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @App_Code/f100401.sql", returnStatus: true)
+                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @234.sql", returnStatus: true)
                     if (result != 0) {
                         error "SQL validation failed! Check script for errors."
                     }
