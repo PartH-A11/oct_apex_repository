@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'main', url: 'https://github.com/PartH-A11/oct_apex_repository'
-                fingerprint '100022001.sql'
+                fingerprint 'f100401.sql'
             }
         }
         
@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
-                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @App_Code/100022001.sql", returnStatus: true)
+                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @App_Code/f100401.sql", returnStatus: true)
                     if (result != 0) {
                         error "SQL validation failed! Check script for errors."
                     }
@@ -40,19 +40,9 @@ pipeline {
             }
         }
 
-        /*stage('Deploy APEX Application') {
-            steps {
-                script {
-                    def files = findFiles(glob: '**//*.sql')
-                    files.each { file ->
-                        echo "Deploying SQL file: ${file.name}"
-                        sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
-                    }
-                }
-            }
-        }*/
+        
 
-      /* stage('Restart ORDS') {
+       /* stage('Restart ORDS') {
             steps {
                 sh 'sudo systemctl restart ords'
             }
