@@ -1,12 +1,8 @@
 pipeline {
     agent any
 
-    parameters {
-        string(name: 'APEX_WORKSPACE', defaultValue: 'apex_pipeline', description: 'APEX Workspace Name')
-    }
-
     environment {
-        APEX_WORKSPACE = "${params.APEX_WORKSPACE}"
+        APEX_WORKSPACE = "apex_pipeline"
         APEX_USERNAME = "parth.suthar"
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "osprod.OSPROD"
@@ -16,7 +12,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'develop', url: 'https://github.com/PartH-A11/oct_apex_repository'
-                fingerprint 'f234.sql'
+                fingerprint 'f100401.sql'
             }
         }
         
@@ -36,7 +32,7 @@ pipeline {
             steps {
                 script {
                     def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
-                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @f234.sql", returnStatus: true)
+                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @App_Code/f100401.sql", returnStatus: true)
                     if (result != 0) {
                         error "SQL validation failed! Check script for errors."
                     }
@@ -49,17 +45,22 @@ pipeline {
                 script {
                     def files = findFiles(glob: '**/*.sql')
                     files.each { file ->
-                        echo "Deploying SQL file: ${file.name} to workspace ${APEX_WORKSPACE}"
+                        echo "Deploying SQL file: ${file.name}"
                         sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
                     }
                 }
             }
         }
 
+       /* stage('Restart ORDS') {
+            steps {
+                sh 'sudo systemctl restart ords'
+            }
+        }*/
+
         stage('Notify') {
             steps {
                 echo "Deployment successful! APEX Application is live on: https://bkp2.octalsoft.com/apex/r/apex/workspace-sign-in"
-                echo "Deployed to APEX Workspace: ${APEX_WORKSPACE}"
             }
         }
     }
