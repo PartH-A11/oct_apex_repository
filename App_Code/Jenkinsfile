@@ -12,13 +12,15 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'main', url: 'https://github.com/PartH-A11/oct_apex_repository'
+                
+                // Fingerprint SQL files after checkout
+                fingerprint 'f100401.sql'
             }
         }
         
         stage('Retrieve Credentials') {
             steps {
                 script {
-                    // Fetch credentials securely from Jenkins
                     withCredentials([
                         usernamePassword(credentialsId: 'apex-db-creds', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')
                     ]) {
@@ -42,6 +44,9 @@ pipeline {
         stage('Deploy APEX Application') {
             steps {
                 bat "sqlcl -s \"${DB_CONN}\" @f100401.sql"
+
+                // Fingerprint the deployed SQL file
+                fingerprint 'f100401.sql'
             }
         }
 
@@ -53,7 +58,7 @@ pipeline {
 
         stage('Notify') {
             steps {
-                echo "Deployment successful! APEX Application is live on: http://bkp2.octalsoft.com/apex"
+                echo "Deployment successful! APEX Application is live on: https://bkp2.octalsoft.com/apex/r/apex/workspace-sign-in"
             }
         }
     }
