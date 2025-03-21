@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        APEX_WORKSPACE = "apex_pipeline"
+        APEX_WORKSPACE = "CORRECT_WORKSPACE_NAME" // Ensure this is the correct workspace
         APEX_USERNAME = "parth.suthar"
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "osprod.OSPROD"
@@ -28,6 +28,16 @@ pipeline {
             }
         }
 
+        stage('Set Correct Workspace') {
+            steps {
+                script {
+                    def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
+                    def switchWorkspace = "BEGIN apex_util.set_workspace('${APEX_WORKSPACE}'); END;"
+                    sh(script: "echo \"${switchWorkspace}\" | \"${sqlclPath}\" -s \"${DB_CONN}\"")
+                }
+            }
+        }
+
         stage('Validate SQL Files') {
             steps {
                 script {
@@ -39,25 +49,6 @@ pipeline {
                 }
             }
         }
-
-        /**
-        stage('Deploy APEX Application') {
-            steps {
-                script {
-                    def files = findFiles(glob: '**//*.sql')
-                    files.each { file ->
-                        echo "Deploying SQL file: ${file.name}"
-                        sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
-                    }
-                }
-            }
-        }*/
-
-       /* stage('Restart ORDS') {
-            steps {
-                sh 'sudo systemctl restart ords'
-            }
-        }*/
 
         stage('Notify') {
             steps {
