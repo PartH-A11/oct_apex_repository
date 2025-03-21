@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        APEX_WORKSPACE = "edc_jcdc_dev"
+        APEX_WORKSPACE = "APEX_PIPELINE"
         APEX_USERNAME = "parth.suthar"
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "osprod.OSPROD"
@@ -40,23 +40,23 @@ pipeline {
             }
         }
 
-        stage('Deploy APEX Application') {
+        /*stage('Deploy APEX Application') {
             steps {
                 script {
-                    def files = findFiles(glob: '**/*.sql')
+                    def files = findFiles(glob: '**//*.sql')
                     files.each { file ->
                         echo "Deploying SQL file: ${file.name}"
                         sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
                     }
                 }
             }
-        }
+        }*/
 
-       stage('Restart ORDS') {
+      /* stage('Restart ORDS') {
             steps {
                 sh 'sudo systemctl restart ords'
             }
-        }
+        }*/
 
         stage('Notify') {
             steps {
