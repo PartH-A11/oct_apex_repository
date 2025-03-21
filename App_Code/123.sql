@@ -1,0 +1,1 @@
+select * from dual where rownum=1;
