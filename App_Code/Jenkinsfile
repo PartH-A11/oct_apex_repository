@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([
-                        usernamePassword(credentialsId: 'apex-db-creds', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')
+                        usernamePassword(credentialsId: 'DBpassword', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')
                     ]) {
                         env.DB_CONN = "${DB_USER}/${DB_PASSWORD}@//${DB_HOST}:1521/${DB_SERVICE}"
                     }
@@ -42,13 +42,16 @@ pipeline {
         }
 
         stage('Deploy APEX Application') {
-            steps {
-                bat "sqlcl -s \"${DB_CONN}\" @f100401.sql"
-
-                // Fingerprint the deployed SQL file
-                fingerprint 'f100401.sql'
+    steps {
+        script {
+            def sqlFiles = findFiles(glob: 'App_Code/*.sql')
+            sqlFiles.each { file ->
+                echo "Deploying SQL file: ${file.name}"
+                bat "sqlcl -s \"${DB_CONN}\" @App_Code/f100401.sql"
             }
         }
+    }
+}
 
         stage('Restart ORDS') {
             steps {
