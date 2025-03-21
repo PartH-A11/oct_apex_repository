@@ -5,7 +5,7 @@ pipeline {
         APEX_WORKSPACE = "edc_jcdc_dev"
         APEX_USERNAME = "parth.suthar"
         DB_HOST = "13.203.90.85"
-        DB_SERVICE = "OSPROD"
+        DB_SERVICE = "osprod.OSPROD"
     }
 
     stages {
