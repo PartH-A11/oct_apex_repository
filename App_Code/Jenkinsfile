@@ -31,15 +31,17 @@ pipeline {
         }
 
         stage('Validate SQL Files') {
-            steps {
-                script {
-                    def result = bat(script: "sqlcl -s \"${DB_CONN}\" @validate.sql", returnStatus: true)
-                    if (result != 0) {
-                        error "SQL validation failed!"
-                    }
-                }
+    steps {
+        script {
+            def sqlclPath = "D:\MILAN_DATA\sqlcl-24.4.3.070.2106\sqlcl\bin"  // Update with actual path
+            def result = bat(script: "${sqlclPath} -s \"${DB_CONN}\" @validate.sql", returnStatus: true)
+            if (result != 0) {
+                error "SQL validation failed! Check script for errors."
             }
         }
+    }
+}
+
 
         stage('Deploy APEX Application') {
     steps {
