@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        APEX_WORKSPACE = "CORRECT_WORKSPACE_NAME" // Ensure this is the correct workspace
+        APEX_WORKSPACE = "APEX_PIPELINE" // Ensure this is the correct workspace
         APEX_USERNAME = "parth.suthar"
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "osprod.OSPROD"
