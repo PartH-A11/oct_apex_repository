@@ -2,10 +2,11 @@ pipeline {
     agent any
 
     environment {
-        APEX_WORKSPACE = "APEX_PIPELINE"
+        APEX_WORKSPACE = "APEX_PIPELINE"  // Corrected workspace
         APEX_USERNAME = "parth.suthar"
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "osprod.OSPROD"
+        APEX_APPLICATION_ID = "12345"  // Replace with your actual APEX App ID
     }
 
     stages {
@@ -40,13 +41,23 @@ pipeline {
             }
         }
 
-        
-
-       /* stage('Restart ORDS') {
+        stage('Upload APEX Application') {
             steps {
-                sh 'sudo systemctl restart ords'
+                script {
+                    def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
+                    def appExportPath = "apex_app_${APEX_APPLICATION_ID}.sql"
+
+                    // Export application from Git repo (if needed)
+                    sh "cp app_export.sql ${appExportPath}"
+
+                    // Import the application to APEX_PIPELINE workspace
+                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @${appExportPath}", returnStatus: true)
+                    if (result != 0) {
+                        error "APEX application upload failed!"
+                    }
+                }
             }
-        }*/
+        }
 
         stage('Notify') {
             steps {
