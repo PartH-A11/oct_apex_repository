@@ -32,6 +32,7 @@ pipeline {
             steps {
                 script {
                     def sqlFile = "App_Code/f987456321.sql"
+                    sh "sed -i 's/987456321/2987456321/g' ${sqlFile}"
                     sh "sed -i 's/SUN_22001_DEV/SUN_22001_TEST/g' ${sqlFile}"
 					sh "sed -i 's/sun_22001_dev/sun_22001_test/g' ${sqlFile}"
                     sh "sed -i 's/1088565718848511844/1096018791012195213/g' ${sqlFile}"
