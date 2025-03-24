@@ -1,41 +1,72 @@
 pipeline {
     agent any
-    
-    parameters {
-        string(name: 'FILE_PATH', defaultValue: 'sample.txt', description: 'Path to the file to modify')
-        string(name: 'FIND_WORD', defaultValue: 'oldword', description: 'Word to find')
-        string(name: 'REPLACE_WORD', defaultValue: 'newword', description: 'Word to replace with')
+
+    environment {
+        APEX_WORKSPACE = "edc_jcdc_dev"
+        APEX_USERNAME = "parth.suthar"
+        DB_HOST = "13.203.90.85"
+        DB_SERVICE = "osprod.OSPROD"
     }
-    
+	
+
     stages {
-        stage('Check File') {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'develop', url: 'https://github.com/PartH-A11/oct_apex_repository'
+                fingerprint 'f987456321.sql'
+            }
+        }
+        
+        stage('Retrieve Credentials') {
             steps {
                 script {
-                    if (!fileExists(params.FILE_PATH)) {
-                        error "File ${params.FILE_PATH} does not exist!"
+                    withCredentials([
+                        usernamePassword(credentialsId: 'DBpassword', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')
+                    ]) {
+                        env.DB_CONN = "${DB_USER}/${DB_PASSWORD}@${DB_HOST}:1521/${DB_SERVICE}"
                     }
                 }
             }
         }
-        
-        stage('Find and Replace') {
+
+        stage('Validate SQL Files') {
             steps {
                 script {
-                    def file = new File(params.FILE_PATH)
-                    def content = file.text
-                    def updatedContent = content.replaceAll(params.FIND_WORD, params.REPLACE_WORD)
-                    file.text = updatedContent
-                    echo "Replaced '${params.FIND_WORD}' with '${params.REPLACE_WORD}' in ${params.FILE_PATH}"
+                    def sqlFile = "App_Code/f987456321.sql"
+                    sh "sed -i 's/987456321/2987456321/g' ${sqlFile}"
+                    sh "sed -i 's/SUN_22001_DEV/SUN_22001_TEST/g' ${sqlFile}"
+					sh "sed -i 's/sun_22001_dev/sun_22001_test/g' ${sqlFile}"
+                    sh "sed -i 's/1088565718848511844/1096018791012195213/g' ${sqlFile}"
+                    def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
+                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @${sqlFile}", returnStatus: true)
+                    if (result != 0) {
+                        error "SQL validation failed! Check script for errors."
+                    }
                 }
             }
         }
-        
-        stage('Verify Changes') {
+
+        stage('Deploy APEX Application') {
             steps {
                 script {
-                    def file = new File(params.FILE_PATH)
-                    echo "Updated File Content:\n${file.text}"
+                    def files = findFiles(glob: 'App_Code/f987456321.sql')
+                    files.each { file ->
+                        echo "Deploying SQL file: ${file.name}"
+                        sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
+                    }
                 }
+            }
+        }
+
+       /* stage('Restart ORDS') {
+            steps {
+                sh 'sudo systemctl restart ords'
+            }
+        }*/
+
+        stage('Notify') {
+            steps {
+                echo "Deployment successful! APEX Application is live on: https://bkp2.octalsoft.com/apex/r/apex/workspace-sign-in"
             }
         }
     }
