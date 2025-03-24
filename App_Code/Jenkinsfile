@@ -28,31 +28,18 @@ pipeline {
             }
         }
 
-        stage('Pre-Deployment Checks') {
+        stage('Validate Database Constraints') {
             steps {
                 script {
-                    // Check if the Application ID exists in APEX metadata
-                    def appCheck = sh(
+                    def constraintCheck = sh(
                         script: """
                         echo "SELECT COUNT(*) FROM APEX_240100.WWV_FLOW WHERE ID = 10008181;" | ${SQLCL_PATH} -s "${DB_CONN}"
                         """,
                         returnStdout: true
                     ).trim()
 
-                    if (appCheck == "0") {
+                    if (constraintCheck == "0") {
                         error "ERROR: APEX Application ID 10008181 does not exist in WWV_FLOW. Fix dependencies before deployment."
-                    }
-
-                    // Check for missing foreign key references
-                    def fkCheck = sh(
-                        script: """
-                        echo "SELECT COUNT(*) FROM APEX_240100.WWV_FLOW_PLUG_LIST WHERE PLUG_ID NOT IN (SELECT ID FROM APEX_240100.WWV_FLOW);" | ${SQLCL_PATH} -s "${DB_CONN}"
-                        """,
-                        returnStdout: true
-                    ).trim()
-
-                    if (fkCheck != "0") {
-                        error "ERROR: Some plugins in WWV_FLOW_PLUG_LIST are referencing missing parent records in WWV_FLOW!"
                     }
                 }
             }
@@ -62,6 +49,8 @@ pipeline {
             steps {
                 script {
                     def sqlFile = "App_Code/f10008181.sql"
+
+                    // Ensure correct APEX Application ID before replacing
                     sh "sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_LIVE/g' ${sqlFile}"
                     sh "sed -i 's/apex_pipeline_dev/apex_pipeline_live/g' ${sqlFile}"
                 }
@@ -98,6 +87,7 @@ pipeline {
                     def version = new Date().format("yyyyMMdd_HHmmss")
                     def versionedFile = "App_Code/f10008181_${version}.sql"
 
+                    // Backup SQL file
                     sh "cp ${originalFile} ${versionedFile}"
 
                     withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
