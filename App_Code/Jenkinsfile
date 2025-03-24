@@ -11,8 +11,8 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'develop', url: 'https://github.com/PartH-A11/oct_apex_repository'
-                fingerprint 'f987456321.sql'
+                git branch: 'test', url: 'https://github.com/PartH-A11/oct_apex_repository'
+                fingerprint 'f987456321_v20250324_122639.sql'
             }
         }
 
@@ -31,11 +31,11 @@ pipeline {
         stage('Validate SQL Files') {
             steps {
                 script {
-                    def sqlFile = "App_Code/f987456321.sql"
-                    sh "sed -i 's/987456321/2987456321/g' ${sqlFile}"
+                    def sqlFile = "App_Code/f987456321_v20250324_122639.sql"
+                    sh "sed -i 's/2987456321/99987456321/g' ${sqlFile}"
                     sh "sed -i 's/SUN_22001_DEV/SUN_22001_TEST/g' ${sqlFile}"
                     sh "sed -i 's/sun_22001_dev/sun_22001_test/g' ${sqlFile}"
-                    sh "sed -i 's/1088565718848511844/1096018791012195213/g' ${sqlFile}"
+                    sh "sed -i 's/1096018791012195213/1096019815202199712/g' ${sqlFile}"
                     def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
                     def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @${sqlFile}", returnStatus: true)
                     if (result != 0) {
@@ -48,7 +48,7 @@ pipeline {
         stage('Deploy APEX Application') {
             steps {
                 script {
-                    def files = findFiles(glob: 'App_Code/f987456321.sql')
+                    def files = findFiles(glob: 'App_Code/f987456321_v20250324_122639.sql')
                     files.each { file ->
                         echo "Deploying SQL file: ${file.name}"
                         sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
@@ -60,18 +60,18 @@ pipeline {
 stage('Update and Push to Test Branch') {
     steps {
         script {
-            def originalFile = "App_Code/f987456321.sql"
+            def originalFile = "App_Code/f987456321_v20250324_122639.sql"
 
             // Generate versioned filename
             def version = new Date().format("yyyyMMdd_HHmmss")
-            def versionedFile = "App_Code/f987456321_v${version}.sql"
+            def versionedFile = "App_Code/f987456321_v20250324_122639_v${version}.sql"
 
             // Copy and modify the versioned file (leave original untouched)
             sh "cp ${originalFile} ${versionedFile}"
-            sh "sed -i 's/987456321/2987456321/g' ${versionedFile}"
-            sh "sed -i 's/SUN_22001_DEV/SUN_22001_TEST/g' ${versionedFile}"
-            sh "sed -i 's/sun_22001_dev/sun_22001_test/g' ${versionedFile}"
-            sh "sed -i 's/1088565718848511844/1096018791012195213/g' ${versionedFile}"
+            sh "sed -i 's/2987456321/99987456321/g' ${versionedFile}"
+            sh "sed -i 's/SUN_22001_TEST/SUN_22001_TEST1/g' ${versionedFile}"
+            sh "sed -i 's/sun_22001_test/sun_22001_test1/g' ${versionedFile}"
+            sh "sed -i 's/1096018791012195213/1096019815202199712/g' ${versionedFile}"
 
             // Use credentials to push
             withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
@@ -80,14 +80,14 @@ stage('Update and Push to Test Branch') {
 
                 // Reset changes before switching branch
                 sh "git restore ${originalFile}"
-                sh 'git checkout test'
-                sh 'git pull origin test'
+                sh 'git checkout live'
+                sh 'git pull origin live'
                 sh 'git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/PartH-A11/oct_apex_repository.git'
 
                 // Add and push versioned file
                 sh "git add ${versionedFile}"
                 sh "git commit -m 'Added versioned SQL: ${versionedFile}' || echo 'No changes to commit'"
-                sh 'git push origin test'
+                sh 'git push origin live'
             }
         }
     }
