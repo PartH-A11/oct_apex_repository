@@ -1,62 +1,3 @@
-pipeline {
-    agent any
-
-    environment {
-        APEX_WORKSPACE = "edc_jcdc_dev"
-        APEX_USERNAME = "parth.suthar"
-        DB_HOST = "13.203.90.85"
-        DB_SERVICE = "osprod.OSPROD"
-    }
-
-    stages {
-        stage('Checkout Code') {
-            steps {
-                git branch: 'develop', url: 'https://github.com/PartH-A11/oct_apex_repository'
-                fingerprint 'f987456321.sql'
-            }
-        }
-
-        stage('Retrieve Credentials') {
-            steps {
-                script {
-                    withCredentials([
-                        usernamePassword(credentialsId: 'DBpassword', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')
-                    ]) {
-                        env.DB_CONN = "${DB_USER}/${DB_PASSWORD}@${DB_HOST}:1521/${DB_SERVICE}"
-                    }
-                }
-            }
-        }
-
-        stage('Validate SQL Files') {
-            steps {
-                script {
-                    def sqlFile = "App_Code/f987456321.sql"
-                    sh "sed -i 's/987456321/2987456321/g' ${sqlFile}"
-                    sh "sed -i 's/SUN_22001_DEV/SUN_22001_TEST/g' ${sqlFile}"
-                    sh "sed -i 's/sun_22001_dev/sun_22001_test/g' ${sqlFile}"
-                    sh "sed -i 's/1088565718848511844/1096018791012195213/g' ${sqlFile}"
-                    def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
-                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @${sqlFile}", returnStatus: true)
-                    if (result != 0) {
-                        error "SQL validation failed! Check script for errors."
-                    }
-                }
-            }
-        }
-
-        stage('Deploy APEX Application') {
-            steps {
-                script {
-                    def files = findFiles(glob: 'App_Code/f987456321.sql')
-                    files.each { file ->
-                        echo "Deploying SQL file: ${file.name}"
-                        sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
-                    }
-                }
-            }
-        }
-
         stage('Update and Push to Test Branch') {
             steps {
                 script {
@@ -73,23 +14,23 @@ pipeline {
                     def versionedFile = "App_Code/f987456321_v${version}.sql"
                     sh "cp ${originalFile} ${versionedFile}"
 
-                    // Git config
-                    sh 'git config user.name "PartH-A11"'
-                    sh 'git config user.email "parth.suthar@octalsoft.com"'
+                    // Use Git credentials for push
+                    withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
+                        // Set Git config
+                        sh 'git config user.name "PartH-A11"'
+                        sh 'git config user.email "parth.suthar@octalsoft.com"'
 
-                    // Checkout test branch and commit versioned file
-                    sh 'git checkout test'
-                    sh "git add ${versionedFile}"
-                    sh "git commit -m 'Added versioned SQL: ${versionedFile}' || echo 'No changes to commit'"
-                    sh 'git push origin test'
+                        // Switch to test branch
+                        sh 'git checkout test'
+
+                        // Set remote with credentials embedded
+                        sh 'git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/PartH-A11/oct_apex_repository.git'
+
+                        // Commit and push
+                        sh "git add ${versionedFile}"
+                        sh "git commit -m 'Added versioned SQL: ${versionedFile}' || echo 'No changes to commit'"
+                        sh 'git push origin test'
+                    }
                 }
             }
         }
-
-        stage('Notify') {
-            steps {
-                echo "Deployment successful! APEX Application is live on: https://bkp2.octalsoft.com/apex/r/apex/workspace-sign-in"
-            }
-        }
-    }
-}
