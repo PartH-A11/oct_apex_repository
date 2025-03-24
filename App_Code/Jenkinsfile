@@ -56,41 +56,36 @@ pipeline {
                 }
             }
         }
+stage('Update and Push to Test Branch') {
+    steps {
+        script {
+            def originalFile = "App_Code/f987456321.sql"
 
-                        stage('Update and Push to Test Branch') {
-            steps {
-                script {
-                    def originalFile = "App_Code/f987456321.sql"
+            // Generate versioned filename
+            def version = new Date().format("yyyyMMdd_HHmmss")
+            def versionedFile = "App_Code/f987456321_v${version}.sql"
 
-                    // Revert changes after deployment
-                    sh "sed -i 's/2987456321/987456321/g' ${originalFile}"
-                    sh "sed -i 's/SUN_22001_TEST/SUN_22001_DEV/g' ${originalFile}"
-                    sh "sed -i 's/sun_22001_test/sun_22001_dev/g' ${originalFile}"
-                    sh "sed -i 's/1096018791012195213/1088565718848511844/g' ${originalFile}"
+            // Copy and modify the versioned file (leave original untouched)
+            sh "cp ${originalFile} ${versionedFile}"
+            sh "sed -i 's/987456321/2987456321/g' ${versionedFile}"
+            sh "sed -i 's/SUN_22001_DEV/SUN_22001_TEST/g' ${versionedFile}"
+            sh "sed -i 's/sun_22001_dev/sun_22001_test/g' ${versionedFile}"
+            sh "sed -i 's/1088565718848511844/1096018791012195213/g' ${versionedFile}"
 
-                    // Generate versioned filename
-                    def version = new Date().format("yyyyMMdd_HHmmss")
-                    def versionedFile = "App_Code/f987456321_v${version}.sql"
-                    sh "cp ${originalFile} ${versionedFile}"
-
-                    // Use credentials securely
-                    withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
-                        // Git config
-                        sh 'git config user.name "Jenkins CI"'
-                        sh 'git config user.email "jenkins@yourdomain.com"'
-
-                        // Set authenticated remote URL securely
-                        sh 'git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/PartH-A11/oct_apex_repository.git'
-
-                        // Switch to test branch and push
-                        sh 'git checkout test'
-                        sh "git add ${versionedFile}"
-                        sh "git commit -m 'Added versioned SQL: ${versionedFile}' || echo 'No changes to commit'"
-                        sh 'git push origin test'
-                    }
-                }
+            // Use credentials to push to test branch
+            withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
+                sh 'git config user.name "PartH-A11"'
+                sh 'git config user.email "parth.suthar@octalsoft.com"'
+                sh 'git checkout test'
+                sh 'git pull origin test'
+                sh 'git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/PartH-A11/apex_pipeline_repo.git'
+                sh "git add ${versionedFile}"
+                sh "git commit -m 'Added versioned SQL: ${versionedFile}' || echo 'No changes to commit'"
+                sh 'git push origin test'
             }
         }
+    }
+}
 
 
 
