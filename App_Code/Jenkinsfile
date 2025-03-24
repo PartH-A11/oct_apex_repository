@@ -74,7 +74,7 @@ pipeline {
                     sh "cp ${originalFile} ${versionedFile}"
 
                     // Use Git credentials for push
-                    withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
+                   // withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
                         // Set Git config
                         sh 'git config user.name "PartH-A11"'
                         sh 'git config user.email "parth.suthar@octalsoft.com"'
