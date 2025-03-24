@@ -1,4 +1,63 @@
-        stage('Update and Push to Test Branch') {
+pipeline {
+    agent any
+
+    environment {
+        APEX_WORKSPACE = "edc_jcdc_dev"
+        APEX_USERNAME = "parth.suthar"
+        DB_HOST = "13.203.90.85"
+        DB_SERVICE = "osprod.OSPROD"
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'develop', url: 'https://github.com/PartH-A11/oct_apex_repository'
+                fingerprint 'f987456321.sql'
+            }
+        }
+
+        stage('Retrieve Credentials') {
+            steps {
+                script {
+                    withCredentials([
+                        usernamePassword(credentialsId: 'DBpassword', usernameVariable: 'DB_USER', passwordVariable: 'DB_PASSWORD')
+                    ]) {
+                        env.DB_CONN = "${DB_USER}/${DB_PASSWORD}@${DB_HOST}:1521/${DB_SERVICE}"
+                    }
+                }
+            }
+        }
+
+        stage('Validate SQL Files') {
+            steps {
+                script {
+                    def sqlFile = "App_Code/f987456321.sql"
+                    sh "sed -i 's/987456321/2987456321/g' ${sqlFile}"
+                    sh "sed -i 's/SUN_22001_DEV/SUN_22001_TEST/g' ${sqlFile}"
+                    sh "sed -i 's/sun_22001_dev/sun_22001_test/g' ${sqlFile}"
+                    sh "sed -i 's/1088565718848511844/1096018791012195213/g' ${sqlFile}"
+                    def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
+                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @${sqlFile}", returnStatus: true)
+                    if (result != 0) {
+                        error "SQL validation failed! Check script for errors."
+                    }
+                }
+            }
+        }
+
+        stage('Deploy APEX Application') {
+            steps {
+                script {
+                    def files = findFiles(glob: 'App_Code/f987456321.sql')
+                    files.each { file ->
+                        echo "Deploying SQL file: ${file.name}"
+                        sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
+                    }
+                }
+            }
+        }
+
+                stage('Update and Push to Test Branch') {
             steps {
                 script {
                     def originalFile = "App_Code/f987456321.sql"
@@ -34,3 +93,12 @@
                 }
             }
         }
+
+
+        stage('Notify') {
+            steps {
+                echo "Deployment successful! APEX Application is live on: https://bkp2.octalsoft.com/apex/r/apex/workspace-sign-in"
+            }
+        }
+    }
+}
