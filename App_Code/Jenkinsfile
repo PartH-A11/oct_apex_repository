@@ -15,7 +15,7 @@ pipeline {
                 fingerprint 'f987456321.sql'
             }
         }
-/*
+
         stage('Retrieve Credentials') {
             steps {
                 script {
@@ -56,7 +56,7 @@ pipeline {
                 }
             }
         }
-*/
+
                 stage('Update and Push to Test Branch') {
             steps {
                 script {
@@ -83,7 +83,7 @@ pipeline {
                         sh 'git checkout test'
 
                         // Set remote with credentials embedded
-                        sh 'git remote set-url origin https://PartH-A11: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@github.com/PartH-A11/apex_pipeline_repo.gitt'
+                        sh 'git remote set-url origin https://PartH-A11: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@github.com/PartH-A11/apex_pipeline_repo.git'
 
                         // Commit and push
                         sh "git add ${versionedFile}"
