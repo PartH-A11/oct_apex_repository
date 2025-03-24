@@ -7,6 +7,11 @@ pipeline {
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "osprod.OSPROD"
     }
+	parameters {
+        string(name: 'FILE_PATH', defaultValue: 'sample.txt', description: 'Path to the file to modify')
+        string(name: 'FIND_WORD', defaultValue: 'oldword', description: 'Word to find')
+        string(name: 'REPLACE_WORD', defaultValue: 'newword', description: 'Word to replace with')
+    }
 
     stages {
         stage('Checkout Code') {
