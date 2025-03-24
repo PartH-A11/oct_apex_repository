@@ -57,7 +57,7 @@ pipeline {
             }
         }
 
-                stage('Update and Push to Test Branch') {
+                        stage('Update and Push to Test Branch') {
             steps {
                 script {
                     def originalFile = "App_Code/f987456321.sql"
@@ -73,19 +73,17 @@ pipeline {
                     def versionedFile = "App_Code/f987456321_v${version}.sql"
                     sh "cp ${originalFile} ${versionedFile}"
 
-                    // Use Git credentials for push
-                   withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
-                        // Set Git config
-                        sh 'git config user.name "PartH-A11"'
-                        sh 'git config user.email "parth.suthar@octalsoft.com"'
+                    // Use credentials securely
+                    withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
+                        // Git config
+                        sh 'git config user.name "Jenkins CI"'
+                        sh 'git config user.email "jenkins@yourdomain.com"'
 
-                        // Switch to test branch
+                        // Set authenticated remote URL securely
+                        sh 'git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/PartH-A11/apex_pipeline_repo.git'
+
+                        // Switch to test branch and push
                         sh 'git checkout test'
-
-                        // Set remote with credentials embedded
-                        sh 'git remote set-url origin https://PartH-A11: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@github.com/PartH-A11/apex_pipeline_repo.git'
-
-                        // Commit and push
                         sh "git add ${versionedFile}"
                         sh "git commit -m 'Added versioned SQL: ${versionedFile}' || echo 'No changes to commit'"
                         sh 'git push origin test'
@@ -93,6 +91,7 @@ pipeline {
                 }
             }
         }
+
 
 
         stage('Notify') {
