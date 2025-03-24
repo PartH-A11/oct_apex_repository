@@ -74,8 +74,8 @@ pipeline {
                     sh "cp ${originalFile} ${versionedFile}"
 
                     // Git config
-                    sh 'git config user.name "Jenkins CI"'
-                    sh 'git config user.email "jenkins@yourdomain.com"'
+                    sh 'git config user.name "PartH-A11"'
+                    sh 'git config user.email "parth.suthar@octalsoft.com"'
 
                     // Checkout test branch and commit versioned file
                     sh 'git checkout test'
