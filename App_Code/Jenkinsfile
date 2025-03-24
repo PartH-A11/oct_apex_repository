@@ -80,7 +80,7 @@ pipeline {
                         sh 'git config user.email "jenkins@yourdomain.com"'
 
                         // Set authenticated remote URL securely
-                        sh 'git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/PartH-A11/apex_pipeline_repo.git'
+                        sh 'git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/PartH-A11/oct_apex_repository.git'
 
                         // Switch to test branch and push
                         sh 'git checkout test'
