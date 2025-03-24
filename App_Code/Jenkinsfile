@@ -35,7 +35,7 @@ pipeline {
                     sh "sed -i 's/10008181/202008181/g' ${sqlFile}"
                     sh "sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_TEST/g' ${sqlFile}"
                     sh "sed -i 's/apex_pipeline_dev/apex_pipeline_test/g' ${sqlFile}"
-                    sh "sed -i 's/1097129076331899815/1097130504259902316/g' ${sqlFile}"
+                    sh "sed -i 's/1097129076331899815/724868741110485016/g' ${sqlFile}"
                     def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
                     def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @${sqlFile}", returnStatus: true)
                     if (result != 0) {
@@ -71,7 +71,7 @@ stage('Update and Push to Test Branch') {
             sh "sed -i 's/10008181/20008181/g' ${versionedFile}"
             sh "sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_TEST/g' ${versionedFile}"
             sh "sed -i 's/apex_pipeline_dev/apex_pipeline_test/g' ${versionedFile}"
-            sh "sed -i 's/1097129076331899815/1097130504259902316/g' ${versionedFile}"
+            sh "sed -i 's/1097129076331899815/724868741110485016/g' ${versionedFile}"
 
             // Use credentials to push
             withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
