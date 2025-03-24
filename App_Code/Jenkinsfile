@@ -95,7 +95,7 @@ stage('Update and Push to live Branch') {
 
         stage('Notify') {
             steps {
-                echo "Deployment successful! APEX Application is live on: https://ins5.octalsoft.com/apex/r/apex/workspace-sign-in"
+                echo "Deployment successful! APEX Application is live on: https://bkp2.octalsoft.com/apex/r/apex/workspace-sign-in"
             }
         }
     }
