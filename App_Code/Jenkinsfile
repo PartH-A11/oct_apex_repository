@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'develop', url: 'https://github.com/PartH-A11/oct_apex_repository'
-                fingerprint 'f100401.sql'
+                fingerprint 'f987456321.sql'
             }
         }
         
@@ -31,7 +31,7 @@ pipeline {
         stage('Validate SQL Files') {
             steps {
                 script {
-                    def sqlFile = "App_Code/f100401.sql"
+                    def sqlFile = "App_Code/f987456321.sql"
                     sh "sed -i 's/SUN_22001_DEV/SUN_22001_TEST/g' ${sqlFile}"
 					sh "sed -i 's/sun_22001_dev/sun_22001_test/g' ${sqlFile}"
                     sh "sed -i 's/1088565718848511844/1096018791012195213/g' ${sqlFile}"
@@ -47,7 +47,7 @@ pipeline {
         stage('Deploy APEX Application') {
             steps {
                 script {
-                    def files = findFiles(glob: 'App_Code/f100401.sql')
+                    def files = findFiles(glob: 'App_Code/f987456321.sql')
                     files.each { file ->
                         echo "Deploying SQL file: ${file.name}"
                         sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
