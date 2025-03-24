@@ -7,7 +7,6 @@ pipeline {
         DB_HOST = "13.203.90.85"
         DB_SERVICE = "osprod.OSPROD"
     }
-	
 
     stages {
         stage('Checkout Code') {
@@ -16,7 +15,7 @@ pipeline {
                 fingerprint 'f987456321.sql'
             }
         }
-        
+
         stage('Retrieve Credentials') {
             steps {
                 script {
@@ -35,7 +34,7 @@ pipeline {
                     def sqlFile = "App_Code/f987456321.sql"
                     sh "sed -i 's/987456321/2987456321/g' ${sqlFile}"
                     sh "sed -i 's/SUN_22001_DEV/SUN_22001_TEST/g' ${sqlFile}"
-					sh "sed -i 's/sun_22001_dev/sun_22001_test/g' ${sqlFile}"
+                    sh "sed -i 's/sun_22001_dev/sun_22001_test/g' ${sqlFile}"
                     sh "sed -i 's/1088565718848511844/1096018791012195213/g' ${sqlFile}"
                     def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
                     def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @${sqlFile}", returnStatus: true)
@@ -58,11 +57,34 @@ pipeline {
             }
         }
 
-       /* stage('Restart ORDS') {
+        stage('Update and Push to Test Branch') {
             steps {
-                sh 'sudo systemctl restart ords'
+                script {
+                    def originalFile = "App_Code/f987456321.sql"
+
+                    // Revert changes after deployment
+                    sh "sed -i 's/2987456321/987456321/g' ${originalFile}"
+                    sh "sed -i 's/SUN_22001_TEST/SUN_22001_DEV/g' ${originalFile}"
+                    sh "sed -i 's/sun_22001_test/sun_22001_dev/g' ${originalFile}"
+                    sh "sed -i 's/1096018791012195213/1088565718848511844/g' ${originalFile}"
+
+                    // Generate versioned filename
+                    def version = new Date().format("yyyyMMdd_HHmmss")
+                    def versionedFile = "App_Code/f987456321_v${version}.sql"
+                    sh "cp ${originalFile} ${versionedFile}"
+
+                    // Git config
+                    sh 'git config user.name "Jenkins CI"'
+                    sh 'git config user.email "jenkins@yourdomain.com"'
+
+                    // Checkout test branch and commit versioned file
+                    sh 'git checkout test'
+                    sh "git add ${versionedFile}"
+                    sh "git commit -m 'Added versioned SQL: ${versionedFile}' || echo 'No changes to commit'"
+                    sh 'git push origin test'
+                }
             }
-        }*/
+        }
 
         stage('Notify') {
             steps {
