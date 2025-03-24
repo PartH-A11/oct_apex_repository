@@ -32,10 +32,10 @@ pipeline {
             steps {
                 script {
                     def sqlFile = "App_Code/f10008181.sql"
-                    sh "sed -i 's/10008181/20008181/g' ${sqlFile}"
-                    sh "sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_TEST/g' ${sqlFile}"
-                    sh "sed -i 's/apex_pipeline_dev/apex_pipeline_test/g' ${sqlFile}"
-                    sh "sed -i 's/1097129076331899815/1097130504259902316/g' ${sqlFile}"
+                    sh "sed -i 's/10008181/99908181/g' ${sqlFile}"
+                    sh "sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_LIVE/g' ${sqlFile}"
+                    sh "sed -i 's/apex_pipeline_dev/apex_pipeline_live/g' ${sqlFile}"
+                    sh "sed -i 's/1097129076331899815/1097131402004906587/g' ${sqlFile}"
                     def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
                     def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @${sqlFile}", returnStatus: true)
                     if (result != 0) {
@@ -57,7 +57,7 @@ pipeline {
             }
         }
         
-stage('Update and Push to Test Branch') {
+stage('Update and Push to live Branch') {
     steps {
         script {
             def originalFile = "App_Code/f10008181.sql"
@@ -68,10 +68,10 @@ stage('Update and Push to Test Branch') {
 
             // Copy and modify the versioned file (leave original untouched)
             sh "cp ${originalFile} ${versionedFile}"
-            sh "sed -i 's/10008181/20008181/g' ${versionedFile}"
-            sh "sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_TEST/g' ${versionedFile}"
-            sh "sed -i 's/apex_pipeline_dev/apex_pipeline_test/g' ${versionedFile}"
-            sh "sed -i 's/1097129076331899815/1097130504259902316/g' ${versionedFile}"
+            sh "sed -i 's/10008181/99908181/g' ${versionedFile}"
+            sh "sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_LIVE/g' ${versionedFile}"
+            sh "sed -i 's/apex_pipeline_dev/apex_pipeline_live/g' ${versionedFile}"
+            sh "sed -i 's/1097129076331899815/1097131402004906587/g' ${versionedFile}"
 
             // Use credentials to push
             withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
@@ -80,14 +80,14 @@ stage('Update and Push to Test Branch') {
 
                 // Reset changes before switching branch
                 sh "git restore ${originalFile}"
-                sh 'git checkout test'
-                sh 'git pull origin test'
+                sh 'git checkout live'
+                sh 'git pull origin live'
                 sh 'git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/PartH-A11/oct_apex_repository.git'
 
                 // Add and push versioned file
                 sh "git add ${versionedFile}"
                 sh "git commit -m 'Added versioned SQL: ${versionedFile}' || echo 'No changes to commit'"
-                sh 'git push origin test'
+                sh 'git push origin live'
             }
         }
     }
