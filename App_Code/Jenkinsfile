@@ -15,7 +15,7 @@ pipeline {
                 fingerprint 'f987456321.sql'
             }
         }
-
+/*
         stage('Retrieve Credentials') {
             steps {
                 script {
@@ -56,7 +56,7 @@ pipeline {
                 }
             }
         }
-
+*/
                 stage('Update and Push to Test Branch') {
             steps {
                 script {
