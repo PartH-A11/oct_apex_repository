@@ -56,6 +56,7 @@ pipeline {
                 }
             }
         }
+        
 stage('Update and Push to Test Branch') {
     steps {
         script {
@@ -72,13 +73,18 @@ stage('Update and Push to Test Branch') {
             sh "sed -i 's/sun_22001_dev/sun_22001_test/g' ${versionedFile}"
             sh "sed -i 's/1088565718848511844/1096018791012195213/g' ${versionedFile}"
 
-            // Use credentials to push to test branch
+            // Use credentials to push
             withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
                 sh 'git config user.name "PartH-A11"'
                 sh 'git config user.email "parth.suthar@octalsoft.com"'
+
+                // Reset changes before switching branch
+                sh "git restore ${originalFile}"
                 sh 'git checkout test'
                 sh 'git pull origin test'
-                sh 'git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/PartH-A11/apex_pipeline_repo.git'
+                sh 'git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/PartH-A11/oct_apex_repository.git'
+
+                // Add and push versioned file
                 sh "git add ${versionedFile}"
                 sh "git commit -m 'Added versioned SQL: ${versionedFile}' || echo 'No changes to commit'"
                 sh 'git push origin test'
@@ -86,6 +92,7 @@ stage('Update and Push to Test Branch') {
         }
     }
 }
+
 
 
 
