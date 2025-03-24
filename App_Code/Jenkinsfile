@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     def sqlFile = "App_Code/f10008181.sql"
-                    sh "sed -i 's/10008181/20008181/g' ${sqlFile}"
+                    sh "sed -i 's/10008181/202008181/g' ${sqlFile}"
                     sh "sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_TEST/g' ${sqlFile}"
                     sh "sed -i 's/apex_pipeline_dev/apex_pipeline_test/g' ${sqlFile}"
                     sh "sed -i 's/1097129076331899815/1097130504259902316/g' ${sqlFile}"
