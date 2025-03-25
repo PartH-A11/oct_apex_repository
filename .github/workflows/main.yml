@@ -23,14 +23,10 @@ jobs:
           ref: develop
 
       - name: Retrieve Credentials
-        id: db_credentials
-        uses: hashicorp/vault-action@v2
-        with:
-          url: ${{ secrets.VAULT_URL }}
-          token: ${{ secrets.VAULT_TOKEN }}
-          secrets: |
-            secret/data/db db_user | DB_USER;
-            secret/data/db db_password | DB_PASSWORD;
+        env:
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        run: echo "Database credentials retrieved"
 
       - name: Validate SQL Files
         run: |
@@ -39,14 +35,13 @@ jobs:
           sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_TEST/g' ${sqlFile}
           sed -i 's/apex_pipeline_dev/apex_pipeline_test/g' ${sqlFile}
           sed -i 's/1097129076331899815/1097130504259902316/g' ${sqlFile}
-          result=$(${SQLCL_PATH} -s "${{ steps.db_credentials.outputs.DB_USER }}/${{ steps.db_credentials.outputs.DB_PASSWORD }}@${{ env.DB_HOST }}:1521/${{ env.DB_SERVICE }}" @${sqlFile} || echo $?)
-          if [[ "$result" -ne 0 ]]; then exit 1; fi
+          ${SQLCL_PATH} -s "${DB_USER}/${DB_PASSWORD}@${DB_HOST}:1521/${DB_SERVICE}" @${sqlFile} || exit 1
 
       - name: Deploy APEX Application
         run: |
           for file in App_Code/10008181.sql; do
             echo "Deploying SQL file: $file"
-            ${SQLCL_PATH} -s "${{ steps.db_credentials.outputs.DB_USER }}/${{ steps.db_credentials.outputs.DB_PASSWORD }}@${{ env.DB_HOST }}:1521/${{ env.DB_SERVICE }}" @$file
+            ${SQLCL_PATH} -s "${DB_USER}/${DB_PASSWORD}@${DB_HOST}:1521/${DB_SERVICE}" @$file
           done
 
       - name: Update and Push to Test Branch
@@ -62,9 +57,8 @@ jobs:
           sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_TEST/g' ${versionedFile}
           sed -i 's/apex_pipeline_dev/apex_pipeline_test/g' ${versionedFile}
           sed -i 's/1097129076331899815/1097130504259902316/g' ${versionedFile}
-          git config user.name "PartH-A11"
-          git config user.email "parth.suthar@octalsoft.com"
-          git restore ${originalFile}
+          git config --global user.name "PartH-A11"
+          git config --global user.email "parth.suthar@octalsoft.com"
           git checkout test
           git pull origin test
           git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/PartH-A11/oct_apex_repository.git
@@ -73,4 +67,4 @@ jobs:
           git push origin test
 
       - name: Notify Deployment
-        run: echo "Deployment successful! APEX Application is live on: https://bkp2.octalsoft.com/apex/r/apex/workspace-sign-in"
+        run: echo "Deployment successful! APEX Application is live on: https://ins5.octalsoft.com/apex/r/apex/workspace-sign-in"
