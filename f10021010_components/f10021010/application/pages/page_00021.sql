@@ -208,8 +208,9 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
 ,p_button_image_alt=>'Back'
 ,p_button_position=>'CLOSE'
-,p_button_alignment=>'RIGHT'
 ,p_button_redirect_url=>'f?p=&APP_ID.:20:&SESSION.::&DEBUG.:::'
+,p_button_condition_type=>'NEVER'
+,p_button_comment=>'_--Button Never----------'
 );
 wwv_flow_imp_page.create_page_button(
  p_id=>wwv_flow_imp.id(5235518880010583431)
