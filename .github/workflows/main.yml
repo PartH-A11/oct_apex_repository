@@ -1,0 +1,76 @@
+name: APEX Deployment
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+env:
+  APEX_WORKSPACE: "TEST"
+  APEX_USERNAME: "parth.suthar"
+  DB_HOST: "13.203.90.85"
+  DB_SERVICE: "osprod.OSPROD"
+  SQLCL_PATH: "/u01/sqlcl/sqlcl/bin/sql"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          ref: develop
+
+      - name: Retrieve Credentials
+        id: db_credentials
+        uses: hashicorp/vault-action@v2
+        with:
+          url: ${{ secrets.VAULT_URL }}
+          token: ${{ secrets.VAULT_TOKEN }}
+          secrets: |
+            secret/data/db db_user | DB_USER;
+            secret/data/db db_password | DB_PASSWORD;
+
+      - name: Validate SQL Files
+        run: |
+          sqlFile="App_Code/f10008181.sql"
+          sed -i 's/10008181/20008181/g' ${sqlFile}
+          sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_TEST/g' ${sqlFile}
+          sed -i 's/apex_pipeline_dev/apex_pipeline_test/g' ${sqlFile}
+          sed -i 's/1097129076331899815/1097130504259902316/g' ${sqlFile}
+          result=$(${SQLCL_PATH} -s "${{ steps.db_credentials.outputs.DB_USER }}/${{ steps.db_credentials.outputs.DB_PASSWORD }}@${{ env.DB_HOST }}:1521/${{ env.DB_SERVICE }}" @${sqlFile} || echo $?)
+          if [[ "$result" -ne 0 ]]; then exit 1; fi
+
+      - name: Deploy APEX Application
+        run: |
+          for file in App_Code/10008181.sql; do
+            echo "Deploying SQL file: $file"
+            ${SQLCL_PATH} -s "${{ steps.db_credentials.outputs.DB_USER }}/${{ steps.db_credentials.outputs.DB_PASSWORD }}@${{ env.DB_HOST }}:1521/${{ env.DB_SERVICE }}" @$file
+          done
+
+      - name: Update and Push to Test Branch
+        env:
+          GIT_USER: ${{ secrets.GIT_USER }}
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+        run: |
+          originalFile="App_Code/f10008181.sql"
+          version=$(date +"%Y%m%d_%H%M%S")
+          versionedFile="App_Code/f10008181${version}.sql"
+          cp ${originalFile} ${versionedFile}
+          sed -i 's/10008181/20008181/g' ${versionedFile}
+          sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_TEST/g' ${versionedFile}
+          sed -i 's/apex_pipeline_dev/apex_pipeline_test/g' ${versionedFile}
+          sed -i 's/1097129076331899815/1097130504259902316/g' ${versionedFile}
+          git config user.name "PartH-A11"
+          git config user.email "parth.suthar@octalsoft.com"
+          git restore ${originalFile}
+          git checkout test
+          git pull origin test
+          git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/PartH-A11/oct_apex_repository.git
+          git add ${versionedFile}
+          git commit -m "Added versioned SQL: ${versionedFile}" || echo "No changes to commit"
+          git push origin test
+
+      - name: Notify Deployment
+        run: echo "Deployment successful! APEX Application is live on: https://bkp2.octalsoft.com/apex/r/apex/workspace-sign-in"
