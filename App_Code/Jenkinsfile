@@ -4,15 +4,15 @@ pipeline {
     environment {
         APEX_WORKSPACE = "TEST"
         APEX_USERNAME = "parth.suthar"
-        DB_HOST = "13.203.90.85"
-        DB_SERVICE = "osprod.OSPROD"
-        SQLCL_PATH = "/u01/sqlcl/sqlcl/bin/sql"
+        DB_HOST = "3.109.61.107"
+        DB_SERVICE = "osprod"
     }
 
     stages {
         stage('Checkout Code') {
             steps {
                 git branch: 'develop', url: 'https://github.com/PartH-A11/oct_apex_repository'
+                fingerprint 'f10008181.sql'
             }
         }
 
@@ -28,31 +28,19 @@ pipeline {
             }
         }
 
-        stage('Validate Database Constraints') {
-            steps {
-                script {
-                    def constraintCheck = sh(
-                        script: """
-                        echo "SELECT COUNT(*) FROM APEX_240100.WWV_FLOW WHERE ID = 10008181;" | ${SQLCL_PATH} -s "${DB_CONN}"
-                        """,
-                        returnStdout: true
-                    ).trim()
-
-                    if (constraintCheck == "0") {
-                        error "ERROR: APEX Application ID 10008181 does not exist in WWV_FLOW. Fix dependencies before deployment."
-                    }
-                }
-            }
-        }
-
-        stage('Modify SQL Files') {
+        stage('Validate SQL Files') {
             steps {
                 script {
                     def sqlFile = "App_Code/f10008181.sql"
-
-                    // Ensure correct APEX Application ID before replacing
-                    sh "sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_LIVE/g' ${sqlFile}"
-                    sh "sed -i 's/apex_pipeline_dev/apex_pipeline_live/g' ${sqlFile}"
+                    sh "sed -i 's/10008181/20008181/g' ${sqlFile}"
+                    sh "sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_TEST/g' ${sqlFile}"
+                    sh "sed -i 's/apex_pipeline_dev/apex_pipeline_test/g' ${sqlFile}"
+                    sh "sed -i 's/1097129076331899815/724868741110485016/g' ${sqlFile}"
+                    def sqlclPath = "/u01/sqlcl/sqlcl/bin/sql"
+                    def result = sh(script: "\"${sqlclPath}\" -s \"${DB_CONN}\" @${sqlFile}", returnStatus: true)
+                    if (result != 0) {
+                        error "SQL validation failed! Check script for errors."
+                    }
                 }
             }
         }
@@ -60,48 +48,53 @@ pipeline {
         stage('Deploy APEX Application') {
             steps {
                 script {
-                    def sqlFile = "App_Code/f10008181.sql"
-                    
-                    try {
-                        def deployResult = sh(
-                            script: """
-                            ${SQLCL_PATH} -s "${DB_CONN}" @${sqlFile}
-                            """,
-                            returnStatus: true
-                        )
-
-                        if (deployResult != 0) {
-                            error "Deployment failed! Check SQL script for errors."
-                        }
-                    } catch (Exception e) {
-                        error "SQL Deployment Error: ${e.getMessage()}"
+                    def files = findFiles(glob: 'App_Code/10008181.sql')
+                    files.each { file ->
+                        echo "Deploying SQL file: ${file.name}"
+                        sh "/u01/sqlcl/sqlcl/bin/sql -s \"${DB_CONN}\" @${file.path}"
                     }
                 }
             }
         }
+        
+stage('Update and Push to Test Branch') {
+    steps {
+        script {
+            def originalFile = "App_Code/f10008181.sql"
 
-        stage('Update and Push to live Branch') {
-            steps {
-                script {
-                    def originalFile = "App_Code/f10008181.sql"
-                    def version = new Date().format("yyyyMMdd_HHmmss")
-                    def versionedFile = "App_Code/f10008181_${version}.sql"
+            // Generate versioned filename
+            def version = new Date().format("yyyyMMdd_HHmmss")
+            def versionedFile = "App_Code/f10008181${version}.sql"
 
-                    // Backup SQL file
-                    sh "cp ${originalFile} ${versionedFile}"
+            // Copy and modify the versioned file (leave original untouched)
+            sh "cp ${originalFile} ${versionedFile}"
+            sh "sed -i 's/10008181/20008181/g' ${versionedFile}"
+            sh "sed -i 's/APEX_PIPELINE_DEV/APEX_PIPELINE_TEST/g' ${versionedFile}"
+            sh "sed -i 's/apex_pipeline_dev/apex_pipeline_test/g' ${versionedFile}"
+            sh "sed -i 's/1097129076331899815/724868741110485016/g' ${versionedFile}"
 
-                    withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
-                        sh 'git config user.name "PartH-A11"'
-                        sh 'git config user.email "parth.suthar@octalsoft.com"'
-                        sh 'git checkout live'
-                        sh 'git pull origin live'
-                        sh "git add ${versionedFile}"
-                        sh "git commit -m 'Added versioned SQL: ${versionedFile}' || echo 'No changes to commit'"
-                        sh 'git push origin live'
-                    }
-                }
+            // Use credentials to push
+            withCredentials([usernamePassword(credentialsId: 'GITHUB_CREDS', usernameVariable: 'GIT_USER', passwordVariable: 'GIT_TOKEN')]) {
+                sh 'git config user.name "PartH-A11"'
+                sh 'git config user.email "parth.suthar@octalsoft.com"'
+
+                // Reset changes before switching branch
+                sh "git restore ${originalFile}"
+                sh 'git checkout test'
+                sh 'git pull origin test'
+                sh 'git remote set-url origin https://${GIT_USER}:${GIT_TOKEN}@github.com/PartH-A11/oct_apex_repository.git'
+
+                // Add and push versioned file
+                sh "git add ${versionedFile}"
+                sh "git commit -m 'Added versioned SQL: ${versionedFile}' || echo 'No changes to commit'"
+                sh 'git push origin test'
             }
         }
+    }
+}
+
+
+
 
         stage('Notify') {
             steps {
