@@ -1,9 +1,26 @@
-prompt --application/pages/page_00013
+prompt --application/set_environment
+set define off verify off feedback off
+whenever sqlerror exit sql.sqlcode rollback
+--------------------------------------------------------------------------------
+--
+-- Oracle APEX export file
+--
+-- You should run this script using a SQL client connected to the database as
+-- the owner (parsing schema) of the application or as a database user with the
+-- APEX_ADMINISTRATOR_ROLE role.
+--
+-- This export file has been automatically generated. Modifying this file is not
+-- supported by Oracle and can lead to unexpected application and/or instance
+-- behavior now or in the future.
+--
+-- NOTE: Calls to apex_application_install override the defaults below.
+--
+--------------------------------------------------------------------------------
 begin
---   Manifest
---     PAGE: 00013
---   Manifest End
-wwv_flow_imp.component_begin (
+			 
+				  
+				 
+wwv_flow_imp.import_begin (
  p_version_yyyy_mm_dd=>'2024.05.31'
 ,p_release=>'24.1.0'
 ,p_default_workspace_id=>666903967469575309
@@ -11,6 +28,36 @@ wwv_flow_imp.component_begin (
 ,p_default_id_offset=>759714394172364641
 ,p_default_owner=>'SUN_21010_DEV'
 );
+end;
+/
+ 
+prompt APPLICATION 10021010 - SUN_21010_DEV
+--
+-- Application Export:
+--   Application:     10021010
+--   Name:            SUN_21010_DEV
+--   Date and Time:   10:13 Tuesday March 25, 2025
+--   Exported By:     PARTH.SUTHAR
+--   Flashback:       0
+--   Export Type:     Page Export
+--   Manifest
+--     PAGE: 13
+--   Manifest End
+--   Version:         24.1.0
+--   Instance ID:     61819765128079
+--
+
+begin
+null;
+end;
+/
+prompt --application/pages/delete_00013
+begin
+wwv_flow_imp_page.remove_page (p_flow_id=>wwv_flow.g_flow_id, p_page_id=>13);
+end;
+/
+prompt --application/pages/page_00013
+begin
 wwv_flow_imp_page.create_page(
  p_id=>13
 ,p_tab_set=>'TS1'
@@ -1575,7 +1622,7 @@ wwv_flow_imp_page.create_page_process(
 'END;'))
 ,p_process_clob_language=>'PLSQL'
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
-,p_process_when_type=>'NEVER'
+							 
 ,p_process_success_message=>'Action Processed'
 ,p_internal_uid=>9478123445770073046
 );
@@ -1727,10 +1774,18 @@ wwv_flow_imp_page.create_page_process(
 'END;'))
 ,p_process_clob_language=>'PLSQL'
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
-,p_process_when_type=>'NEVER'
+							 
 ,p_process_success_message=>'Action Processed'
 ,p_internal_uid=>9478123669974073048
 );
-wwv_flow_imp.component_end;
 end;
 /
+prompt --application/end_environment
+begin
+wwv_flow_imp.import_end(p_auto_install_sup_obj => nvl(wwv_flow_application_install.get_auto_install_sup_obj, false)
+);
+--commit;
+end;
+/
+set verify on feedback on define on
+prompt  ...done
