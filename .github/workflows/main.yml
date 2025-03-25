@@ -66,5 +66,4 @@ jobs:
           git commit -m "Added versioned SQL: ${versionedFile}" || echo "No changes to commit"
           git push origin test
 
-      - name: Notify Deployment
-        run: echo "Deployment successful! APEX Application is live on: https://ins5.octalsoft.com/apex/r/apex/workspace-sign-in"
+     
