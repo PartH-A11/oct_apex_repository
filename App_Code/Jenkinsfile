@@ -4,8 +4,8 @@ pipeline {
     environment {
         APEX_WORKSPACE = "TEST"
         APEX_USERNAME = "parth.suthar"
-        DB_HOST = "3.109.61.107"
-        DB_SERVICE = "osprod"
+        DB_HOST = "13.203.90.85"
+        DB_SERVICE = "osprod.OSPROD"
     }
 
     stages {
