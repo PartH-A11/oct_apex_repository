@@ -1,0 +1,83 @@
+prompt --application/shared_components/user_interface/lovs/p54_report_row_per_page
+begin
+--   Manifest
+--     P54_Report Row Per Page
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.05.31'
+,p_release=>'24.1.0'
+,p_default_workspace_id=>666903967469575309
+,p_default_application_id=>10021010
+,p_default_id_offset=>1100950768141504093
+,p_default_owner=>'SUN_21010_DEV'
+);
+wwv_flow_imp_shared.create_list_of_values(
+ p_id=>wwv_flow_imp.id(11279038585530919601)
+,p_lov_name=>'P54_Report Row Per Page'
+,p_lov_query=>'.'||wwv_flow_imp.id(11279038585530919601)||'.'
+,p_location=>'STATIC'
+,p_version_scn=>1
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(11279039055309919603)
+,p_lov_disp_sequence=>10
+,p_lov_disp_value=>'10'
+,p_lov_return_value=>'10'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(11279039465868919604)
+,p_lov_disp_sequence=>20
+,p_lov_disp_value=>'15'
+,p_lov_return_value=>'15'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(11279039821371919604)
+,p_lov_disp_sequence=>30
+,p_lov_disp_value=>'20'
+,p_lov_return_value=>'20'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(11279040219265919605)
+,p_lov_disp_sequence=>40
+,p_lov_disp_value=>'30'
+,p_lov_return_value=>'30'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(11279040643500919605)
+,p_lov_disp_sequence=>50
+,p_lov_disp_value=>'50'
+,p_lov_return_value=>'50'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(11279041056168919605)
+,p_lov_disp_sequence=>60
+,p_lov_disp_value=>'100'
+,p_lov_return_value=>'100'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(11279041459179919605)
+,p_lov_disp_sequence=>70
+,p_lov_disp_value=>'200'
+,p_lov_return_value=>'200'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(11279041810981919606)
+,p_lov_disp_sequence=>80
+,p_lov_disp_value=>'500'
+,p_lov_return_value=>'500'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(11279042239972919606)
+,p_lov_disp_sequence=>90
+,p_lov_disp_value=>'1000'
+,p_lov_return_value=>'1000'
+);
+wwv_flow_imp_shared.create_static_lov_data(
+ p_id=>wwv_flow_imp.id(11279042670852919606)
+,p_lov_disp_sequence=>100
+,p_lov_disp_value=>'5000'
+,p_lov_return_value=>'5000'
+);
+wwv_flow_imp.component_end;
+end;
+/

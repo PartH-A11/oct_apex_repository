@@ -1,0 +1,948 @@
+prompt --application/pages/page_00002
+begin
+--   Manifest
+--     PAGE: 00002
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.05.31'
+,p_release=>'24.1.0'
+,p_default_workspace_id=>666903967469575309
+,p_default_application_id=>10021010
+,p_default_id_offset=>1100950768141504093
+,p_default_owner=>'SUN_21010_DEV'
+);
+wwv_flow_imp_page.create_page(
+ p_id=>2
+,p_tab_set=>'TS1'
+,p_name=>'Study Setup'
+,p_step_title=>'Study Setup'
+,p_reload_on_submit=>'A'
+,p_warn_on_unsaved_changes=>'N'
+,p_first_item=>'AUTO_FIRST_ITEM'
+,p_autocomplete_on_off=>'ON'
+,p_inline_css=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'td.L {',
+'    white-space: nowrap;',
+'}'))
+,p_page_template_options=>'#DEFAULT#'
+,p_protection_level=>'C'
+,p_help_text=>'No help is available for this page.'
+,p_page_component_map=>'03'
+);
+wwv_flow_imp_page.create_report_region(
+ p_id=>wwv_flow_imp.id(1877883532053103716)
+,p_name=>'Study Details'
+,p_template=>wwv_flow_imp.id(12146132256919911981)
+,p_display_sequence=>15
+,p_region_template_options=>'#DEFAULT#'
+,p_new_grid_row=>false
+,p_display_point=>'BODY_3'
+,p_source_type=>'NATIVE_SQL_REPORT'
+,p_query_type=>'SQL'
+,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT "STUDY_ID",',
+'"STUDY_NUMBER",',
+'"PROTOCOL_NUMBER",',
+'"SPONSOR_ID",',
+'"STUDY_DESIGN",',
+'CRO_STUDY_PKG.GET_INDICATION(THERAPEUTIC_AREA) "THERAPEUTIC_AREA",',
+'"TITLE",',
+'"START_DATE",',
+'"END_DATE",',
+'"MULTI_ARM_STUDY",',
+'"STUDY_ACTIVE",',
+'"DRUG_DEVICE",',
+'"PHASE",',
+'"DURATION",',
+'"NOTES",',
+'"STUDY_DURATION",',
+'REPLACE(CRO_STUDY_PKG.GET_INDICATION(STUDY_INDICATION),''<br/>'','''') "STUDY_INDICATION",',
+'"PATIENT_RECRUIT",TOT_PATIENTS,',
+'--CRO_STUDY_PKG.GET_PM_NAMESFROMCSV(EDC_PM_ID) "PM_ID",',
+'EDC_USER.GETUSERNAME(PM_ID) "PM_ID",',
+'"BLINDED",',
+'"DRUG_SHIPMENT",',
+'"CALC_SCH_VISIT_FROM", PERC_CAP, CAUCASIAN_CAP',
+'FROM EDC_STUDY ',
+'WHERE STUDY_ID = :APP_EDC_STUDY_ID'))
+,p_lazy_loading=>false
+,p_query_row_template=>2
+,p_query_num_rows=>5
+,p_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_query_show_nulls_as=>' - '
+,p_query_no_data_found=>'no data found'
+,p_query_row_count_max=>500
+,p_csv_output=>'N'
+,p_prn_output=>'N'
+,p_sort_null=>'L'
+,p_plug_query_strip_html=>'Y'
+,p_comment=>'--'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877883853123103719)
+,p_query_column_id=>1
+,p_column_alias=>'STUDY_ID'
+,p_column_display_sequence=>1
+,p_use_as_row_header=>'N'
+,p_hidden_column=>'Y'
+,p_derived_column=>'N'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'STUDY_ID'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877883900106103720)
+,p_query_column_id=>2
+,p_column_alias=>'STUDY_NUMBER'
+,p_column_display_sequence=>2
+,p_column_heading=>'Protocol Number:'
+,p_use_as_row_header=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'STUDY_NUMBER'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877883987296103721)
+,p_query_column_id=>3
+,p_column_alias=>'PROTOCOL_NUMBER'
+,p_column_display_sequence=>3
+,p_column_heading=>'Project Number:'
+,p_use_as_row_header=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'PROTOCOL_NUMBER'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877884102579103722)
+,p_query_column_id=>4
+,p_column_alias=>'SPONSOR_ID'
+,p_column_display_sequence=>4
+,p_column_heading=>'Sponsor:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_imp.id(12146153855597328459)
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'SPONSOR_ID'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877884247553103723)
+,p_query_column_id=>5
+,p_column_alias=>'STUDY_DESIGN'
+,p_column_display_sequence=>5
+,p_use_as_row_header=>'N'
+,p_hidden_column=>'Y'
+,p_derived_column=>'N'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'STUDY_DESIGN'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877884320577103724)
+,p_query_column_id=>6
+,p_column_alias=>'THERAPEUTIC_AREA'
+,p_column_display_sequence=>6
+,p_use_as_row_header=>'N'
+,p_hidden_column=>'Y'
+,p_display_as=>'HIDDEN'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'THERAPEUTIC_AREA'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877884409681103725)
+,p_query_column_id=>7
+,p_column_alias=>'TITLE'
+,p_column_display_sequence=>7
+,p_column_heading=>'Title:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'TITLE'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877884495177103726)
+,p_query_column_id=>8
+,p_column_alias=>'START_DATE'
+,p_column_display_sequence=>8
+,p_column_heading=>'Start Date:'
+,p_use_as_row_header=>'N'
+,p_column_format=>'DD-MON-YYYY'
+,p_heading_alignment=>'LEFT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'START_DATE'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877884632134103727)
+,p_query_column_id=>9
+,p_column_alias=>'END_DATE'
+,p_column_display_sequence=>9
+,p_column_heading=>'End Date:'
+,p_use_as_row_header=>'N'
+,p_column_format=>'DD-MON-YYYY'
+,p_heading_alignment=>'LEFT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'END_DATE'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877884777564103728)
+,p_query_column_id=>10
+,p_column_alias=>'MULTI_ARM_STUDY'
+,p_column_display_sequence=>10
+,p_use_as_row_header=>'N'
+,p_hidden_column=>'Y'
+,p_derived_column=>'N'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'MULTI_ARM_STUDY'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877884840959103729)
+,p_query_column_id=>11
+,p_column_alias=>'STUDY_ACTIVE'
+,p_column_display_sequence=>11
+,p_column_heading=>'Study Status:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_imp.id(12146155230351328464)
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'STUDY_ACTIVE'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877884954825103730)
+,p_query_column_id=>12
+,p_column_alias=>'DRUG_DEVICE'
+,p_column_display_sequence=>12
+,p_use_as_row_header=>'N'
+,p_hidden_column=>'Y'
+,p_derived_column=>'N'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'DRUG_DEVICE'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877885043527103731)
+,p_query_column_id=>13
+,p_column_alias=>'PHASE'
+,p_column_display_sequence=>13
+,p_column_heading=>'Study Phase:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_imp.id(12146154650251328464)
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'PHASE'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877885176516103732)
+,p_query_column_id=>14
+,p_column_alias=>'DURATION'
+,p_column_display_sequence=>14
+,p_use_as_row_header=>'N'
+,p_hidden_column=>'Y'
+,p_derived_column=>'N'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'DURATION'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877885239232103733)
+,p_query_column_id=>15
+,p_column_alias=>'NOTES'
+,p_column_display_sequence=>15
+,p_column_heading=>'Comments:'
+,p_use_as_row_header=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'NOTES'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877885354928103734)
+,p_query_column_id=>16
+,p_column_alias=>'STUDY_DURATION'
+,p_column_display_sequence=>16
+,p_column_heading=>'Treatment Duration:'
+,p_use_as_row_header=>'N'
+,p_column_html_expression=>'#STUDY_DURATION# Days'
+,p_heading_alignment=>'LEFT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'STUDY_DURATION'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877885472897103735)
+,p_query_column_id=>17
+,p_column_alias=>'STUDY_INDICATION'
+,p_column_display_sequence=>17
+,p_use_as_row_header=>'N'
+,p_hidden_column=>'Y'
+,p_display_as=>'HIDDEN'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'STUDY_INDICATION'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877885543023103736)
+,p_query_column_id=>18
+,p_column_alias=>'PATIENT_RECRUIT'
+,p_column_display_sequence=>18
+,p_column_heading=>'Subject Recruitment Tracking:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_imp.id(12146154449453328463)
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'PATIENT_RECRUIT'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877885663549103737)
+,p_query_column_id=>19
+,p_column_alias=>'TOT_PATIENTS'
+,p_column_display_sequence=>19
+,p_column_heading=>'Number of Subjects:'
+,p_use_as_row_header=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877885751945103738)
+,p_query_column_id=>20
+,p_column_alias=>'PM_ID'
+,p_column_display_sequence=>20
+,p_column_heading=>'Project Manager:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_display_when_cond_type=>'NEVER'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'PM_ID'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877885808848103739)
+,p_query_column_id=>21
+,p_column_alias=>'BLINDED'
+,p_column_display_sequence=>21
+,p_column_heading=>'Study Blinded:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_imp.id(12146154831799328464)
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'BLINDED'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877885891647103740)
+,p_query_column_id=>22
+,p_column_alias=>'DRUG_SHIPMENT'
+,p_column_display_sequence=>22
+,p_use_as_row_header=>'N'
+,p_hidden_column=>'Y'
+,p_display_as=>'WITHOUT_MODIFICATION'
+,p_derived_column=>'N'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'DRUG_SHIPMENT'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877886029263103741)
+,p_query_column_id=>23
+,p_column_alias=>'CALC_SCH_VISIT_FROM'
+,p_column_display_sequence=>23
+,p_column_heading=>'Calculate Visit Schedule On:'
+,p_use_as_row_header=>'N'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_imp.id(12147257235714632963)
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877886122934103742)
+,p_query_column_id=>24
+,p_column_alias=>'PERC_CAP'
+,p_column_display_sequence=>24
+,p_use_as_row_header=>'N'
+,p_hidden_column=>'Y'
+,p_derived_column=>'N'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(1877886232516103743)
+,p_query_column_id=>25
+,p_column_alias=>'CAUCASIAN_CAP'
+,p_column_display_sequence=>25
+,p_use_as_row_header=>'N'
+,p_hidden_column=>'Y'
+,p_derived_column=>'N'
+);
+wwv_flow_imp_page.create_report_region(
+ p_id=>wwv_flow_imp.id(12146150546280328444)
+,p_name=>'Study Details'
+,p_template=>wwv_flow_imp.id(12146132256919911981)
+,p_display_sequence=>25
+,p_region_template_options=>'#DEFAULT#'
+,p_component_template_options=>'#DEFAULT#'
+,p_new_grid_row=>false
+,p_display_point=>'BODY_3'
+,p_source_type=>'NATIVE_SQL_REPORT'
+,p_query_type=>'SQL'
+,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT "STUDY_ID",',
+'"STUDY_NUMBER",',
+'"PROTOCOL_NUMBER",',
+'"SPONSOR_ID",',
+'"STUDY_DESIGN",',
+'CRO_STUDY_PKG.GET_INDICATION(THERAPEUTIC_AREA) "THERAPEUTIC_AREA",',
+'"TITLE",',
+'"START_DATE",',
+'"END_DATE",',
+'"MULTI_ARM_STUDY",',
+'"STUDY_ACTIVE",',
+'"DRUG_DEVICE",',
+'"PHASE",',
+'"DURATION",',
+'"NOTES",',
+'"STUDY_DURATION",',
+'REPLACE(CRO_STUDY_PKG.GET_INDICATION(STUDY_INDICATION),''<br/>'','''') "STUDY_INDICATION",',
+'"PATIENT_RECRUIT",TOT_PATIENTS,',
+'--CRO_STUDY_PKG.GET_PM_NAMESFROMCSV(EDC_PM_ID) "PM_ID",',
+'EDC_USER.GETUSERNAME(PM_ID) "PM_ID",',
+'"BLINDED",',
+'"DRUG_SHIPMENT",',
+'"CALC_SCH_VISIT_FROM", PERC_CAP, CAUCASIAN_CAP',
+'FROM EDC_STUDY ',
+'WHERE STUDY_ID = :APP_EDC_STUDY_ID'))
+,p_display_condition_type=>'NEVER'
+,p_fixed_header=>'NONE'
+,p_lazy_loading=>false
+,p_query_row_template=>2
+,p_query_num_rows=>5
+,p_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_query_show_nulls_as=>' - '
+,p_query_break_cols=>'0'
+,p_query_no_data_found=>'no data found'
+,p_query_num_rows_type=>'0'
+,p_query_row_count_max=>500
+,p_pagination_display_position=>'BOTTOM_RIGHT'
+,p_break_type_flag=>'DEFAULT_BREAK_FORMATTING'
+,p_csv_output=>'N'
+,p_query_asc_image=>'apex/builder/dup.gif'
+,p_query_asc_image_attr=>'width="16" height="16" alt="" '
+,p_query_desc_image=>'apex/builder/ddown.gif'
+,p_query_desc_image_attr=>'width="16" height="16" alt="" '
+,p_plug_query_strip_html=>'Y'
+,p_comment=>'--'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146150933395328447)
+,p_query_column_id=>1
+,p_column_alias=>'STUDY_ID'
+,p_column_display_sequence=>1
+,p_column_heading=>'Edit'
+,p_use_as_row_header=>'N'
+,p_column_link=>'f?p=&APP_ID.:6:&SESSION.::&DEBUG.::P6_STUDY_ID:#STUDY_ID#'
+,p_column_linktext=>'<img src="#IMAGE_PREFIX#e2.gif"  border="0">'
+,p_hidden_column=>'Y'
+,p_lov_show_nulls=>'NO'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'STUDY_ID'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146151028289328447)
+,p_query_column_id=>2
+,p_column_alias=>'STUDY_NUMBER'
+,p_column_display_sequence=>2
+,p_column_heading=>'Protocol Number:'
+,p_use_as_row_header=>'N'
+,p_lov_show_nulls=>'NO'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'STUDY_NUMBER'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146151126246328447)
+,p_query_column_id=>3
+,p_column_alias=>'PROTOCOL_NUMBER'
+,p_column_display_sequence=>3
+,p_column_heading=>'Project Number:'
+,p_use_as_row_header=>'N'
+,p_lov_show_nulls=>'NO'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'PROTOCOL_NUMBER'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146151234861328447)
+,p_query_column_id=>4
+,p_column_alias=>'SPONSOR_ID'
+,p_column_display_sequence=>4
+,p_column_heading=>'Sponsor:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_imp.id(12146153855597328459)
+,p_lov_show_nulls=>'NO'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'SPONSOR_ID'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146151330962328448)
+,p_query_column_id=>5
+,p_column_alias=>'STUDY_DESIGN'
+,p_column_display_sequence=>5
+,p_column_heading=>'Study Design'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_hidden_column=>'Y'
+,p_lov_show_nulls=>'NO'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'STUDY_DESIGN'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146151439052328448)
+,p_query_column_id=>6
+,p_column_alias=>'THERAPEUTIC_AREA'
+,p_column_display_sequence=>7
+,p_column_heading=>'Therapeutic Area:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_hidden_column=>'Y'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_imp.id(12146154225424328463)
+,p_lov_show_nulls=>'NO'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'THERAPEUTIC_AREA'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146151545460328448)
+,p_query_column_id=>7
+,p_column_alias=>'TITLE'
+,p_column_display_sequence=>6
+,p_column_heading=>'Title:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_lov_show_nulls=>'NO'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'TITLE'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146151644852328448)
+,p_query_column_id=>8
+,p_column_alias=>'START_DATE'
+,p_column_display_sequence=>11
+,p_column_heading=>'Start Date:'
+,p_use_as_row_header=>'N'
+,p_column_format=>'DD-MON-YYYY'
+,p_heading_alignment=>'LEFT'
+,p_lov_show_nulls=>'NO'
+,p_lov_display_extra=>'YES'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'START_DATE'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146151752451328448)
+,p_query_column_id=>9
+,p_column_alias=>'END_DATE'
+,p_column_display_sequence=>12
+,p_column_heading=>'End Date:'
+,p_use_as_row_header=>'N'
+,p_column_format=>'DD-MON-YYYY'
+,p_heading_alignment=>'LEFT'
+,p_lov_show_nulls=>'NO'
+,p_lov_display_extra=>'YES'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'END_DATE'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146151830915328448)
+,p_query_column_id=>10
+,p_column_alias=>'MULTI_ARM_STUDY'
+,p_column_display_sequence=>14
+,p_column_heading=>'Multi Arm Study:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_hidden_column=>'Y'
+,p_lov_show_nulls=>'NO'
+,p_lov_display_extra=>'YES'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'MULTI_ARM_STUDY'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146151929937328448)
+,p_query_column_id=>11
+,p_column_alias=>'STUDY_ACTIVE'
+,p_column_display_sequence=>15
+,p_column_heading=>'Study Status:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_imp.id(12146155230351328464)
+,p_lov_show_nulls=>'NO'
+,p_lov_display_extra=>'NO'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'STUDY_ACTIVE'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146152024680328448)
+,p_query_column_id=>12
+,p_column_alias=>'DRUG_DEVICE'
+,p_column_display_sequence=>16
+,p_column_heading=>'Drug Device:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_hidden_column=>'Y'
+,p_lov_show_nulls=>'NO'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'DRUG_DEVICE'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146152126407328448)
+,p_query_column_id=>13
+,p_column_alias=>'PHASE'
+,p_column_display_sequence=>10
+,p_column_heading=>'Study Phase:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_imp.id(12146154650251328464)
+,p_lov_show_nulls=>'NO'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'PHASE'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146152239545328448)
+,p_query_column_id=>14
+,p_column_alias=>'DURATION'
+,p_column_display_sequence=>17
+,p_column_heading=>'Duration:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_hidden_column=>'Y'
+,p_lov_show_nulls=>'NO'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'DURATION'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146152327596328448)
+,p_query_column_id=>15
+,p_column_alias=>'NOTES'
+,p_column_display_sequence=>25
+,p_column_heading=>'Comments:'
+,p_use_as_row_header=>'N'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'NOTES'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146152434357328448)
+,p_query_column_id=>16
+,p_column_alias=>'STUDY_DURATION'
+,p_column_display_sequence=>13
+,p_column_heading=>'Treatment Duration:'
+,p_use_as_row_header=>'N'
+,p_column_html_expression=>'#STUDY_DURATION# Days'
+,p_heading_alignment=>'LEFT'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'STUDY_DURATION'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146152529638328448)
+,p_query_column_id=>17
+,p_column_alias=>'STUDY_INDICATION'
+,p_column_display_sequence=>8
+,p_column_heading=>'Study Indication :'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_hidden_column=>'Y'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_inline_lov=>'SELECT NAME D,AREA_INDICATION_ID R FROM EDC_AREA_INDICATION'
+,p_lov_show_nulls=>'NO'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'STUDY_INDICATION'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146152644236328448)
+,p_query_column_id=>18
+,p_column_alias=>'PATIENT_RECRUIT'
+,p_column_display_sequence=>21
+,p_column_heading=>'Subject Recruitment Tracking:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_imp.id(12146154449453328463)
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'PATIENT_RECRUIT'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146150741319328446)
+,p_query_column_id=>19
+,p_column_alias=>'TOT_PATIENTS'
+,p_column_display_sequence=>18
+,p_column_heading=>'Number of Subjects:'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146152730233328448)
+,p_query_column_id=>20
+,p_column_alias=>'PM_ID'
+,p_column_display_sequence=>9
+,p_column_heading=>'Project Manager:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_display_when_cond_type=>'NEVER'
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'PM_ID'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146152831283328448)
+,p_query_column_id=>21
+,p_column_alias=>'BLINDED'
+,p_column_display_sequence=>22
+,p_column_heading=>'Study Blinded:'
+,p_use_as_row_header=>'N'
+,p_heading_alignment=>'LEFT'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_imp.id(12146154831799328464)
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'BLINDED'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146152933285328448)
+,p_query_column_id=>22
+,p_column_alias=>'DRUG_SHIPMENT'
+,p_column_display_sequence=>23
+,p_use_as_row_header=>'N'
+,p_hidden_column=>'Y'
+,p_display_as=>'WITHOUT_MODIFICATION'
+,p_derived_column=>'N'
+,p_ref_schema=>'SUN_21010_DEV'
+,p_ref_table_name=>'EDC_STUDY'
+,p_ref_column_name=>'DRUG_SHIPMENT'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(12146150840167328447)
+,p_query_column_id=>23
+,p_column_alias=>'CALC_SCH_VISIT_FROM'
+,p_column_display_sequence=>24
+,p_column_heading=>'Calculate Visit Schedule On:'
+,p_use_as_row_header=>'N'
+,p_display_as=>'TEXT_FROM_LOV_ESC'
+,p_named_lov=>wwv_flow_imp.id(12147257235714632963)
+,p_derived_column=>'N'
+,p_include_in_export=>'Y'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(4757765778363728410)
+,p_query_column_id=>24
+,p_column_alias=>'PERC_CAP'
+,p_column_display_sequence=>19
+,p_use_as_row_header=>'N'
+,p_hidden_column=>'Y'
+,p_derived_column=>'N'
+);
+wwv_flow_imp_page.create_report_columns(
+ p_id=>wwv_flow_imp.id(3306848630918824599)
+,p_query_column_id=>25
+,p_column_alias=>'CAUCASIAN_CAP'
+,p_column_display_sequence=>20
+,p_use_as_row_header=>'N'
+,p_hidden_column=>'Y'
+,p_derived_column=>'N'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(12146153441939328452)
+,p_plug_name=>'&nbsp;'
+,p_region_template_options=>'#DEFAULT#'
+,p_component_template_options=>'#DEFAULT#'
+,p_region_attributes=>'style="margin-right:5px;width: 225px;"'
+,p_plug_template=>wwv_flow_imp.id(12146131749834911981)
+,p_plug_display_sequence=>5
+,p_plug_new_grid_column=>false
+,p_plug_display_point=>'BODY_3'
+,p_list_id=>wwv_flow_imp.id(12146155451198328465)
+,p_plug_source_type=>'NATIVE_LIST'
+,p_list_template_id=>wwv_flow_imp.id(12146135651272911987)
+,p_plug_query_headings_type=>'QUERY_COLUMNS'
+,p_plug_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
+,p_plug_query_show_nulls_as=>' - '
+,p_pagination_display_position=>'BOTTOM_RIGHT'
+,p_plug_comment=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'Study Submenu',
+'',
+'style="margin-right:3px;width:97%;"'))
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(12146153640882328454)
+,p_plug_name=>'Study Setup'
+,p_region_template_options=>'#DEFAULT#'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(12146130233942911979)
+,p_plug_display_sequence=>1
+,p_plug_new_grid_row=>false
+,p_plug_new_grid_column=>false
+,p_plug_display_column=>1
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>wwv_flow_imp.id(12146137930501911991)
+,p_plug_display_condition_type=>'NEVER'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(12147130331448061732)
+,p_plug_name=>'Breadcrumb'
+,p_region_template_options=>'#DEFAULT#'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(12146130233942911979)
+,p_plug_display_sequence=>1.2
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_menu_id=>wwv_flow_imp.id(12146139932546912016)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>wwv_flow_imp.id(12146137930501911991)
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(1877883611288103717)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(1877883532053103716)
+,p_button_name=>'CREATE_1'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_image_alt=>'Create'
+,p_button_position=>'BELOW_BOX'
+,p_button_alignment=>'RIGHT'
+,p_button_redirect_url=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.:3::'
+,p_button_condition_type=>'NEVER'
+,p_security_scheme=>wwv_flow_imp.id(12146158755186328484)
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(1877883712403103718)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(1877883532053103716)
+,p_button_name=>'EDIT_STUDY_1'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Edit Study'
+,p_button_position=>'CREATE'
+,p_button_alignment=>'RIGHT'
+,p_button_redirect_url=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.:RP::'
+,p_button_condition=>':APP_EDC_ROLE_ID = 13'
+,p_button_condition2=>'PLSQL'
+,p_button_condition_type=>'EXPRESSION'
+,p_security_scheme=>wwv_flow_imp.id(12146159132002328484)
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(12146153045174328448)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_imp.id(12146150546280328444)
+,p_button_name=>'CREATE'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_image_alt=>'Create'
+,p_button_position=>'CREATE'
+,p_button_alignment=>'RIGHT'
+,p_button_redirect_url=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.:3::'
+,p_button_condition_type=>'NEVER'
+,p_security_scheme=>wwv_flow_imp.id(12146158755186328484)
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(12146153239053328449)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_imp.id(12146150546280328444)
+,p_button_name=>'EDIT_STUDY'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Edit Study'
+,p_button_position=>'CREATE'
+,p_button_alignment=>'RIGHT'
+,p_button_redirect_url=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.:RP::'
+,p_button_condition=>':APP_EDC_ROLE_ID = 13'
+,p_button_condition2=>'PLSQL'
+,p_button_condition_type=>'EXPRESSION'
+,p_security_scheme=>wwv_flow_imp.id(12146159132002328484)
+);
+wwv_flow_imp.component_end;
+end;
+/

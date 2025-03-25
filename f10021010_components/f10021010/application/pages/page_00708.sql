@@ -1,0 +1,856 @@
+prompt --application/pages/page_00708
+begin
+--   Manifest
+--     PAGE: 00708
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.05.31'
+,p_release=>'24.1.0'
+,p_default_workspace_id=>666903967469575309
+,p_default_application_id=>10021010
+,p_default_id_offset=>1100950768141504093
+,p_default_owner=>'SUN_21010_DEV'
+);
+wwv_flow_imp_page.create_page(
+ p_id=>708
+,p_tab_set=>'TS1'
+,p_name=>'&APP_PAGE_NAME.'
+,p_step_title=>'&APP_PAGE_NAME.'
+,p_reload_on_submit=>'A'
+,p_warn_on_unsaved_changes=>'N'
+,p_autocomplete_on_off=>'ON'
+,p_javascript_code=>'var htmldb_delete_message=''"DELETE_CONFIRM_MSG"'';'
+,p_page_template_options=>'#DEFAULT#'
+,p_required_role=>wwv_flow_imp.id(12146158257108328472)
+,p_protection_level=>'C'
+,p_help_text=>'No help is available for this page.'
+,p_page_component_map=>'02'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(11447603945239860362)
+,p_plug_name=>'Breadcrumb'
+,p_region_template_options=>'#DEFAULT#'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(12146130233942911979)
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'REGION_POSITION_01'
+,p_menu_id=>wwv_flow_imp.id(12146139932546912016)
+,p_plug_source_type=>'NATIVE_BREADCRUMB'
+,p_menu_template_id=>wwv_flow_imp.id(12146137930501911991)
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(11447638025266077607)
+,p_plug_name=>'&APP_EDC_VISIT_NAME.'
+,p_region_name=>'pg_reg_width'
+,p_region_template_options=>'#DEFAULT#'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(12146130935592911980)
+,p_plug_display_sequence=>20
+,p_plug_new_grid_row=>false
+,p_plug_display_point=>'BODY_3'
+,p_list_id=>wwv_flow_imp.id(12151861941237361088)
+,p_plug_source_type=>'NATIVE_LIST'
+,p_list_template_id=>wwv_flow_imp.id(12146135533614911987)
+,p_plug_query_headings_type=>'QUERY_COLUMNS'
+,p_plug_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
+,p_plug_query_show_nulls_as=>' - '
+,p_pagination_display_position=>'BOTTOM_RIGHT'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(11447638375782077609)
+,p_plug_name=>'&APP_PAGE_NAME.'
+,p_parent_plug_id=>wwv_flow_imp.id(11447638025266077607)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(12146130935592911980)
+,p_plug_display_sequence=>30
+,p_plug_display_point=>'SUB_REGIONS'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'TEXT',
+  'show_line_breaks', 'Y')).to_clob
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(11447646380817077632)
+,p_plug_name=>'temp'
+,p_parent_plug_id=>wwv_flow_imp.id(11447638025266077607)
+,p_plug_display_sequence=>20
+,p_plug_display_point=>'SUB_REGIONS'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML')).to_clob
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(11447649180809077638)
+,p_plug_name=>'Audit'
+,p_parent_plug_id=>wwv_flow_imp.id(11447638025266077607)
+,p_region_template_options=>'#DEFAULT#'
+,p_component_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(12146131134462911980)
+,p_plug_display_sequence=>40
+,p_plug_display_point=>'SUB_REGIONS'
+,p_plug_query_headings_type=>'QUERY_COLUMNS'
+,p_plug_query_num_rows=>15
+,p_plug_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
+,p_plug_query_show_nulls_as=>' - '
+,p_pagination_display_position=>'BOTTOM_RIGHT'
+,p_attributes=>wwv_flow_t_plugin_attributes(wwv_flow_t_varchar2(
+  'expand_shortcuts', 'N',
+  'output_as', 'HTML',
+  'show_line_breaks', 'N')).to_clob
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(11447638799022077610)
+,p_button_sequence=>70
+,p_button_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_button_name=>'SUBMIT_FOR_MONITORING'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Submit'
+,p_button_position=>'BELOW_BOX'
+,p_button_alignment=>'RIGHT'
+,p_button_condition=>'edc_workflow.is_ready_for_submit(:APP_EDC_STUDY_ID,:APP_PAGE_ID,:APP_EDC_PATIENT_VISIT_ID,:APP_EDC_ROLE_ID,4) = 1'
+,p_button_condition2=>'PLSQL'
+,p_button_condition_type=>'EXPRESSION'
+,p_security_scheme=>wwv_flow_imp.id(12146159132002328484)
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(11447639152758077615)
+,p_button_sequence=>80
+,p_button_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_button_name=>'MONITOR_SECTION'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'SDV'
+,p_button_position=>'BELOW_BOX'
+,p_button_alignment=>'RIGHT'
+,p_button_condition=>'edc_workflow.is_ready_for_submit(:APP_EDC_STUDY_ID,:APP_PAGE_ID,:APP_EDC_PATIENT_VISIT_ID,:APP_EDC_ROLE_ID,6) = 1'
+,p_button_condition2=>'PLSQL'
+,p_button_condition_type=>'EXPRESSION'
+,p_grid_new_row=>'N'
+,p_grid_new_column=>'N'
+,p_security_scheme=>wwv_flow_imp.id(12147535227386676937)
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(11447639545608077615)
+,p_button_sequence=>90
+,p_button_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_button_name=>'REVIEW_SECTION_DM'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_image_alt=>'Review'
+,p_button_position=>'BELOW_BOX'
+,p_button_alignment=>'RIGHT'
+,p_button_condition=>'edc_workflow.is_ready_for_submit(:APP_EDC_STUDY_ID,:APP_PAGE_ID,:APP_EDC_PATIENT_VISIT_ID,:APP_EDC_ROLE_ID,8) = 1'
+,p_button_condition2=>'PLSQL'
+,p_button_condition_type=>'EXPRESSION'
+,p_security_scheme=>wwv_flow_imp.id(12163032826120523183)
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(11447639946369077616)
+,p_button_sequence=>100
+,p_button_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_button_name=>'LOCK_SECTION'
+,p_button_action=>'DEFINED_BY_DA'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Lock'
+,p_button_position=>'BELOW_BOX'
+,p_button_alignment=>'RIGHT'
+,p_button_condition=>'edc_workflow.is_ready_for_submit(:APP_EDC_STUDY_ID,:APP_PAGE_ID,:APP_EDC_PATIENT_VISIT_ID,:APP_EDC_ROLE_ID,10) = 1'
+,p_button_condition2=>'PLSQL'
+,p_button_condition_type=>'EXPRESSION'
+,p_security_scheme=>wwv_flow_imp.id(12163032826120523183)
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(11447640329405077616)
+,p_button_sequence=>110
+,p_button_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_button_name=>'UNLOCK_SECTION'
+,p_button_action=>'DEFINED_BY_DA'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_image_alt=>'Unlock'
+,p_button_position=>'BELOW_BOX'
+,p_button_alignment=>'RIGHT'
+,p_button_condition=>'edc_workflow.is_ready_for_submit(:APP_EDC_STUDY_ID,:APP_PAGE_ID,:APP_EDC_PATIENT_VISIT_ID,:APP_EDC_ROLE_ID,11) = 1'
+,p_button_condition2=>'PLSQL'
+,p_button_condition_type=>'EXPRESSION'
+,p_security_scheme=>wwv_flow_imp.id(12163032826120523183)
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(11447641531908077619)
+,p_button_sequence=>30
+,p_button_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_button_name=>'SAVE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Save'
+,p_button_position=>'CHANGE'
+,p_button_alignment=>'RIGHT'
+,p_button_condition=>'P708_CS_ID'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_security_scheme=>wwv_flow_imp.id(12146159132002328484)
+,p_database_action=>'UPDATE'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(11447642423399077620)
+,p_button_sequence=>50
+,p_button_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_button_name=>'ADD_QUERY'
+,p_button_action=>'REDIRECT_URL'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Add Query'
+,p_button_position=>'CHANGE'
+,p_button_alignment=>'RIGHT'
+,p_button_redirect_url=>'javascript:popupURL(''f?p=&APP_ID.:124:&SESSION.::&DEBUG.:RP,124:P124_PATIENT_VISIT_ID,P124_PAGE_ID:&APP_EDC_PATIENT_VISIT_ID.,&APP_PAGE_ID.'');'
+,p_button_condition=>'EDC_WORKFLOW.ALLOW_QUERY(:APP_EDC_STUDY_ID,:APP_EDC_PATIENT_VISIT_ID,:APP_EDC_USER_TYPE,:APP_PAGE_ID) = 1'
+,p_button_condition2=>'PLSQL'
+,p_button_condition_type=>'EXPRESSION'
+,p_security_scheme=>wwv_flow_imp.id(12147781948955952361)
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(11447642744972077622)
+,p_button_sequence=>60
+,p_button_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_button_name=>'SHOW_QUERY'
+,p_button_action=>'REDIRECT_URL'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_image_alt=>'Show Query  <u style=''font-size: 9px ! important; text-decoration: none;''> ( &P701_NO_OF_QUERIES. ) </u>'
+,p_button_position=>'CHANGE'
+,p_button_alignment=>'RIGHT'
+,p_button_redirect_url=>'javascript:popupURL(''f?p=&APP_ID.:6:&APP_SESSION.::&DEBUG.:6:P6_PATIENT_VISIT_ID,P6_PAGE_ID:&APP_EDC_PATIENT_VISIT_ID.,&APP_PAGE_ID.'');'
+,p_button_condition=>'P501_XIC_ID'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(11447640764602077618)
+,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_button_name=>'CANCEL'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_image_alt=>'Back'
+,p_button_position=>'CLOSE'
+,p_button_alignment=>'RIGHT'
+,p_button_redirect_url=>'f?p=&APP_ID.:45:&SESSION.::&DEBUG.:::'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(11447641928581077620)
+,p_button_sequence=>40
+,p_button_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_button_name=>'CREATE'
+,p_button_action=>'SUBMIT'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_is_hot=>'Y'
+,p_button_image_alt=>'Save'
+,p_button_position=>'CREATE'
+,p_button_alignment=>'RIGHT'
+,p_button_condition=>'P708_CS_ID'
+,p_button_condition_type=>'ITEM_IS_NULL'
+,p_security_scheme=>wwv_flow_imp.id(12146158755186328484)
+,p_database_action=>'INSERT'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(11447641127638077618)
+,p_button_sequence=>20
+,p_button_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_button_name=>'DELETE'
+,p_button_action=>'REDIRECT_URL'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
+,p_button_image_alt=>'Delete'
+,p_button_position=>'DELETE'
+,p_button_alignment=>'RIGHT'
+,p_button_redirect_url=>'javascript:apex.confirm(htmldb_delete_message,''DELETE'');'
+,p_button_execute_validations=>'N'
+,p_button_condition=>'P708_CS_ID'
+,p_button_condition_type=>'ITEM_IS_NOT_NULL'
+,p_security_scheme=>wwv_flow_imp.id(12146175855924637885)
+,p_database_action=>'DELETE'
+);
+wwv_flow_imp_page.create_page_branch(
+ p_id=>wwv_flow_imp.id(11447595574047860354)
+,p_branch_action=>'f?p=&APP_ID.:708:&SESSION.&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_sequence=>1
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447595942316860355)
+,p_name=>'P708_CS_ID'
+,p_item_sequence=>10
+,p_item_plug_id=>wwv_flow_imp.id(11447646380817077632)
+,p_use_cache_before_default=>'NO'
+,p_source=>'CS_ID'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_protection_level=>'S'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447597621908860357)
+,p_name=>'P708_PREMIYN'
+,p_item_sequence=>63
+,p_item_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'<b>Previous Heart Failure</b>'
+,p_source=>'PREMIYN'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_named_lov=>'EDC_YES_NO_LOV'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'select lv.display_value d, lv.stored_value r from edc_lov l, edc_lov_values lv',
+'where l.lov_id=lv.lov_id and lov_name=''YES_NO'' and lv.status=1',
+'order by lv.sequence'))
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447598022587860357)
+,p_name=>'P708_CARDIACINDICATION'
+,p_item_sequence=>66
+,p_item_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'<b>Indication for Index Procedure</b>'
+,p_source=>'CARDIACINDICATION'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447598375086860358)
+,p_name=>'P708_ISCHEMDT'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'<b>Date of Last Ischemic Symptoms</b>'
+,p_format_mask=>'DD-MON-YYYY'
+,p_source=>'ISCHEMDT'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_DATE_PICKER'
+,p_cSize=>12
+,p_cMaxlength=>255
+,p_tag_attributes=>'readonly'
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_04=>'button'
+,p_attribute_05=>'N'
+,p_attribute_07=>'MONTH_AND_YEAR'
+,p_attribute_08=>'1951:2050'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447598792872860358)
+,p_name=>'P708_ISCHEMTM'
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'<b>Time of Last Ischemic Symptoms</b>'
+,p_format_mask=>'HH24:MI'
+,p_source=>'ISCHEMTM'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_DATE_PICKER'
+,p_cSize=>6
+,p_cMaxlength=>255
+,p_tag_attributes=>'readonly'
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_04=>'button'
+,p_attribute_05=>'Y'
+,p_attribute_06=>'0'
+,p_attribute_07=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447599218463860358)
+,p_name=>'P708_THROMBOLSIS'
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'<b>Was Thrombolysis done?</b>'
+,p_source=>'THROMBOLSIS'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>25
+,p_cMaxlength=>3
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447599596268860358)
+,p_name=>'P708_THROMBOLSISDT'
+,p_item_sequence=>100
+,p_item_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'<b>Date</b>'
+,p_format_mask=>'DD-MON-YYYY'
+,p_source=>'THROMBOLSISDT'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_DATE_PICKER'
+,p_cSize=>12
+,p_cMaxlength=>255
+,p_tag_attributes=>'readonly'
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_04=>'button'
+,p_attribute_05=>'N'
+,p_attribute_07=>'MONTH_AND_YEAR'
+,p_attribute_08=>'1951:2050'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447599990524860359)
+,p_name=>'P708_THROMBOLSISTM'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'<b>Time</b>'
+,p_format_mask=>'HH24:MI'
+,p_source=>'THROMBOLSISTM'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_DATE_PICKER'
+,p_cSize=>6
+,p_cMaxlength=>255
+,p_tag_attributes=>'readonly'
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_04=>'button'
+,p_attribute_05=>'Y'
+,p_attribute_06=>'0'
+,p_attribute_07=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447600370543860359)
+,p_name=>'P708_ANGINACLASS'
+,p_item_sequence=>120
+,p_item_plug_id=>wwv_flow_imp.id(11447638375782077609)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'<b>Canadian Cardiovascular Society (CCS) Angina Class</b>'
+,p_source=>'ANGINACLASS'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>25
+,p_cMaxlength=>25
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447647164664077634)
+,p_name=>'P708_STUDY_ID'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(11447646380817077632)
+,p_use_cache_before_default=>'NO'
+,p_item_default=>':APP_EDC_STUDY_ID'
+,p_item_default_type=>'EXPRESSION'
+,p_item_default_language=>'PLSQL'
+,p_source=>'STUDY_ID'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'N'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447647621644077635)
+,p_name=>'P708_PATIENT_VISIT_ID'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(11447646380817077632)
+,p_use_cache_before_default=>'NO'
+,p_item_default=>':APP_EDC_PATIENT_VISIT_ID'
+,p_item_default_type=>'EXPRESSION'
+,p_item_default_language=>'PLSQL'
+,p_source=>'PATIENT_VISIT_ID'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'N'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447648417900077636)
+,p_name=>'P708_NO_OF_QUERIES'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(11447646380817077632)
+,p_use_cache_before_default=>'NO'
+,p_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'SELECT COUNT(*) FROM edc_crf_queries',
+' where patient_visit_id = :APP_EDC_PATIENT_VISIT_ID',
+'   AND PAGE_ID = :APP_PAGE_ID',
+'   AND STUDY_ID = :APP_EDC_STUDY_ID',
+' AND QRY_STATUS in (''Open'',''Reopened'')'))
+,p_source_type=>'QUERY'
+,p_display_as=>'NATIVE_HIDDEN'
+,p_cSize=>25
+,p_cMaxlength=>4000
+,p_cHeight=>1
+,p_label_alignment=>'RIGHT'
+,p_field_alignment=>'LEFT-CENTER'
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'Y'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447648752685077637)
+,p_name=>'P708_IMG'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(11447646380817077632)
+,p_prompt=>'<b>CRF Audit Trail :</b>'
+,p_pre_element_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'<img ',
+' id="P708_AUDIT"',
+' src="#WORKSPACE_IMAGES#audit.png" ',
+'',
+' style="cursor: pointer" ',
+'         width="25px"',
+' title="Audit"',
+'>',
+''))
+,p_display_as=>'NATIVE_DISPLAY_ONLY'
+,p_tag_attributes=>'readonly="readonly"'
+,p_begin_on_new_line=>'N'
+,p_field_alignment=>'LEFT-CENTER'
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'Y'
+,p_attribute_02=>'VALUE'
+,p_attribute_04=>'Y'
+,p_attribute_05=>'PLAIN'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447649566459077639)
+,p_name=>'P708_CREATED_BY'
+,p_item_sequence=>150
+,p_item_plug_id=>wwv_flow_imp.id(11447649180809077638)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'<b>Created By</b>'
+,p_source=>'CREATED_BY'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>20
+,p_cMaxlength=>20
+,p_cHeight=>1
+,p_tag_attributes=>'readonly="readonly;"'
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447649999343077640)
+,p_name=>'P708_CREATED_DT'
+,p_item_sequence=>160
+,p_item_plug_id=>wwv_flow_imp.id(11447649180809077638)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'<b>Created Date</b>'
+,p_format_mask=>'DD-MON-YYYY HH24:MI:SS'
+,p_source=>'CREATED_DT'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>22
+,p_cMaxlength=>255
+,p_cHeight=>1
+,p_tag_attributes=>'readonly="readonly;"'
+,p_begin_on_new_line=>'N'
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447650359399077641)
+,p_name=>'P708_UPDATED_BY'
+,p_item_sequence=>170
+,p_item_plug_id=>wwv_flow_imp.id(11447649180809077638)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'<b>Updated By</b>'
+,p_source=>'UPDATED_BY'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>20
+,p_cMaxlength=>20
+,p_cHeight=>1
+,p_tag_attributes=>'readonly="readonly;"'
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447650749761077642)
+,p_name=>'P708_UPDATED_DT'
+,p_item_sequence=>180
+,p_item_plug_id=>wwv_flow_imp.id(11447649180809077638)
+,p_use_cache_before_default=>'NO'
+,p_prompt=>'<b>Updated Date</b>'
+,p_format_mask=>'DD-MON-YYYY HH24:MI:SS'
+,p_source=>'UPDATED_DT'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>22
+,p_cMaxlength=>255
+,p_cHeight=>1
+,p_tag_attributes=>'readonly="readonly;"'
+,p_begin_on_new_line=>'N'
+,p_label_alignment=>'RIGHT'
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(11447692434063187525)
+,p_name=>'P708_SECTION_STATUS'
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(11447646380817077632)
+,p_use_cache_before_default=>'NO'
+,p_item_default=>'2'
+,p_prompt=>'<b>Section Status :</b>'
+,p_source=>'SECTION_STATUS'
+,p_source_type=>'DB_COLUMN'
+,p_display_as=>'NATIVE_SELECT_LIST'
+,p_named_lov=>'EDC_CRF_STATUS_LOV'
+,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'select DISPLAY_VAL d, RETURN_VAL r from EDC_CRF_STATUS',
+'where status=1 order by disp_seq'))
+,p_lov_display_null=>'YES'
+,p_cHeight=>1
+,p_label_alignment=>'RIGHT'
+,p_read_only_when_type=>'ALWAYS'
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
+,p_item_template_options=>'#DEFAULT#'
+,p_lov_display_extra=>'YES'
+,p_encrypt_session_state_yn=>'N'
+,p_attribute_01=>'NONE'
+);
+wwv_flow_imp_page.create_page_computation(
+ p_id=>wwv_flow_imp.id(11447675883421122180)
+,p_computation_sequence=>10
+,p_computation_item=>'P708_CS_ID'
+,p_computation_point=>'BEFORE_HEADER'
+,p_computation_type=>'FUNCTION_BODY'
+,p_computation_language=>'PLSQL'
+,p_computation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'BEGIN',
+'  RETURN EDC_UTIL.GET_PK_VALUE_COMPUTATION(:APP_EDC_STUDY_ID,:APP_EDC_PATIENT_VISIT_ID,:APP_PAGE_ID);',
+'END;'))
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(11447602795719860361)
+,p_process_sequence=>10
+,p_process_point=>'AFTER_HEADER'
+,p_process_type=>'NATIVE_FORM_FETCH'
+,p_process_name=>'Fetch Row from EDC_CRF_CARDSTS'
+,p_attribute_02=>'EDC_CRF_CARDSTS'
+,p_attribute_03=>'P708_CS_ID'
+,p_attribute_04=>'CS_ID'
+,p_internal_uid=>10346652027578356268
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(11447603207131860361)
+,p_process_sequence=>30
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_FORM_PROCESS'
+,p_process_name=>'Process Row of EDC_CRF_CARDSTS'
+,p_attribute_02=>'EDC_CRF_CARDSTS'
+,p_attribute_03=>'P708_CS_ID'
+,p_attribute_04=>'CS_ID'
+,p_attribute_11=>'I:U:D'
+,p_attribute_12=>'Y'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_success_message=>'Action Processed.'
+,p_internal_uid=>10346652438990356268
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(11447684735431133421)
+,p_process_sequence=>40
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'UPDATE_VISIT_STATUS'
+,p_process_sql_clob=>'EDC_WORKFLOW.update_visit_status(:APP_EDC_STUDY_ID,:APP_EDC_PATIENT_VISIT_ID);'
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when=>':REQUEST IN (''SAVE'',''CREATE'')'
+,p_process_when_type=>'EXPRESSION'
+,p_process_when2=>'PLSQL'
+,p_internal_uid=>10346733967289629328
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(11447685083514134482)
+,p_process_sequence=>50
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'SUBMIT_FOR_CRA_REVIEW'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'',
+'edc_workflow.UPDATE_WORKFLOW_STATUS(:APP_EDC_STUDY_ID,:APP_PAGE_ID,:APP_EDC_PATIENT_VISIT_ID,:APP_EDC_ROLE_ID,'''');',
+'',
+'end;'))
+,p_process_clob_language=>'PLSQL'
+,p_process_error_message=>'#SQLERRM# - Error while submitting for Monitoring.'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when=>':REQUEST = ''SUBMIT_FOR_MONITORING'''
+,p_process_when_type=>'EXPRESSION'
+,p_process_when2=>'PLSQL'
+,p_process_success_message=>'Submitted for Monitoring.'
+,p_internal_uid=>10346734315372630389
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(11447685392155135483)
+,p_process_sequence=>60
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'SDV'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'',
+'edc_workflow.UPDATE_WORKFLOW_STATUS(:APP_EDC_STUDY_ID,:APP_PAGE_ID,:APP_EDC_PATIENT_VISIT_ID,:APP_EDC_ROLE_ID,'''');',
+'',
+'',
+'end;'))
+,p_process_clob_language=>'PLSQL'
+,p_process_error_message=>'#SQLERRM# - Error while Monitoring.'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when=>':REQUEST = ''MONITOR_SECTION'''
+,p_process_when_type=>'EXPRESSION'
+,p_process_when2=>'PLSQL'
+,p_process_success_message=>'Section Monitored.'
+,p_internal_uid=>10346734624013631390
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(11447685907959136841)
+,p_process_sequence=>70
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'DM_REVIEW'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'',
+'edc_workflow.UPDATE_WORKFLOW_STATUS(:APP_EDC_STUDY_ID,:APP_PAGE_ID,:APP_EDC_PATIENT_VISIT_ID,:APP_EDC_ROLE_ID,'''');',
+'',
+'',
+'end;'))
+,p_process_clob_language=>'PLSQL'
+,p_process_error_message=>'#SQLERRM# -While reviewing the section for site.'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when=>':REQUEST = ''REVIEW_SECTION_DM'''
+,p_process_when_type=>'EXPRESSION'
+,p_process_when2=>'PLSQL'
+,p_process_success_message=>'Section reviewed.'
+,p_internal_uid=>10346735139817632748
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(11447686282057138048)
+,p_process_sequence=>80
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'DM_LOCK'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'',
+'edc_workflow.UPDATE_WORKFLOW_STATUS(:APP_EDC_STUDY_ID,:APP_PAGE_ID,:APP_EDC_PATIENT_VISIT_ID,:APP_EDC_ROLE_ID,'''');',
+'',
+'',
+'end;'))
+,p_process_clob_language=>'PLSQL'
+,p_process_error_message=>'#SQLERRM# - While section Lock.'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when=>':REQUEST = ''LOCK_SECTION'''
+,p_process_when_type=>'EXPRESSION'
+,p_process_when2=>'PLSQL'
+,p_process_success_message=>'Section Locked.'
+,p_internal_uid=>10346735513915633955
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(11447686664715139151)
+,p_process_sequence=>90
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'DM_UNLOCK'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'',
+'edc_workflow.UPDATE_WORKFLOW_STATUS(:APP_EDC_STUDY_ID,:APP_PAGE_ID,:APP_EDC_PATIENT_VISIT_ID,:APP_EDC_ROLE_ID,''O'');',
+'',
+'',
+'end;'))
+,p_process_clob_language=>'PLSQL'
+,p_process_error_message=>'#SQLERRM# - Error while unlocking the section.'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when=>':REQUEST = ''UNLOCK_SECTION'''
+,p_process_when_type=>'EXPRESSION'
+,p_process_when2=>'PLSQL'
+,p_process_success_message=>'Section unlocked.'
+,p_internal_uid=>10346735896573635058
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(11447687186084140022)
+,p_process_sequence=>100
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_SESSION_STATE'
+,p_process_name=>'reset page'
+,p_attribute_01=>'CLEAR_CACHE_CURRENT_PAGE'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+,p_process_when=>':REQUEST = ''DELETE'''
+,p_process_when_type=>'EXPRESSION'
+,p_process_when2=>'PLSQL'
+,p_internal_uid=>10346736417942635929
+);
+wwv_flow_imp.component_end;
+end;
+/
