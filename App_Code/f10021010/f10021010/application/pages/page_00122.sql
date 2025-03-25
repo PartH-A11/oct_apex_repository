@@ -8,7 +8,7 @@ wwv_flow_imp.component_begin (
 ,p_release=>'24.1.0'
 ,p_default_workspace_id=>666903967469575309
 ,p_default_application_id=>10021010
-,p_default_id_offset=>759714394172364641
+,p_default_id_offset=>1100950768141504093
 ,p_default_owner=>'SUN_21010_DEV'
 );
 wwv_flow_imp_page.create_page(
@@ -21,11 +21,11 @@ wwv_flow_imp_page.create_page(
 ,p_page_component_map=>'18'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(2450962570278035798)
+ p_id=>wwv_flow_imp.id(3551913338419539891)
 ,p_plug_name=>'Mail History Report'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_region_attributes=>'style="margin-left:10px;"'
-,p_plug_template=>wwv_flow_imp.id(11045181488778407888)
+,p_plug_template=>wwv_flow_imp.id(12146132256919911981)
 ,p_plug_display_sequence=>49
 ,p_plug_new_grid_row=>false
 ,p_plug_display_point=>'BODY_1'
@@ -47,7 +47,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_prn_content_disposition=>'ATTACHMENT'
 );
 wwv_flow_imp_page.create_worksheet(
- p_id=>wwv_flow_imp.id(2450963013287035798)
+ p_id=>wwv_flow_imp.id(3551913781428539891)
 ,p_name=>'Report 1'
 ,p_max_row_count=>'1000000'
 ,p_max_row_count_message=>'The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query.'
@@ -67,7 +67,7 @@ wwv_flow_imp_page.create_worksheet(
 ,p_internal_uid=>258437793458392727
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2450963094580035805)
+ p_id=>wwv_flow_imp.id(3551913862721539898)
 ,p_db_column_name=>'MAIL_HISTORY_ID'
 ,p_display_order=>1
 ,p_column_identifier=>'A'
@@ -77,7 +77,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2450963513112035807)
+ p_id=>wwv_flow_imp.id(3551914281253539900)
 ,p_db_column_name=>'MAIL_TO'
 ,p_display_order=>2
 ,p_column_identifier=>'B'
@@ -87,7 +87,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2450963904417035808)
+ p_id=>wwv_flow_imp.id(3551914672558539901)
 ,p_db_column_name=>'MAIL_FROM'
 ,p_display_order=>3
 ,p_column_identifier=>'C'
@@ -97,7 +97,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2450964235740035808)
+ p_id=>wwv_flow_imp.id(3551915003881539901)
 ,p_db_column_name=>'MAIL_CC'
 ,p_display_order=>4
 ,p_column_identifier=>'D'
@@ -107,7 +107,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2450964709193035808)
+ p_id=>wwv_flow_imp.id(3551915477334539901)
 ,p_db_column_name=>'MAIL_BCC'
 ,p_display_order=>5
 ,p_column_identifier=>'E'
@@ -117,7 +117,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2450965113331035809)
+ p_id=>wwv_flow_imp.id(3551915881472539902)
 ,p_db_column_name=>'MAIL_SUBJECT'
 ,p_display_order=>6
 ,p_column_identifier=>'F'
@@ -128,7 +128,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2450965457778035810)
+ p_id=>wwv_flow_imp.id(3551916225919539903)
 ,p_db_column_name=>'MAIL_BODY_HTML'
 ,p_display_order=>7
 ,p_column_identifier=>'G'
@@ -147,7 +147,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2450965867449035810)
+ p_id=>wwv_flow_imp.id(3551916635590539903)
 ,p_db_column_name=>'MAIL_ON'
 ,p_display_order=>8
 ,p_column_identifier=>'H'
@@ -158,7 +158,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_rpt(
- p_id=>wwv_flow_imp.id(2450969164876043609)
+ p_id=>wwv_flow_imp.id(3551919933017547702)
 ,p_application_user=>'APXWS_DEFAULT'
 ,p_report_seq=>10
 ,p_report_alias=>'2584440'
@@ -167,38 +167,38 @@ wwv_flow_imp_page.create_worksheet_rpt(
 ,p_report_columns=>'MAIL_SUBJECT:MAIL_ON:MAIL_BODY_HTML:'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(2450966862529035813)
+ p_id=>wwv_flow_imp.id(3551917630670539906)
 ,p_plug_name=>'Breadcrumb'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_imp.id(11045179465801407886)
+,p_plug_template=>wwv_flow_imp.id(12146130233942911979)
 ,p_plug_display_sequence=>10
 ,p_plug_display_point=>'REGION_POSITION_01'
-,p_menu_id=>wwv_flow_imp.id(11045189164405407923)
+,p_menu_id=>wwv_flow_imp.id(12146139932546912016)
 ,p_plug_source_type=>'NATIVE_BREADCRUMB'
-,p_menu_template_id=>wwv_flow_imp.id(11045187162360407898)
+,p_menu_template_id=>wwv_flow_imp.id(12146137930501911991)
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(11319748454546582065)
+ p_id=>wwv_flow_imp.id(12420699222688086158)
 ,p_plug_name=>'Admin Reports List'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_imp.id(11045181058343407888)
+,p_plug_template=>wwv_flow_imp.id(12146131826484911981)
 ,p_plug_display_sequence=>20
 ,p_plug_new_grid=>true
 ,p_plug_display_point=>'BODY_1'
-,p_list_id=>wwv_flow_imp.id(2451364379095083907)
+,p_list_id=>wwv_flow_imp.id(3552315147236588000)
 ,p_plug_source_type=>'NATIVE_LIST'
-,p_list_template_id=>wwv_flow_imp.id(11061512871844880215)
+,p_list_template_id=>wwv_flow_imp.id(12162463639986384308)
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(2450966290614035811)
+ p_id=>wwv_flow_imp.id(3551917058755539904)
 ,p_button_sequence=>30
-,p_button_plug_id=>wwv_flow_imp.id(2450962570278035798)
+,p_button_plug_id=>wwv_flow_imp.id(3551913338419539891)
 ,p_button_name=>'CREATE'
 ,p_button_action=>'REDIRECT_PAGE'
 ,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>wwv_flow_imp.id(11045186175944407897)
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
 ,p_button_is_hot=>'Y'
 ,p_button_image_alt=>'Create'
 ,p_button_position=>'RIGHT_OF_IR_SEARCH_BAR'

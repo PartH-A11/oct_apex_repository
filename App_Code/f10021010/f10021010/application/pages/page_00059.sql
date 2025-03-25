@@ -8,7 +8,7 @@ wwv_flow_imp.component_begin (
 ,p_release=>'24.1.0'
 ,p_default_workspace_id=>666903967469575309
 ,p_default_application_id=>10021010
-,p_default_id_offset=>759714394172364641
+,p_default_id_offset=>1100950768141504093
 ,p_default_owner=>'SUN_21010_DEV'
 );
 wwv_flow_imp_page.create_page(
@@ -30,16 +30,16 @@ wwv_flow_imp_page.create_page(
 '        alert(''Reason must be specified.'');',
 '    }        ',
 '}'))
-,p_step_template=>wwv_flow_imp.id(9916884921573203154)
+,p_step_template=>wwv_flow_imp.id(11017835689714707247)
 ,p_page_template_options=>'#DEFAULT#'
 ,p_help_text=>'No help is available for this page.'
 ,p_page_component_map=>'16'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(10181386972125006604)
+ p_id=>wwv_flow_imp.id(11282337740266510697)
 ,p_plug_name=>'Shipment Quarantined'
 ,p_region_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_imp.id(11045181488778407888)
+,p_plug_template=>wwv_flow_imp.id(12146132256919911981)
 ,p_plug_display_sequence=>211
 ,p_include_in_reg_disp_sel_yn=>'Y'
 ,p_plug_display_point=>'BODY_3'
@@ -48,13 +48,13 @@ wwv_flow_imp_page.create_page_plug(
   'output_as', 'HTML')).to_clob
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(10181387022496006605)
+ p_id=>wwv_flow_imp.id(11282337790637510698)
 ,p_button_sequence=>10
-,p_button_plug_id=>wwv_flow_imp.id(10181386972125006604)
+,p_button_plug_id=>wwv_flow_imp.id(11282337740266510697)
 ,p_button_name=>'Save'
 ,p_button_action=>'REDIRECT_URL'
 ,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>wwv_flow_imp.id(11045186175944407897)
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
 ,p_button_is_hot=>'Y'
 ,p_button_image_alt=>'Save'
 ,p_button_position=>'CLOSE'
@@ -62,42 +62,42 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_redirect_url=>'javascript:saveClick();'
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(10181387173138006606)
+ p_id=>wwv_flow_imp.id(11282337941279510699)
 ,p_button_sequence=>20
-,p_button_plug_id=>wwv_flow_imp.id(10181386972125006604)
+,p_button_plug_id=>wwv_flow_imp.id(11282337740266510697)
 ,p_button_name=>'CLOSE'
 ,p_button_action=>'REDIRECT_URL'
 ,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>wwv_flow_imp.id(11045186175944407897)
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
 ,p_button_image_alt=>'Close'
 ,p_button_position=>'CLOSE'
 ,p_button_alignment=>'RIGHT'
 ,p_button_redirect_url=>'javascript:window.parent.$(window.parent.document).apex_modal_page(''close'','''');'
-,p_security_scheme=>wwv_flow_imp.id(11045208363860824391)
+,p_security_scheme=>wwv_flow_imp.id(12146159132002328484)
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(10186286627915914857)
+ p_id=>wwv_flow_imp.id(11287237396057418950)
 ,p_name=>'P59_SHIP_ID'
 ,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(10181386972125006604)
+,p_item_plug_id=>wwv_flow_imp.id(11282337740266510697)
 ,p_use_cache_before_default=>'NO'
 ,p_display_as=>'NATIVE_HIDDEN'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(10186286794314914858)
+ p_id=>wwv_flow_imp.id(11287237562456418951)
 ,p_name=>'P59_COMMENTS'
 ,p_is_required=>true
 ,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(10181386972125006604)
+,p_item_plug_id=>wwv_flow_imp.id(11282337740266510697)
 ,p_prompt=>'Specify Reason'
 ,p_display_as=>'NATIVE_TEXTAREA'
 ,p_cSize=>60
 ,p_cHeight=>5
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185979045407896)
+,p_field_template=>wwv_flow_imp.id(12146136747186911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'Y'
@@ -106,7 +106,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_04=>'BOTH'
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(10186286829078914859)
+ p_id=>wwv_flow_imp.id(11287237597220418952)
 ,p_process_sequence=>10
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'

@@ -8,7 +8,7 @@ wwv_flow_imp.component_begin (
 ,p_release=>'24.1.0'
 ,p_default_workspace_id=>666903967469575309
 ,p_default_application_id=>10021010
-,p_default_id_offset=>759714394172364641
+,p_default_id_offset=>1100950768141504093
 ,p_default_owner=>'SUN_21010_DEV'
 );
 wwv_flow_imp_page.create_page(
@@ -27,23 +27,23 @@ wwv_flow_imp_page.create_page(
 ,p_page_component_map=>'02'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(10895885333311710296)
+ p_id=>wwv_flow_imp.id(11996836101453214389)
 ,p_plug_name=>'Breadcrumb'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_imp.id(11045179465801407886)
+,p_plug_template=>wwv_flow_imp.id(12146130233942911979)
 ,p_plug_display_sequence=>1
 ,p_plug_display_point=>'REGION_POSITION_01'
-,p_menu_id=>wwv_flow_imp.id(11045189164405407923)
+,p_menu_id=>wwv_flow_imp.id(12146139932546912016)
 ,p_plug_source_type=>'NATIVE_BREADCRUMB'
-,p_menu_template_id=>wwv_flow_imp.id(11045187162360407898)
+,p_menu_template_id=>wwv_flow_imp.id(12146137930501911991)
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(11046298465491128848)
+ p_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_plug_name=>' Study Details'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_imp.id(11045180167451407887)
+,p_plug_template=>wwv_flow_imp.id(12146130935592911980)
 ,p_plug_display_sequence=>10
 ,p_plug_new_grid_row=>false
 ,p_plug_display_column=>2
@@ -57,46 +57,46 @@ wwv_flow_imp_page.create_page_plug(
 'style = "width: 850px;"'))
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(11046313756952149053)
+ p_id=>wwv_flow_imp.id(12147264525093653146)
 ,p_plug_name=>'&nbsp;'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
 ,p_region_attributes=>'style="margin-right:5px;"'
-,p_plug_template=>wwv_flow_imp.id(11045180981693407888)
+,p_plug_template=>wwv_flow_imp.id(12146131749834911981)
 ,p_plug_display_sequence=>5
 ,p_plug_new_grid_row=>false
 ,p_plug_display_column=>1
 ,p_plug_display_point=>'BODY_3'
-,p_list_id=>wwv_flow_imp.id(11045204683056824372)
+,p_list_id=>wwv_flow_imp.id(12146155451198328465)
 ,p_plug_source_type=>'NATIVE_LIST'
-,p_list_template_id=>wwv_flow_imp.id(11045184883131407894)
+,p_list_template_id=>wwv_flow_imp.id(12146135651272911987)
 ,p_plug_query_headings_type=>'QUERY_COLUMNS'
 ,p_plug_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
 ,p_plug_query_show_nulls_as=>' - '
 ,p_pagination_display_position=>'BOTTOM_RIGHT'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(11051653662115913419)
+ p_id=>wwv_flow_imp.id(12152604430257417512)
 ,p_plug_name=>'CRF_VISIT_SECTION'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
 ,p_plug_display_sequence=>3
 ,p_plug_new_grid_row=>false
 ,p_plug_display_point=>'BODY_3'
-,p_list_id=>wwv_flow_imp.id(11050911173095856995)
+,p_list_id=>wwv_flow_imp.id(12151861941237361088)
 ,p_plug_source_type=>'NATIVE_LIST'
-,p_list_template_id=>wwv_flow_imp.id(11045184765473407894)
+,p_list_template_id=>wwv_flow_imp.id(12146135533614911987)
 ,p_plug_display_condition_type=>'NEVER'
 ,p_plug_read_only_when_type=>'NEVER'
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(11046298883740128849)
+ p_id=>wwv_flow_imp.id(12147249651881632942)
 ,p_button_sequence=>40
-,p_button_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_button_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_button_name=>'SAVE'
 ,p_button_action=>'SUBMIT'
 ,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>wwv_flow_imp.id(11045186175944407897)
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
 ,p_button_is_hot=>'Y'
 ,p_button_image_alt=>'Save'
 ,p_button_position=>'CHANGE'
@@ -113,54 +113,54 @@ wwv_flow_imp_page.create_page_button(
 'end;'))
 ,p_button_condition2=>'PLSQL'
 ,p_button_condition_type=>'FUNCTION_BODY'
-,p_security_scheme=>wwv_flow_imp.id(11045208363860824391)
+,p_security_scheme=>wwv_flow_imp.id(12146159132002328484)
 ,p_database_action=>'UPDATE'
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(11046299077171128849)
+ p_id=>wwv_flow_imp.id(12147249845312632942)
 ,p_button_sequence=>30
-,p_button_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_button_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_button_name=>'CANCEL'
 ,p_button_action=>'REDIRECT_PAGE'
 ,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>wwv_flow_imp.id(11045186175944407897)
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
 ,p_button_image_alt=>'Back'
 ,p_button_position=>'CLOSE'
 ,p_button_alignment=>'RIGHT'
 ,p_button_redirect_url=>'f?p=&APP_ID.:2:&SESSION.::&DEBUG.:::'
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(11046298683464128849)
+ p_id=>wwv_flow_imp.id(12147249451605632942)
 ,p_button_sequence=>50
-,p_button_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_button_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_button_name=>'CREATE'
 ,p_button_action=>'SUBMIT'
 ,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>wwv_flow_imp.id(11045186175944407897)
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
 ,p_button_is_hot=>'Y'
 ,p_button_image_alt=>'Save'
 ,p_button_position=>'CREATE'
 ,p_button_alignment=>'RIGHT'
 ,p_button_condition=>'P3_STUDY_ID'
 ,p_button_condition_type=>'ITEM_IS_NULL'
-,p_security_scheme=>wwv_flow_imp.id(11045207987044824391)
+,p_security_scheme=>wwv_flow_imp.id(12146158755186328484)
 ,p_database_action=>'INSERT'
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(4134567557406079333)
+ p_id=>wwv_flow_imp.id(5235518325547583426)
 ,p_button_sequence=>10
-,p_button_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_button_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_button_name=>'Audit'
 ,p_button_action=>'DEFINED_BY_DA'
 ,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>wwv_flow_imp.id(11045186175944407897)
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
 ,p_button_image_alt=>'Audit Trail'
 ,p_button_position=>'EDIT'
 ,p_button_alignment=>'RIGHT'
 ,p_warn_on_unsaved_changes=>null
 );
 wwv_flow_imp_page.create_page_branch(
- p_id=>wwv_flow_imp.id(11046305581537128867)
+ p_id=>wwv_flow_imp.id(12147256349678632960)
 ,p_branch_action=>'f?p=&APP_ID.:2:&SESSION.::&DEBUG.:::&success_msg=#SUCCESS_MSG#'
 ,p_branch_point=>'AFTER_PROCESSING'
 ,p_branch_type=>'REDIRECT_URL'
@@ -168,10 +168,10 @@ wwv_flow_imp_page.create_page_branch(
 ,p_save_state_before_branch_yn=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(712299784013004553)
+ p_id=>wwv_flow_imp.id(1813250552154508646)
 ,p_name=>'P3_BLINDED_FLAG'
 ,p_item_sequence=>372
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> Blinded flag </b>'
 ,p_source=>'BLINDED_FLAG'
@@ -187,17 +187,17 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185769059407896)
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(2190979258266653602)
+ p_id=>wwv_flow_imp.id(3291930026408157695)
 ,p_name=>'P3_CAUCASIAN_CAP'
 ,p_item_sequence=>152
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b>Other Cap</b>'
 ,p_source=>'CAUCASIAN_CAP'
@@ -208,17 +208,17 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185769059407896)
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_03=>'right'
 ,p_attribute_04=>'text'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(2190979411046653603)
+ p_id=>wwv_flow_imp.id(3291930179188157696)
 ,p_name=>'P3_CAUCASIAN_CAP_CHANGE'
 ,p_item_sequence=>172
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
@@ -228,7 +228,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -237,10 +237,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(2696258182812578373)
+ p_id=>wwv_flow_imp.id(3797208950954082466)
 ,p_name=>'P3_ANDROID_VERSION'
 ,p_item_sequence=>442
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b>Android Version</b>'
 ,p_source=>'ANDROID_VERSION'
@@ -251,7 +251,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
 ,p_display_when_type=>'NEVER'
-,p_field_template=>wwv_flow_imp.id(11045185769059407896)
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -260,10 +260,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(2696258291338578374)
+ p_id=>wwv_flow_imp.id(3797209059480082467)
 ,p_name=>'P3_IOS_VERSION'
 ,p_item_sequence=>452
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b>iOS Version</b>'
 ,p_source=>'IOS_VERSION'
@@ -275,7 +275,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
 ,p_display_when_type=>'NEVER'
-,p_field_template=>wwv_flow_imp.id(11045185769059407896)
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -284,10 +284,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(3656813961846224306)
+ p_id=>wwv_flow_imp.id(4757764729987728399)
 ,p_name=>'P3_PERC_CAP'
 ,p_item_sequence=>102
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> Indian Cap </b>'
 ,p_source=>'PERC_CAP'
@@ -298,17 +298,17 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185769059407896)
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_03=>'right'
 ,p_attribute_04=>'text'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(3656813999858224307)
+ p_id=>wwv_flow_imp.id(4757764767999728400)
 ,p_name=>'P3_PERC_CAP_CHANGE'
 ,p_item_sequence=>122
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
@@ -318,7 +318,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -327,10 +327,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4047942274246827837)
+ p_id=>wwv_flow_imp.id(5148893042388331930)
 ,p_name=>'P3_STUDY_NUMBER_CHANGE'
 ,p_item_sequence=>32
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -338,7 +338,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>4000
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -347,10 +347,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4047942958511827844)
+ p_id=>wwv_flow_imp.id(5148893726653331937)
 ,p_name=>'P3_PROTOCOL_NUMBER_CHANGE'
 ,p_item_sequence=>22
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -359,7 +359,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -368,10 +368,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4047943787984827852)
+ p_id=>wwv_flow_imp.id(5148894556126331945)
 ,p_name=>'P3_SPONSOR_ID_CHANGE'
 ,p_item_sequence=>62
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -379,7 +379,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>4000
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -388,10 +388,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4134145332600404709)
+ p_id=>wwv_flow_imp.id(5235096100741908802)
 ,p_name=>'P3_TITLE_CHANGE'
 ,p_item_sequence=>82
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -399,7 +399,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>4000
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -408,10 +408,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4134145988529404716)
+ p_id=>wwv_flow_imp.id(5235096756670908809)
 ,p_name=>'P3_TOT_PATIENTS_CHANGE'
 ,p_item_sequence=>112
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -419,7 +419,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>4000
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -428,10 +428,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4134146713127404723)
+ p_id=>wwv_flow_imp.id(5235097481268908816)
 ,p_name=>'P3_THERAPEUTIC_AREA_CHANGE'
 ,p_item_sequence=>162
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -439,7 +439,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>4000
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -448,10 +448,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4134147382932404730)
+ p_id=>wwv_flow_imp.id(5235098151073908823)
 ,p_name=>'P3_START_DATE_CHANGE'
 ,p_item_sequence=>222
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -459,7 +459,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>4000
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -468,10 +468,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4134148053030404737)
+ p_id=>wwv_flow_imp.id(5235098821171908830)
 ,p_name=>'P3_END_DATE_CHANGE'
 ,p_item_sequence=>212
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -482,7 +482,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -491,10 +491,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4134148801417404744)
+ p_id=>wwv_flow_imp.id(5235099569558908837)
 ,p_name=>'P3_PATIENT_RECRUIT_CHANGE'
 ,p_item_sequence=>262
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -504,7 +504,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -513,10 +513,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4134149459304404751)
+ p_id=>wwv_flow_imp.id(5235100227445908844)
 ,p_name=>'P3_PHASE_CHANGE'
 ,p_item_sequence=>252
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -527,7 +527,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -536,10 +536,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4134336128064020406)
+ p_id=>wwv_flow_imp.id(5235286896205524499)
 ,p_name=>'P3_STUDY_ACTIVE_CHANGE'
 ,p_item_sequence=>302
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -549,7 +549,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -558,10 +558,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4134336772365020413)
+ p_id=>wwv_flow_imp.id(5235287540506524506)
 ,p_name=>'P3_BLINDED_CHANGE'
 ,p_item_sequence=>292
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -572,7 +572,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -581,10 +581,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4134337842001020423)
+ p_id=>wwv_flow_imp.id(5235288610142524516)
 ,p_name=>'P3_DRUG_SHIPMENT_CHANGE'
 ,p_item_sequence=>342
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -594,7 +594,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -603,10 +603,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4134338511722020430)
+ p_id=>wwv_flow_imp.id(5235289279863524523)
 ,p_name=>'P3_CALC_SCH_VISIT_FROM_CHANGE'
 ,p_item_sequence=>362
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -616,7 +616,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -625,10 +625,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4134339195248020437)
+ p_id=>wwv_flow_imp.id(5235289963389524530)
 ,p_name=>'P3_NOTES_CHANGE'
 ,p_item_sequence=>392
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -638,7 +638,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -647,10 +647,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(4134339911211020444)
+ p_id=>wwv_flow_imp.id(5235290679352524537)
 ,p_name=>'P3_STUDY_DURATION_CHANGE'
 ,p_item_sequence=>332
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_prompt=>'<b>Reason For Change</b>'
 ,p_placeholder=>'Reason For Change'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
@@ -661,7 +661,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185664598407896)
+,p_field_template=>wwv_flow_imp.id(12146136432739911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -670,10 +670,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046299288829128851)
+ p_id=>wwv_flow_imp.id(12147250056970632944)
 ,p_name=>'P3_TOT_PATIENTS'
 ,p_item_sequence=>92
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> Number of Subjects </b>'
 ,p_source=>'TOT_PATIENTS'
@@ -683,17 +683,17 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>4000
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185769059407896)
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_03=>'right'
 ,p_attribute_04=>'text'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046299472454128852)
+ p_id=>wwv_flow_imp.id(12147250240595632945)
 ,p_name=>'P3_BLINDED'
 ,p_item_sequence=>282
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> Study Blinded </b>'
 ,p_source=>'BLINDED'
@@ -713,17 +713,17 @@ wwv_flow_imp_page.create_page_item(
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
 ,p_read_only_when_type=>'ALWAYS'
-,p_field_template=>wwv_flow_imp.id(11045185857341407896)
+,p_field_template=>wwv_flow_imp.id(12146136625482911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046299679813128852)
+ p_id=>wwv_flow_imp.id(12147250447954632945)
 ,p_name=>'P3_CALC_SCH_VISIT_FROM'
 ,p_item_sequence=>352
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> Calc. Visit Schedule from </b>'
 ,p_source=>'CALC_SCH_VISIT_FROM'
@@ -740,17 +740,17 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185857341407896)
+,p_field_template=>wwv_flow_imp.id(12146136625482911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046299874866128852)
+ p_id=>wwv_flow_imp.id(12147250643007632945)
 ,p_name=>'P3_DRUG_DEVICE'
 ,p_item_sequence=>432
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_source=>'DRUG_DEVICE'
 ,p_source_type=>'DB_COLUMN'
@@ -759,10 +759,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_01=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046300061143128852)
+ p_id=>wwv_flow_imp.id(12147250829284632945)
 ,p_name=>'P3_DRUG_SHIPMENT'
 ,p_item_sequence=>312
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> IP Shipment </b>'
 ,p_source=>'DRUG_SHIPMENT'
@@ -780,17 +780,17 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185857341407896)
+,p_field_template=>wwv_flow_imp.id(12146136625482911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046300288971128853)
+ p_id=>wwv_flow_imp.id(12147251057112632946)
 ,p_name=>'P3_DURATION'
 ,p_item_sequence=>402
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_source=>'DURATION'
 ,p_source_type=>'DB_COLUMN'
@@ -799,10 +799,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_01=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046300465115128853)
+ p_id=>wwv_flow_imp.id(12147251233256632946)
 ,p_name=>'P3_END_DATE'
 ,p_item_sequence=>202
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> End Date </b>'
 ,p_source=>'END_DATE'
@@ -815,7 +815,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185857341407896)
+,p_field_template=>wwv_flow_imp.id(12146136625482911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_04=>'both'
@@ -824,10 +824,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_08=>'1900:2100'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046300656469128854)
+ p_id=>wwv_flow_imp.id(12147251424610632947)
 ,p_name=>'P3_MULTI_ARM_STUDY'
 ,p_item_sequence=>422
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_source=>'MULTI_ARM_STUDY'
 ,p_source_type=>'DB_COLUMN'
@@ -836,10 +836,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_01=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046300882215128854)
+ p_id=>wwv_flow_imp.id(12147251650356632947)
 ,p_name=>'P3_NOTES'
 ,p_item_sequence=>382
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> Notes </b>'
 ,p_source=>'NOTES'
@@ -852,7 +852,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185769059407896)
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'Y'
@@ -861,11 +861,11 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_04=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046301062161128854)
+ p_id=>wwv_flow_imp.id(12147251830302632947)
 ,p_name=>'P3_PATIENT_RECRUIT'
 ,p_is_required=>true
 ,p_item_sequence=>232
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'Subject Recruitment'
 ,p_source=>'PATIENT_RECRUIT'
@@ -883,17 +883,17 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045186061821407896)
+,p_field_template=>wwv_flow_imp.id(12146136829962911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046301266280128854)
+ p_id=>wwv_flow_imp.id(12147252034421632947)
 ,p_name=>'P3_PHASE'
 ,p_item_sequence=>242
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> Phase </b>'
 ,p_source=>'PHASE'
@@ -912,18 +912,18 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185857341407896)
+,p_field_template=>wwv_flow_imp.id(12146136625482911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046301465352128854)
+ p_id=>wwv_flow_imp.id(12147252233493632947)
 ,p_name=>'P3_PM_ID'
 ,p_is_required=>true
 ,p_item_sequence=>52
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'Project Manager'
 ,p_source=>'PM_ID'
@@ -941,7 +941,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
 ,p_display_when_type=>'NEVER'
-,p_field_template=>wwv_flow_imp.id(11045186061821407896)
+,p_field_template=>wwv_flow_imp.id(12146136829962911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_encrypt_session_state_yn=>'N'
@@ -950,11 +950,11 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_04=>'N'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046301666709128854)
+ p_id=>wwv_flow_imp.id(12147252434850632947)
 ,p_name=>'P3_PROTOCOL_NUMBER'
 ,p_is_required=>true
 ,p_item_sequence=>12
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'Project Code'
 ,p_source=>'PROTOCOL_NUMBER'
@@ -967,7 +967,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045186061821407896)
+,p_field_template=>wwv_flow_imp.id(12146136829962911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -976,11 +976,11 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046301869080128855)
+ p_id=>wwv_flow_imp.id(12147252637221632948)
 ,p_name=>'P3_SPONSOR_ID'
 ,p_is_required=>true
 ,p_item_sequence=>42
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'Sponsor'
 ,p_source=>'SPONSOR_ID'
@@ -997,7 +997,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045186061821407896)
+,p_field_template=>wwv_flow_imp.id(12146136829962911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_encrypt_session_state_yn=>'N'
@@ -1006,10 +1006,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_04=>'N'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046302064789128856)
+ p_id=>wwv_flow_imp.id(12147252832930632949)
 ,p_name=>'P3_START_DATE'
 ,p_item_sequence=>192
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> Start Date </b>'
 ,p_source=>'START_DATE'
@@ -1021,7 +1021,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185857341407896)
+,p_field_template=>wwv_flow_imp.id(12146136625482911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_04=>'both'
@@ -1030,10 +1030,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_08=>'1900:2100'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046302283068128856)
+ p_id=>wwv_flow_imp.id(12147253051209632949)
 ,p_name=>'P3_STUDY_ACTIVE'
 ,p_item_sequence=>272
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> Study Active </b>'
 ,p_source=>'STUDY_ACTIVE'
@@ -1053,17 +1053,17 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185769059407896)
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046302457903128856)
+ p_id=>wwv_flow_imp.id(12147253226044632949)
 ,p_name=>'P3_STUDY_DESIGN'
 ,p_item_sequence=>412
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_source=>'STUDY_DESIGN'
 ,p_source_type=>'DB_COLUMN'
@@ -1072,10 +1072,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_01=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046302671904128856)
+ p_id=>wwv_flow_imp.id(12147253440045632949)
 ,p_name=>'P3_STUDY_DURATION'
 ,p_item_sequence=>322
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> Treatment Duration </b>'
 ,p_post_element_text=>'&nbsp;Days'
@@ -1089,7 +1089,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185857341407896)
+,p_field_template=>wwv_flow_imp.id(12146136625482911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'1'
@@ -1097,10 +1097,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_04=>'text'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046302866995128856)
+ p_id=>wwv_flow_imp.id(12147253635136632949)
 ,p_name=>'P3_STUDY_ID'
 ,p_item_sequence=>1
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'Study Id'
 ,p_source=>'STUDY_ID'
@@ -1112,17 +1112,17 @@ wwv_flow_imp_page.create_page_item(
 ,p_colspan=>4
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT'
-,p_field_template=>wwv_flow_imp.id(11045185857341407896)
+,p_field_template=>wwv_flow_imp.id(12146136625482911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'YES'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046303063524128858)
+ p_id=>wwv_flow_imp.id(12147253831665632951)
 ,p_name=>'P3_STUDY_INDICATION'
 ,p_item_sequence=>182
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> Study Indication </b>'
 ,p_source=>'STUDY_INDICATION'
@@ -1143,7 +1143,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
 ,p_display_when_type=>'NEVER'
-,p_field_template=>wwv_flow_imp.id(11045185857341407896)
+,p_field_template=>wwv_flow_imp.id(12146136625482911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'YES'
 ,p_encrypt_session_state_yn=>'N'
@@ -1152,11 +1152,11 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_04=>'N'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046303286759128858)
+ p_id=>wwv_flow_imp.id(12147254054900632951)
 ,p_name=>'P3_STUDY_NUMBER'
 ,p_is_required=>true
 ,p_item_sequence=>2
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'Protocol Number'
 ,p_source=>'STUDY_NUMBER'
@@ -1168,7 +1168,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045186061821407896)
+,p_field_template=>wwv_flow_imp.id(12146136829962911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -1177,10 +1177,10 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046303485232128858)
+ p_id=>wwv_flow_imp.id(12147254253373632951)
 ,p_name=>'P3_THERAPEUTIC_AREA'
 ,p_item_sequence=>142
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'<b> Therapeutic Area </b>'
 ,p_source=>'THERAPEUTIC_AREA'
@@ -1197,7 +1197,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185857341407896)
+,p_field_template=>wwv_flow_imp.id(12146136625482911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_encrypt_session_state_yn=>'N'
@@ -1206,11 +1206,11 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_04=>'N'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(11046303679924128858)
+ p_id=>wwv_flow_imp.id(12147254448065632951)
 ,p_name=>'P3_TITLE'
 ,p_is_required=>true
 ,p_item_sequence=>72
-,p_item_plug_id=>wwv_flow_imp.id(11046298465491128848)
+,p_item_plug_id=>wwv_flow_imp.id(12147249233632632941)
 ,p_use_cache_before_default=>'NO'
 ,p_prompt=>'Title'
 ,p_source=>'TITLE'
@@ -1223,7 +1223,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_rowspan=>1
 ,p_label_alignment=>'RIGHT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045186061821407896)
+,p_field_template=>wwv_flow_imp.id(12146136829962911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'Y'
@@ -1232,7 +1232,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_04=>'NONE'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(11046304369131128864)
+ p_id=>wwv_flow_imp.id(12147255137272632957)
 ,p_validation_name=>'Unique Study Number'
 ,p_validation_sequence=>10
 ,p_validation=>'select 1 from edc_study where study_number=:P3_STUDY_NUMBER and study_id <> :EDC_APP_STUDY_ID'
@@ -1240,11 +1240,11 @@ wwv_flow_imp_page.create_page_validation(
 ,p_error_message=>'Study number already exits.'
 ,p_validation_condition=>'CREATE,SAVE'
 ,p_validation_condition_type=>'REQUEST_IN_CONDITION'
-,p_associated_item=>wwv_flow_imp.id(11046303286759128858)
+,p_associated_item=>wwv_flow_imp.id(12147254054900632951)
 ,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(11046304560960128865)
+ p_id=>wwv_flow_imp.id(12147255329101632958)
 ,p_validation_name=>'Unique Project Code'
 ,p_validation_sequence=>20
 ,p_validation=>'select 1 from edc_study where PROTOCOL_NUMBER=:P3_PROTOCOL_NUMBER and study_id <> :EDC_APP_STUDY_ID'
@@ -1252,11 +1252,11 @@ wwv_flow_imp_page.create_page_validation(
 ,p_error_message=>'Project code already exits.'
 ,p_validation_condition=>'CREATE,SAVE'
 ,p_validation_condition_type=>'REQUEST_IN_CONDITION'
-,p_associated_item=>wwv_flow_imp.id(11046303286759128858)
+,p_associated_item=>wwv_flow_imp.id(12147254054900632951)
 ,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4047942885633827843)
+ p_id=>wwv_flow_imp.id(5148893653775331936)
 ,p_validation_name=>'P3_STUDY_NUMBER_CHANGE'
 ,p_validation_sequence=>30
 ,p_validation=>'P3_STUDY_NUMBER_CHANGE'
@@ -1287,11 +1287,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4047942274246827837)
+,p_associated_item=>wwv_flow_imp.id(5148893042388331930)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4047943639458827850)
+ p_id=>wwv_flow_imp.id(5148894407600331943)
 ,p_validation_name=>'P3_PROTOCOL_NUMBER_CHANGE'
 ,p_validation_sequence=>40
 ,p_validation=>'P3_PROTOCOL_NUMBER_CHANGE'
@@ -1322,11 +1322,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4047942958511827844)
+,p_associated_item=>wwv_flow_imp.id(5148893726653331937)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134145204178404708)
+ p_id=>wwv_flow_imp.id(5235095972319908801)
 ,p_validation_name=>'P3_SPONSOR_ID_CHANGE'
 ,p_validation_sequence=>50
 ,p_validation=>'P3_SPONSOR_ID_CHANGE'
@@ -1357,11 +1357,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4047943787984827852)
+,p_associated_item=>wwv_flow_imp.id(5148894556126331945)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134145946337404715)
+ p_id=>wwv_flow_imp.id(5235096714478908808)
 ,p_validation_name=>'P3_TITLE_CHANGE'
 ,p_validation_sequence=>60
 ,p_validation=>'P3_TITLE_CHANGE'
@@ -1392,11 +1392,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4134145332600404709)
+,p_associated_item=>wwv_flow_imp.id(5235096100741908802)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134146550251404722)
+ p_id=>wwv_flow_imp.id(5235097318392908815)
 ,p_validation_name=>'P3_TOT_PATIENTS_CHANGE'
 ,p_validation_sequence=>70
 ,p_validation=>'P3_TOT_PATIENTS_CHANGE'
@@ -1427,11 +1427,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4134145988529404716)
+,p_associated_item=>wwv_flow_imp.id(5235096756670908809)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(3656814188927224308)
+ p_id=>wwv_flow_imp.id(4757764957068728401)
 ,p_validation_name=>'P3_PERC_CAP_CHANGE'
 ,p_validation_sequence=>80
 ,p_validation=>'P3_PERC_CAP_CHANGE'
@@ -1462,11 +1462,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(3656813999858224307)
+,p_associated_item=>wwv_flow_imp.id(4757764767999728400)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(2190979922170653608)
+ p_id=>wwv_flow_imp.id(3291930690312157701)
 ,p_validation_name=>'P3_CAUCASIAN_CAP_CHANGE'
 ,p_validation_sequence=>90
 ,p_validation=>'P3_CAUCASIAN_CAP_CHANGE'
@@ -1497,11 +1497,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(2190979411046653603)
+,p_associated_item=>wwv_flow_imp.id(3291930179188157696)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134147249439404729)
+ p_id=>wwv_flow_imp.id(5235098017580908822)
 ,p_validation_name=>'P3_THERAPEUTIC_AREA_CHANGE'
 ,p_validation_sequence=>100
 ,p_validation=>'P3_THERAPEUTIC_AREA_CHANGE'
@@ -1532,11 +1532,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4134146713127404723)
+,p_associated_item=>wwv_flow_imp.id(5235097481268908816)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134147978837404736)
+ p_id=>wwv_flow_imp.id(5235098746978908829)
 ,p_validation_name=>'P3_START_DATE_CHANGE'
 ,p_validation_sequence=>110
 ,p_validation=>'P3_START_DATE_CHANGE'
@@ -1567,11 +1567,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4134147382932404730)
+,p_associated_item=>wwv_flow_imp.id(5235098151073908823)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134148669530404743)
+ p_id=>wwv_flow_imp.id(5235099437671908836)
 ,p_validation_name=>'P3_END_DATE_CHANGE'
 ,p_validation_sequence=>120
 ,p_validation=>'P3_END_DATE_CHANGE'
@@ -1602,11 +1602,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4134148053030404737)
+,p_associated_item=>wwv_flow_imp.id(5235098821171908830)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134149389737404750)
+ p_id=>wwv_flow_imp.id(5235100157878908843)
 ,p_validation_name=>'P3_PATIENT_RECRUIT_CHANGE'
 ,p_validation_sequence=>130
 ,p_validation=>'P3_PATIENT_RECRUIT_CHANGE'
@@ -1637,11 +1637,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4134148801417404744)
+,p_associated_item=>wwv_flow_imp.id(5235099569558908837)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134336002944020405)
+ p_id=>wwv_flow_imp.id(5235286771085524498)
 ,p_validation_name=>'P3_PHASE_CHANGE'
 ,p_validation_sequence=>140
 ,p_validation=>'P3_PHASE_CHANGE'
@@ -1672,11 +1672,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4134149459304404751)
+,p_associated_item=>wwv_flow_imp.id(5235100227445908844)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134336679213020412)
+ p_id=>wwv_flow_imp.id(5235287447354524505)
 ,p_validation_name=>'P3_STUDY_ACTIVE_CHANGE'
 ,p_validation_sequence=>150
 ,p_validation=>'P3_STUDY_ACTIVE_CHANGE'
@@ -1707,11 +1707,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4134336128064020406)
+,p_associated_item=>wwv_flow_imp.id(5235286896205524499)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134337561453020421)
+ p_id=>wwv_flow_imp.id(5235288329594524514)
 ,p_validation_name=>'P3_BLINDED_CHANGE'
 ,p_validation_sequence=>160
 ,p_validation=>'P3_BLINDED_CHANGE'
@@ -1742,11 +1742,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4134336772365020413)
+,p_associated_item=>wwv_flow_imp.id(5235287540506524506)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134338353758020429)
+ p_id=>wwv_flow_imp.id(5235289121899524522)
 ,p_validation_name=>'P3_DRUG_SHIPMENT_CHANGE'
 ,p_validation_sequence=>170
 ,p_validation=>'P3_DRUG_SHIPMENT_CHANGE'
@@ -1777,11 +1777,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4134337842001020423)
+,p_associated_item=>wwv_flow_imp.id(5235288610142524516)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134339059792020436)
+ p_id=>wwv_flow_imp.id(5235289827933524529)
 ,p_validation_name=>'P3_CALC_SCH_VISIT_FROM_CHANGE'
 ,p_validation_sequence=>180
 ,p_validation=>'P3_CALC_SCH_VISIT_FROM_CHANGE'
@@ -1812,11 +1812,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4134338511722020430)
+,p_associated_item=>wwv_flow_imp.id(5235289279863524523)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134339566512020441)
+ p_id=>wwv_flow_imp.id(5235290334653524534)
 ,p_validation_name=>'P3_NOTES_CHANGE'
 ,p_validation_sequence=>190
 ,p_validation=>'P3_NOTES_CHANGE'
@@ -1847,11 +1847,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4134339195248020437)
+,p_associated_item=>wwv_flow_imp.id(5235289963389524530)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_validation(
- p_id=>wwv_flow_imp.id(4134340468908020450)
+ p_id=>wwv_flow_imp.id(5235291237049524543)
 ,p_validation_name=>'P3_STUDY_DURATION_CHANGE'
 ,p_validation_sequence=>200
 ,p_validation=>'P3_STUDY_DURATION_CHANGE'
@@ -1882,11 +1882,11 @@ wwv_flow_imp_page.create_page_validation(
 'END;'))
 ,p_validation_condition2=>'PLSQL'
 ,p_validation_condition_type=>'FUNCTION_BODY'
-,p_associated_item=>wwv_flow_imp.id(4134339911211020444)
+,p_associated_item=>wwv_flow_imp.id(5235290679352524537)
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4047942430135827838)
+ p_id=>wwv_flow_imp.id(5148893198277331931)
 ,p_name=>'P3_STUDY_NUMBER_CHANGE hide'
 ,p_event_sequence=>10
 ,p_bind_type=>'bind'
@@ -1920,8 +1920,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4047942498172827839)
-,p_event_id=>wwv_flow_imp.id(4047942430135827838)
+ p_id=>wwv_flow_imp.id(5148893266314331932)
+,p_event_id=>wwv_flow_imp.id(5148893198277331931)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -1931,8 +1931,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4047942554115827840)
-,p_event_id=>wwv_flow_imp.id(4047942430135827838)
+ p_id=>wwv_flow_imp.id(5148893322257331933)
+,p_event_id=>wwv_flow_imp.id(5148893198277331931)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -1941,7 +1941,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_STUDY_NUMBER_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4047943050774827845)
+ p_id=>wwv_flow_imp.id(5148893818916331938)
 ,p_name=>'P3_PROTOCOL_NUMBER_CHANGE hide'
 ,p_event_sequence=>20
 ,p_bind_type=>'bind'
@@ -1975,8 +1975,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4047943236506827846)
-,p_event_id=>wwv_flow_imp.id(4047943050774827845)
+ p_id=>wwv_flow_imp.id(5148894004648331939)
+,p_event_id=>wwv_flow_imp.id(5148893818916331938)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -1986,8 +1986,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4047943263911827847)
-,p_event_id=>wwv_flow_imp.id(4047943050774827845)
+ p_id=>wwv_flow_imp.id(5148894032053331940)
+,p_event_id=>wwv_flow_imp.id(5148893818916331938)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -1996,7 +1996,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_PROTOCOL_NUMBER_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4047943924008827853)
+ p_id=>wwv_flow_imp.id(5148894692150331946)
 ,p_name=>'P3_SPONSOR_ID_CHANGE hide'
 ,p_event_sequence=>30
 ,p_bind_type=>'bind'
@@ -2030,8 +2030,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4047944006922827854)
-,p_event_id=>wwv_flow_imp.id(4047943924008827853)
+ p_id=>wwv_flow_imp.id(5148894775064331947)
+,p_event_id=>wwv_flow_imp.id(5148894692150331946)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2041,8 +2041,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134144929910404705)
-,p_event_id=>wwv_flow_imp.id(4047943924008827853)
+ p_id=>wwv_flow_imp.id(5235095698051908798)
+,p_event_id=>wwv_flow_imp.id(5148894692150331946)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2051,7 +2051,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_SPONSOR_ID_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134145376205404710)
+ p_id=>wwv_flow_imp.id(5235096144346908803)
 ,p_name=>'P3_TITLE_CHANGE hide'
 ,p_event_sequence=>40
 ,p_bind_type=>'bind'
@@ -2085,8 +2085,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134145449423404711)
-,p_event_id=>wwv_flow_imp.id(4134145376205404710)
+ p_id=>wwv_flow_imp.id(5235096217564908804)
+,p_event_id=>wwv_flow_imp.id(5235096144346908803)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2096,8 +2096,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134145630213404712)
-,p_event_id=>wwv_flow_imp.id(4134145376205404710)
+ p_id=>wwv_flow_imp.id(5235096398354908805)
+,p_event_id=>wwv_flow_imp.id(5235096144346908803)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2106,7 +2106,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_TITLE_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134146105086404717)
+ p_id=>wwv_flow_imp.id(5235096873227908810)
 ,p_name=>'P3_TOT_PATIENTS_CHANGE hide'
 ,p_event_sequence=>50
 ,p_bind_type=>'bind'
@@ -2140,8 +2140,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134146161093404718)
-,p_event_id=>wwv_flow_imp.id(4134146105086404717)
+ p_id=>wwv_flow_imp.id(5235096929234908811)
+,p_event_id=>wwv_flow_imp.id(5235096873227908810)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2151,8 +2151,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134146338323404719)
-,p_event_id=>wwv_flow_imp.id(4134146105086404717)
+ p_id=>wwv_flow_imp.id(5235097106464908812)
+,p_event_id=>wwv_flow_imp.id(5235096873227908810)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2161,7 +2161,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_TOT_PATIENTS_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(3656814215230224309)
+ p_id=>wwv_flow_imp.id(4757764983371728402)
 ,p_name=>'P3_PERC_CAP_CHANGE hide'
 ,p_event_sequence=>60
 ,p_bind_type=>'bind'
@@ -2195,8 +2195,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(3656814302018224310)
-,p_event_id=>wwv_flow_imp.id(3656814215230224309)
+ p_id=>wwv_flow_imp.id(4757765070159728403)
+,p_event_id=>wwv_flow_imp.id(4757764983371728402)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2206,7 +2206,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(2190979679192653606)
+ p_id=>wwv_flow_imp.id(3291930447334157699)
 ,p_name=>'P3_CAUCASIAN_CAP_CHANGE hide'
 ,p_event_sequence=>70
 ,p_bind_type=>'bind'
@@ -2240,8 +2240,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(2190979782022653607)
-,p_event_id=>wwv_flow_imp.id(2190979679192653606)
+ p_id=>wwv_flow_imp.id(3291930550164157700)
+,p_event_id=>wwv_flow_imp.id(3291930447334157699)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2251,7 +2251,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134146843377404724)
+ p_id=>wwv_flow_imp.id(5235097611518908817)
 ,p_name=>'P3_THERAPEUTIC_AREA_CHANGE hide'
 ,p_event_sequence=>80
 ,p_bind_type=>'bind'
@@ -2285,8 +2285,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134146893941404725)
-,p_event_id=>wwv_flow_imp.id(4134146843377404724)
+ p_id=>wwv_flow_imp.id(5235097662082908818)
+,p_event_id=>wwv_flow_imp.id(5235097611518908817)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2296,8 +2296,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134146977940404726)
-,p_event_id=>wwv_flow_imp.id(4134146843377404724)
+ p_id=>wwv_flow_imp.id(5235097746081908819)
+,p_event_id=>wwv_flow_imp.id(5235097611518908817)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2306,7 +2306,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_THERAPEUTIC_AREA_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134147497950404731)
+ p_id=>wwv_flow_imp.id(5235098266091908824)
 ,p_name=>'P3_START_DATE_CHANGE hide'
 ,p_event_sequence=>90
 ,p_bind_type=>'bind'
@@ -2340,8 +2340,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134147594652404732)
-,p_event_id=>wwv_flow_imp.id(4134147497950404731)
+ p_id=>wwv_flow_imp.id(5235098362793908825)
+,p_event_id=>wwv_flow_imp.id(5235098266091908824)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2351,8 +2351,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134147694185404733)
-,p_event_id=>wwv_flow_imp.id(4134147497950404731)
+ p_id=>wwv_flow_imp.id(5235098462326908826)
+,p_event_id=>wwv_flow_imp.id(5235098266091908824)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2361,7 +2361,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_START_DATE_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134148242596404738)
+ p_id=>wwv_flow_imp.id(5235099010737908831)
 ,p_name=>'P3_END_DATE_CHANGE hide'
 ,p_event_sequence=>100
 ,p_bind_type=>'bind'
@@ -2395,8 +2395,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134148293070404739)
-,p_event_id=>wwv_flow_imp.id(4134148242596404738)
+ p_id=>wwv_flow_imp.id(5235099061211908832)
+,p_event_id=>wwv_flow_imp.id(5235099010737908831)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2406,8 +2406,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134148380882404740)
-,p_event_id=>wwv_flow_imp.id(4134148242596404738)
+ p_id=>wwv_flow_imp.id(5235099149023908833)
+,p_event_id=>wwv_flow_imp.id(5235099010737908831)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2416,7 +2416,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_END_DATE_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134148879331404745)
+ p_id=>wwv_flow_imp.id(5235099647472908838)
 ,p_name=>'P3_PATIENT_RECRUIT_CHANGE hide'
 ,p_event_sequence=>110
 ,p_bind_type=>'bind'
@@ -2450,8 +2450,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134149038378404746)
-,p_event_id=>wwv_flow_imp.id(4134148879331404745)
+ p_id=>wwv_flow_imp.id(5235099806519908839)
+,p_event_id=>wwv_flow_imp.id(5235099647472908838)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2461,8 +2461,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134149128893404747)
-,p_event_id=>wwv_flow_imp.id(4134148879331404745)
+ p_id=>wwv_flow_imp.id(5235099897034908840)
+,p_event_id=>wwv_flow_imp.id(5235099647472908838)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2471,7 +2471,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_PATIENT_RECRUIT_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134149581053404752)
+ p_id=>wwv_flow_imp.id(5235100349194908845)
 ,p_name=>'P3_PHASE_CHANGE hide'
 ,p_event_sequence=>120
 ,p_bind_type=>'bind'
@@ -2505,8 +2505,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134149649515404753)
-,p_event_id=>wwv_flow_imp.id(4134149581053404752)
+ p_id=>wwv_flow_imp.id(5235100417656908846)
+,p_event_id=>wwv_flow_imp.id(5235100349194908845)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2516,8 +2516,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134149751186404754)
-,p_event_id=>wwv_flow_imp.id(4134149581053404752)
+ p_id=>wwv_flow_imp.id(5235100519327908847)
+,p_event_id=>wwv_flow_imp.id(5235100349194908845)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2526,7 +2526,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_PHASE_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134336230202020407)
+ p_id=>wwv_flow_imp.id(5235286998343524500)
 ,p_name=>'P3_STUDY_ACTIVE_CHANGE hide'
 ,p_event_sequence=>130
 ,p_bind_type=>'bind'
@@ -2560,8 +2560,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134336282058020408)
-,p_event_id=>wwv_flow_imp.id(4134336230202020407)
+ p_id=>wwv_flow_imp.id(5235287050199524501)
+,p_event_id=>wwv_flow_imp.id(5235286998343524500)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2571,8 +2571,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134336375430020409)
-,p_event_id=>wwv_flow_imp.id(4134336230202020407)
+ p_id=>wwv_flow_imp.id(5235287143571524502)
+,p_event_id=>wwv_flow_imp.id(5235286998343524500)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2581,7 +2581,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_STUDY_ACTIVE_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134336947322020414)
+ p_id=>wwv_flow_imp.id(5235287715463524507)
 ,p_name=>'P3_BLINDED_CHANGE hide'
 ,p_event_sequence=>140
 ,p_bind_type=>'bind'
@@ -2615,8 +2615,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134337031672020415)
-,p_event_id=>wwv_flow_imp.id(4134336947322020414)
+ p_id=>wwv_flow_imp.id(5235287799813524508)
+,p_event_id=>wwv_flow_imp.id(5235287715463524507)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2626,8 +2626,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134337064095020416)
-,p_event_id=>wwv_flow_imp.id(4134336947322020414)
+ p_id=>wwv_flow_imp.id(5235287832236524509)
+,p_event_id=>wwv_flow_imp.id(5235287715463524507)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2636,7 +2636,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_BLINDED_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134337942945020424)
+ p_id=>wwv_flow_imp.id(5235288711086524517)
 ,p_name=>'P3_DRUG_SHIPMENT_CHANGE hide'
 ,p_event_sequence=>150
 ,p_bind_type=>'bind'
@@ -2670,8 +2670,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134337968037020425)
-,p_event_id=>wwv_flow_imp.id(4134337942945020424)
+ p_id=>wwv_flow_imp.id(5235288736178524518)
+,p_event_id=>wwv_flow_imp.id(5235288711086524517)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2681,8 +2681,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134338146889020426)
-,p_event_id=>wwv_flow_imp.id(4134337942945020424)
+ p_id=>wwv_flow_imp.id(5235288915030524519)
+,p_event_id=>wwv_flow_imp.id(5235288711086524517)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2691,7 +2691,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_DRUG_SHIPMENT_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134338579925020431)
+ p_id=>wwv_flow_imp.id(5235289348066524524)
 ,p_name=>'P3_CALC_SCH_VISIT_FROM_CHANGE hide'
 ,p_event_sequence=>160
 ,p_bind_type=>'bind'
@@ -2725,8 +2725,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134338685934020432)
-,p_event_id=>wwv_flow_imp.id(4134338579925020431)
+ p_id=>wwv_flow_imp.id(5235289454075524525)
+,p_event_id=>wwv_flow_imp.id(5235289348066524524)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2736,8 +2736,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134338769219020433)
-,p_event_id=>wwv_flow_imp.id(4134338579925020431)
+ p_id=>wwv_flow_imp.id(5235289537360524526)
+,p_event_id=>wwv_flow_imp.id(5235289348066524524)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2746,7 +2746,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_CALC_SCH_VISIT_FROM_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134339320481020438)
+ p_id=>wwv_flow_imp.id(5235290088622524531)
 ,p_name=>'P3_NOTES_CHANGE hide'
 ,p_event_sequence=>170
 ,p_bind_type=>'bind'
@@ -2780,8 +2780,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134339409766020439)
-,p_event_id=>wwv_flow_imp.id(4134339320481020438)
+ p_id=>wwv_flow_imp.id(5235290177907524532)
+,p_event_id=>wwv_flow_imp.id(5235290088622524531)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2791,8 +2791,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134339518331020440)
-,p_event_id=>wwv_flow_imp.id(4134339320481020438)
+ p_id=>wwv_flow_imp.id(5235290286472524533)
+,p_event_id=>wwv_flow_imp.id(5235290088622524531)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2801,7 +2801,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_NOTES_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134340033136020445)
+ p_id=>wwv_flow_imp.id(5235290801277524538)
 ,p_name=>'P3_STUDY_DURATION_CHANGE hide'
 ,p_event_sequence=>180
 ,p_bind_type=>'bind'
@@ -2835,8 +2835,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_display_when_cond2=>'PLSQL'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134340085267020446)
-,p_event_id=>wwv_flow_imp.id(4134340033136020445)
+ p_id=>wwv_flow_imp.id(5235290853408524539)
+,p_event_id=>wwv_flow_imp.id(5235290801277524538)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'Y'
@@ -2846,8 +2846,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134340185134020447)
-,p_event_id=>wwv_flow_imp.id(4134340033136020445)
+ p_id=>wwv_flow_imp.id(5235290953275524540)
+,p_event_id=>wwv_flow_imp.id(5235290801277524538)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2856,7 +2856,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements=>'P3_STUDY_DURATION_CHANGE'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4047942682245827841)
+ p_id=>wwv_flow_imp.id(5148893450387331934)
 ,p_name=>'P3_STUDY_NUMBER_CHANGE show'
 ,p_event_sequence=>190
 ,p_triggering_element_type=>'ITEM'
@@ -2866,8 +2866,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4047942832549827842)
-,p_event_id=>wwv_flow_imp.id(4047942682245827841)
+ p_id=>wwv_flow_imp.id(5148893600691331935)
+,p_event_id=>wwv_flow_imp.id(5148893450387331934)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -2877,7 +2877,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4047943372493827848)
+ p_id=>wwv_flow_imp.id(5148894140635331941)
 ,p_name=>'P3_PROTOCOL_NUMBER_CHANGE show'
 ,p_event_sequence=>200
 ,p_triggering_element_type=>'ITEM'
@@ -2887,8 +2887,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4047943484270827849)
-,p_event_id=>wwv_flow_imp.id(4047943372493827848)
+ p_id=>wwv_flow_imp.id(5148894252412331942)
+,p_event_id=>wwv_flow_imp.id(5148894140635331941)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -2898,7 +2898,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134145033998404706)
+ p_id=>wwv_flow_imp.id(5235095802139908799)
 ,p_name=>'P3_SPONSOR_ID_CHANGE show'
 ,p_event_sequence=>210
 ,p_triggering_element_type=>'ITEM'
@@ -2908,8 +2908,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134145142768404707)
-,p_event_id=>wwv_flow_imp.id(4134145033998404706)
+ p_id=>wwv_flow_imp.id(5235095910909908800)
+,p_event_id=>wwv_flow_imp.id(5235095802139908799)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -2919,7 +2919,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134145732823404713)
+ p_id=>wwv_flow_imp.id(5235096500964908806)
 ,p_name=>'P3_TITLE_CHANGE show'
 ,p_event_sequence=>220
 ,p_triggering_element_type=>'ITEM'
@@ -2929,8 +2929,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134145802597404714)
-,p_event_id=>wwv_flow_imp.id(4134145732823404713)
+ p_id=>wwv_flow_imp.id(5235096570738908807)
+,p_event_id=>wwv_flow_imp.id(5235096500964908806)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -2940,7 +2940,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134146351508404720)
+ p_id=>wwv_flow_imp.id(5235097119649908813)
 ,p_name=>'P3_TOT_PATIENTS_CHANGE show'
 ,p_event_sequence=>230
 ,p_triggering_element_type=>'ITEM'
@@ -2950,8 +2950,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134146507638404721)
-,p_event_id=>wwv_flow_imp.id(4134146351508404720)
+ p_id=>wwv_flow_imp.id(5235097275779908814)
+,p_event_id=>wwv_flow_imp.id(5235097119649908813)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -2961,8 +2961,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(3656814786020224314)
-,p_event_id=>wwv_flow_imp.id(4134146351508404720)
+ p_id=>wwv_flow_imp.id(4757765554161728407)
+,p_event_id=>wwv_flow_imp.id(5235097119649908813)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>20
 ,p_execute_on_page_init=>'N'
@@ -2977,7 +2977,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_wait_for_result=>'Y'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(3656814579416224312)
+ p_id=>wwv_flow_imp.id(4757765347557728405)
 ,p_name=>'P3_PERC_CAP_CHANGE show'
 ,p_event_sequence=>240
 ,p_triggering_element_type=>'ITEM'
@@ -2987,8 +2987,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(3656814631955224313)
-,p_event_id=>wwv_flow_imp.id(3656814579416224312)
+ p_id=>wwv_flow_imp.id(4757765400096728406)
+,p_event_id=>wwv_flow_imp.id(4757765347557728405)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -2998,7 +2998,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(2190979487888653604)
+ p_id=>wwv_flow_imp.id(3291930256030157697)
 ,p_name=>'P3_CAUCASIAN_CAP_CHANGE show'
 ,p_event_sequence=>250
 ,p_triggering_element_type=>'ITEM'
@@ -3008,8 +3008,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(2190979594663653605)
-,p_event_id=>wwv_flow_imp.id(2190979487888653604)
+ p_id=>wwv_flow_imp.id(3291930362805157698)
+,p_event_id=>wwv_flow_imp.id(3291930256030157697)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3019,7 +3019,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134147144204404727)
+ p_id=>wwv_flow_imp.id(5235097912345908820)
 ,p_name=>'P3_THERAPEUTIC_AREA_CHANGE show'
 ,p_event_sequence=>260
 ,p_triggering_element_type=>'ITEM'
@@ -3029,8 +3029,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134147222591404728)
-,p_event_id=>wwv_flow_imp.id(4134147144204404727)
+ p_id=>wwv_flow_imp.id(5235097990732908821)
+,p_event_id=>wwv_flow_imp.id(5235097912345908820)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3040,7 +3040,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134147821457404734)
+ p_id=>wwv_flow_imp.id(5235098589598908827)
 ,p_name=>'P3_START_DATE_CHANGE show'
 ,p_event_sequence=>270
 ,p_triggering_element_type=>'ITEM'
@@ -3050,8 +3050,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134147918464404735)
-,p_event_id=>wwv_flow_imp.id(4134147821457404734)
+ p_id=>wwv_flow_imp.id(5235098686605908828)
+,p_event_id=>wwv_flow_imp.id(5235098589598908827)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3061,7 +3061,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134148530008404741)
+ p_id=>wwv_flow_imp.id(5235099298149908834)
 ,p_name=>'P3_END_DATE_CHANGE show'
 ,p_event_sequence=>280
 ,p_triggering_element_type=>'ITEM'
@@ -3071,8 +3071,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134148624018404742)
-,p_event_id=>wwv_flow_imp.id(4134148530008404741)
+ p_id=>wwv_flow_imp.id(5235099392159908835)
+,p_event_id=>wwv_flow_imp.id(5235099298149908834)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3082,7 +3082,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134149223195404748)
+ p_id=>wwv_flow_imp.id(5235099991336908841)
 ,p_name=>'P3_PATIENT_RECRUIT_CHANGE show'
 ,p_event_sequence=>290
 ,p_triggering_element_type=>'ITEM'
@@ -3092,8 +3092,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134149335005404749)
-,p_event_id=>wwv_flow_imp.id(4134149223195404748)
+ p_id=>wwv_flow_imp.id(5235100103146908842)
+,p_event_id=>wwv_flow_imp.id(5235099991336908841)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3103,7 +3103,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134337441166020419)
+ p_id=>wwv_flow_imp.id(5235288209307524512)
 ,p_name=>'P3_PHASE_CHANGE show'
 ,p_event_sequence=>300
 ,p_triggering_element_type=>'ITEM'
@@ -3113,8 +3113,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134337540427020420)
-,p_event_id=>wwv_flow_imp.id(4134337441166020419)
+ p_id=>wwv_flow_imp.id(5235288308568524513)
+,p_event_id=>wwv_flow_imp.id(5235288209307524512)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3124,7 +3124,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134336479565020410)
+ p_id=>wwv_flow_imp.id(5235287247706524503)
 ,p_name=>'P3_STUDY_ACTIVE_CHANGE show'
 ,p_event_sequence=>310
 ,p_triggering_element_type=>'ITEM'
@@ -3134,8 +3134,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134336634781020411)
-,p_event_id=>wwv_flow_imp.id(4134336479565020410)
+ p_id=>wwv_flow_imp.id(5235287402922524504)
+,p_event_id=>wwv_flow_imp.id(5235287247706524503)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3145,7 +3145,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134337210707020417)
+ p_id=>wwv_flow_imp.id(5235287978848524510)
 ,p_name=>'P3_BLINDED_CHANGE show'
 ,p_event_sequence=>320
 ,p_triggering_element_type=>'ITEM'
@@ -3155,8 +3155,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134337346429020418)
-,p_event_id=>wwv_flow_imp.id(4134337210707020417)
+ p_id=>wwv_flow_imp.id(5235288114570524511)
+,p_event_id=>wwv_flow_imp.id(5235287978848524510)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3166,7 +3166,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134338215851020427)
+ p_id=>wwv_flow_imp.id(5235288983992524520)
 ,p_name=>'P3_DRUG_SHIPMENT_CHANGE show'
 ,p_event_sequence=>330
 ,p_triggering_element_type=>'ITEM'
@@ -3176,8 +3176,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134338329503020428)
-,p_event_id=>wwv_flow_imp.id(4134338215851020427)
+ p_id=>wwv_flow_imp.id(5235289097644524521)
+,p_event_id=>wwv_flow_imp.id(5235288983992524520)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3187,7 +3187,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134338848799020434)
+ p_id=>wwv_flow_imp.id(5235289616940524527)
 ,p_name=>'P3_CALC_SCH_VISIT_FROM_CHANGE show'
 ,p_event_sequence=>340
 ,p_triggering_element_type=>'ITEM'
@@ -3197,8 +3197,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134339012106020435)
-,p_event_id=>wwv_flow_imp.id(4134338848799020434)
+ p_id=>wwv_flow_imp.id(5235289780247524528)
+,p_event_id=>wwv_flow_imp.id(5235289616940524527)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3208,7 +3208,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134339687859020442)
+ p_id=>wwv_flow_imp.id(5235290456000524535)
 ,p_name=>'P3_NOTES_CHANGE show'
 ,p_event_sequence=>350
 ,p_triggering_element_type=>'ITEM'
@@ -3218,8 +3218,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134339752100020443)
-,p_event_id=>wwv_flow_imp.id(4134339687859020442)
+ p_id=>wwv_flow_imp.id(5235290520241524536)
+,p_event_id=>wwv_flow_imp.id(5235290456000524535)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3229,7 +3229,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134340273526020448)
+ p_id=>wwv_flow_imp.id(5235291041667524541)
 ,p_name=>'P3_STUDY_DURATION_CHANGE show'
 ,p_event_sequence=>360
 ,p_triggering_element_type=>'ITEM'
@@ -3239,8 +3239,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134340360369020449)
-,p_event_id=>wwv_flow_imp.id(4134340273526020448)
+ p_id=>wwv_flow_imp.id(5235291128510524542)
+,p_event_id=>wwv_flow_imp.id(5235291041667524541)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3250,18 +3250,18 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_01=>'N'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(4134948565403492244)
+ p_id=>wwv_flow_imp.id(5235899333544996337)
 ,p_name=>'Open Audit Trail Popup (Page 41)'
 ,p_event_sequence=>370
 ,p_triggering_element_type=>'BUTTON'
-,p_triggering_button_id=>wwv_flow_imp.id(4134567557406079333)
+,p_triggering_button_id=>wwv_flow_imp.id(5235518325547583426)
 ,p_bind_type=>'bind'
 ,p_execution_type=>'IMMEDIATE'
 ,p_bind_event_type=>'click'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(4134948989617492265)
-,p_event_id=>wwv_flow_imp.id(4134948565403492244)
+ p_id=>wwv_flow_imp.id(5235899757758996358)
+,p_event_id=>wwv_flow_imp.id(5235899333544996337)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3273,7 +3273,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_attribute_07=>'AUTO'
 );
 wwv_flow_imp_page.create_page_da_event(
- p_id=>wwv_flow_imp.id(2205897650064320504)
+ p_id=>wwv_flow_imp.id(3306848418205824597)
 ,p_name=>'Set Caucasian Cap'
 ,p_event_sequence=>380
 ,p_triggering_element_type=>'ITEM'
@@ -3285,8 +3285,8 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_bind_event_type=>'change'
 );
 wwv_flow_imp_page.create_page_da_action(
- p_id=>wwv_flow_imp.id(2205897815095320505)
-,p_event_id=>wwv_flow_imp.id(2205897650064320504)
+ p_id=>wwv_flow_imp.id(3306848583236824598)
+,p_event_id=>wwv_flow_imp.id(3306848418205824597)
 ,p_event_result=>'TRUE'
 ,p_action_sequence=>10
 ,p_execute_on_page_init=>'N'
@@ -3302,7 +3302,7 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_wait_for_result=>'Y'
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(11046304685945128865)
+ p_id=>wwv_flow_imp.id(12147255454086632958)
 ,p_process_sequence=>10
 ,p_process_point=>'AFTER_HEADER'
 ,p_process_type=>'NATIVE_FORM_FETCH'
@@ -3314,7 +3314,7 @@ wwv_flow_imp_page.create_page_process(
 ,p_internal_uid=>11046304685945128865
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(11046304859880128866)
+ p_id=>wwv_flow_imp.id(12147255628021632959)
 ,p_process_sequence=>10
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_PLSQL'
@@ -3336,11 +3336,11 @@ wwv_flow_imp_page.create_page_process(
 'end;'))
 ,p_process_clob_language=>'PLSQL'
 ,p_process_error_message=>'Unable to get primary key item value.'
-,p_process_when_button_id=>wwv_flow_imp.id(11046298683464128849)
+,p_process_when_button_id=>wwv_flow_imp.id(12147249451605632942)
 ,p_internal_uid=>11046304859880128866
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(11046305087321128866)
+ p_id=>wwv_flow_imp.id(12147255855462632959)
 ,p_process_sequence=>30
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_FORM_PROCESS'
@@ -3355,7 +3355,7 @@ wwv_flow_imp_page.create_page_process(
 ,p_process_comment=>'Unable to process row of table EDC_STUDY.'
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(11046305285731128866)
+ p_id=>wwv_flow_imp.id(12147256053872632959)
 ,p_process_sequence=>40
 ,p_process_point=>'AFTER_SUBMIT'
 ,p_process_type=>'NATIVE_SESSION_STATE'

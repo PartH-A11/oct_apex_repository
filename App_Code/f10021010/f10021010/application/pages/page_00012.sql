@@ -8,7 +8,7 @@ wwv_flow_imp.component_begin (
 ,p_release=>'24.1.0'
 ,p_default_workspace_id=>666903967469575309
 ,p_default_application_id=>10021010
-,p_default_id_offset=>759714394172364641
+,p_default_id_offset=>1100950768141504093
 ,p_default_owner=>'SUN_21010_DEV'
 );
 wwv_flow_imp_page.create_page(
@@ -24,22 +24,22 @@ wwv_flow_imp_page.create_page(
 ,p_page_component_map=>'18'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(10542477188297775402)
+ p_id=>wwv_flow_imp.id(11643427956439279495)
 ,p_plug_name=>'Breadcrumb'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_imp.id(11045179465801407886)
+,p_plug_template=>wwv_flow_imp.id(12146130233942911979)
 ,p_plug_display_sequence=>10
 ,p_plug_display_point=>'REGION_POSITION_01'
-,p_menu_id=>wwv_flow_imp.id(11045189164405407923)
+,p_menu_id=>wwv_flow_imp.id(12146139932546912016)
 ,p_plug_source_type=>'NATIVE_BREADCRUMB'
-,p_menu_template_id=>wwv_flow_imp.id(11045187162360407898)
+,p_menu_template_id=>wwv_flow_imp.id(12146137930501911991)
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(10542477802569775404)
+ p_id=>wwv_flow_imp.id(11643428570711279497)
 ,p_plug_name=>'Section Status Report'
 ,p_region_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_imp.id(11045180572024407887)
+,p_plug_template=>wwv_flow_imp.id(12146131340165911980)
 ,p_plug_display_sequence=>30
 ,p_plug_new_grid_row=>false
 ,p_plug_display_point=>'BODY_3'
@@ -103,7 +103,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_prn_content_disposition=>'ATTACHMENT'
 );
 wwv_flow_imp_page.create_worksheet(
- p_id=>wwv_flow_imp.id(10542477886087775404)
+ p_id=>wwv_flow_imp.id(11643428654229279497)
 ,p_name=>'Section Status Report'
 ,p_max_row_count=>'1000000'
 ,p_max_row_count_message=>'The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query.'
@@ -124,7 +124,7 @@ wwv_flow_imp_page.create_worksheet(
 ,p_internal_uid=>193865617621481016
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(10542480695224775413)
+ p_id=>wwv_flow_imp.id(11643431463366279506)
 ,p_db_column_name=>'CRF_PAGE_NO'
 ,p_display_order=>10
 ,p_column_identifier=>'G'
@@ -135,7 +135,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(10542478734387775411)
+ p_id=>wwv_flow_imp.id(11643429502529279504)
 ,p_db_column_name=>'SCRNO'
 ,p_display_order=>20
 ,p_column_identifier=>'B'
@@ -144,19 +144,19 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(10542478336803775410)
+ p_id=>wwv_flow_imp.id(11643429104945279503)
 ,p_db_column_name=>'STUDY_SITE_ID'
 ,p_display_order=>30
 ,p_column_identifier=>'A'
 ,p_column_label=>'Site '
 ,p_column_type=>'NUMBER'
 ,p_display_text_as=>'LOV_ESCAPE_SC'
-,p_rpt_named_lov=>wwv_flow_imp.id(11051796963439023522)
+,p_rpt_named_lov=>wwv_flow_imp.id(12152747731580527615)
 ,p_rpt_show_filter_lov=>'1'
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(10542479082190775411)
+ p_id=>wwv_flow_imp.id(11643429850332279504)
 ,p_db_column_name=>'VISIT_TITLE'
 ,p_display_order=>40
 ,p_column_identifier=>'C'
@@ -165,7 +165,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(10542479529862775412)
+ p_id=>wwv_flow_imp.id(11643430298004279505)
 ,p_db_column_name=>'CRF_NAME'
 ,p_display_order=>50
 ,p_column_identifier=>'D'
@@ -174,7 +174,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(10542479927134775412)
+ p_id=>wwv_flow_imp.id(11643430695276279505)
 ,p_db_column_name=>'PATIENT_VISIT_ID'
 ,p_display_order=>60
 ,p_column_identifier=>'E'
@@ -184,7 +184,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(10542480364846775412)
+ p_id=>wwv_flow_imp.id(11643431132988279505)
 ,p_db_column_name=>'STATUS'
 ,p_display_order=>70
 ,p_column_identifier=>'F'
@@ -193,7 +193,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(10542481096868775413)
+ p_id=>wwv_flow_imp.id(11643431865010279506)
 ,p_db_column_name=>'PATIENT_PROFILE_ID'
 ,p_display_order=>80
 ,p_column_identifier=>'H'
@@ -203,7 +203,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(10542481514161775413)
+ p_id=>wwv_flow_imp.id(11643432282303279506)
 ,p_db_column_name=>'ICF'
 ,p_display_order=>90
 ,p_column_identifier=>'I'
@@ -213,7 +213,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(10544836664428869162)
+ p_id=>wwv_flow_imp.id(11645787432570373255)
 ,p_db_column_name=>'seq'
 ,p_display_order=>91
 ,p_column_identifier=>'J'
@@ -224,7 +224,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_rpt(
- p_id=>wwv_flow_imp.id(10542482071178776641)
+ p_id=>wwv_flow_imp.id(11643432839320280734)
 ,p_application_user=>'APXWS_DEFAULT'
 ,p_report_seq=>10
 ,p_report_alias=>'1938699'
@@ -247,18 +247,18 @@ wwv_flow_imp_page.create_worksheet_rpt(
 ,p_break_enabled_on=>'STUDY_SITE_ID:SCRNO:VISIT_TITLE:0:0:0'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(10542489841798874540)
+ p_id=>wwv_flow_imp.id(11643440609940378633)
 ,p_plug_name=>'Study Reports List'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
 ,p_region_attributes=>'style="margin-right:5px;     width: 235px;"'
-,p_plug_template=>wwv_flow_imp.id(11045181058343407888)
+,p_plug_template=>wwv_flow_imp.id(12146131826484911981)
 ,p_plug_display_sequence=>20
 ,p_plug_display_column=>1
 ,p_plug_display_point=>'BODY_3'
-,p_list_id=>wwv_flow_imp.id(11061305288454172215)
+,p_list_id=>wwv_flow_imp.id(12162256056595676308)
 ,p_plug_source_type=>'NATIVE_LIST'
-,p_list_template_id=>wwv_flow_imp.id(11061512871844880215)
+,p_list_template_id=>wwv_flow_imp.id(12162463639986384308)
 ,p_plug_query_headings_type=>'QUERY_COLUMNS'
 ,p_plug_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
 ,p_plug_query_show_nulls_as=>' - '

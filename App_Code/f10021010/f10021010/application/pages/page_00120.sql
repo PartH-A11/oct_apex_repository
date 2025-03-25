@@ -8,7 +8,7 @@ wwv_flow_imp.component_begin (
 ,p_release=>'24.1.0'
 ,p_default_workspace_id=>666903967469575309
 ,p_default_application_id=>10021010
-,p_default_id_offset=>759714394172364641
+,p_default_id_offset=>1100950768141504093
 ,p_default_owner=>'SUN_21010_DEV'
 );
 wwv_flow_imp_page.create_page(
@@ -24,10 +24,10 @@ wwv_flow_imp_page.create_page(
 ,p_page_component_map=>'18'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(2447326329047470314)
+ p_id=>wwv_flow_imp.id(3548277097188974407)
 ,p_plug_name=>'New'
 ,p_region_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_imp.id(11045179264140407886)
+,p_plug_template=>wwv_flow_imp.id(12146130032281911979)
 ,p_plug_display_sequence=>20
 ,p_include_in_reg_disp_sel_yn=>'Y'
 ,p_plug_new_grid_row=>false
@@ -37,13 +37,13 @@ wwv_flow_imp_page.create_page_plug(
   'output_as', 'HTML')).to_clob
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(2447325842419470309)
+ p_id=>wwv_flow_imp.id(3548276610560974402)
 ,p_plug_name=>'ePRO Symptom Tracker'
-,p_parent_plug_id=>wwv_flow_imp.id(2447326329047470314)
+,p_parent_plug_id=>wwv_flow_imp.id(3548277097188974407)
 ,p_region_template_options=>'#DEFAULT#'
 ,p_region_attributes=>'style="margin-left:10px; width :1000px;"'
 ,p_escape_on_http_output=>'Y'
-,p_plug_template=>wwv_flow_imp.id(11045181488778407888)
+,p_plug_template=>wwv_flow_imp.id(12146132256919911981)
 ,p_plug_display_sequence=>40
 ,p_plug_display_point=>'SUB_REGIONS'
 ,p_location=>null
@@ -51,8 +51,8 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_query_num_rows=>15
 );
 wwv_flow_imp_page.create_jet_chart(
- p_id=>wwv_flow_imp.id(2447326019021470310)
-,p_region_id=>wwv_flow_imp.id(2447325842419470309)
+ p_id=>wwv_flow_imp.id(3548276787162974403)
+,p_region_id=>wwv_flow_imp.id(3548276610560974402)
 ,p_chart_type=>'line'
 ,p_animation_on_display=>'auto'
 ,p_animation_on_data_change=>'auto'
@@ -87,8 +87,8 @@ wwv_flow_imp_page.create_jet_chart(
 ,p_show_gauge_value=>true
 );
 wwv_flow_imp_page.create_jet_chart_series(
- p_id=>wwv_flow_imp.id(2448388611255419591)
-,p_chart_id=>wwv_flow_imp.id(2447326019021470310)
+ p_id=>wwv_flow_imp.id(3549339379396923684)
+,p_chart_id=>wwv_flow_imp.id(3548276787162974403)
 ,p_seq=>250
 ,p_name=>'Test Arm'
 ,p_data_source_type=>'SQL'
@@ -111,8 +111,8 @@ wwv_flow_imp_page.create_jet_chart_series(
 ,p_threshold_display=>'onIndicator'
 );
 wwv_flow_imp_page.create_jet_chart_series(
- p_id=>wwv_flow_imp.id(2448389116895419596)
-,p_chart_id=>wwv_flow_imp.id(2447326019021470310)
+ p_id=>wwv_flow_imp.id(3549339885036923689)
+,p_chart_id=>wwv_flow_imp.id(3548276787162974403)
 ,p_seq=>260
 ,p_name=>'Reference Arm'
 ,p_data_source_type=>'SQL'
@@ -135,8 +135,8 @@ wwv_flow_imp_page.create_jet_chart_series(
 ,p_threshold_display=>'onIndicator'
 );
 wwv_flow_imp_page.create_jet_chart_axis(
- p_id=>wwv_flow_imp.id(2447326159371470312)
-,p_chart_id=>wwv_flow_imp.id(2447326019021470310)
+ p_id=>wwv_flow_imp.id(3548276927512974405)
+,p_chart_id=>wwv_flow_imp.id(3548276787162974403)
 ,p_axis=>'x'
 ,p_is_rendered=>'on'
 ,p_format_scaling=>'auto'
@@ -157,8 +157,8 @@ wwv_flow_imp_page.create_jet_chart_axis(
 ,p_zoom_order_years=>false
 );
 wwv_flow_imp_page.create_jet_chart_axis(
- p_id=>wwv_flow_imp.id(2447326272321470313)
-,p_chart_id=>wwv_flow_imp.id(2447326019021470310)
+ p_id=>wwv_flow_imp.id(3548277040462974406)
+,p_chart_id=>wwv_flow_imp.id(3548276787162974403)
 ,p_axis=>'y'
 ,p_is_rendered=>'on'
 ,p_format_scaling=>'auto'
@@ -179,13 +179,13 @@ wwv_flow_imp_page.create_jet_chart_axis(
 ,p_zoom_order_years=>false
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(10915170228376585378)
+ p_id=>wwv_flow_imp.id(12016120996518089471)
 ,p_plug_name=>'ePRO Symptom Tracker'
-,p_parent_plug_id=>wwv_flow_imp.id(2447326329047470314)
+,p_parent_plug_id=>wwv_flow_imp.id(3548277097188974407)
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
 ,p_region_attributes=>'style="margin-left:10px;"'
-,p_plug_template=>wwv_flow_imp.id(11045181488778407888)
+,p_plug_template=>wwv_flow_imp.id(12146132256919911981)
 ,p_plug_display_sequence=>30
 ,p_plug_new_grid_row=>false
 ,p_plug_display_point=>'SUB_REGIONS'
@@ -286,7 +286,7 @@ wwv_flow_imp_page.create_page_plug(
 'ORDER BY DTLS_ID;'))
 );
 wwv_flow_imp_page.create_worksheet(
- p_id=>wwv_flow_imp.id(10915170347596585379)
+ p_id=>wwv_flow_imp.id(12016121115738089472)
 ,p_max_row_count=>'1000000'
 ,p_allow_report_categories=>'N'
 ,p_show_nulls_as=>'-'
@@ -305,7 +305,7 @@ wwv_flow_imp_page.create_worksheet(
 ,p_internal_uid=>8722645127767942308
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2447324404862470294)
+ p_id=>wwv_flow_imp.id(3548275173003974387)
 ,p_db_column_name=>'STUDY_SITE_ID'
 ,p_display_order=>10
 ,p_column_identifier=>'AQ'
@@ -315,7 +315,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2447324475445470295)
+ p_id=>wwv_flow_imp.id(3548275243586974388)
 ,p_db_column_name=>'B.SITE_NUMBER||''-''||A.INVNAME'
 ,p_display_order=>20
 ,p_column_identifier=>'AR'
@@ -324,7 +324,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2447324544633470296)
+ p_id=>wwv_flow_imp.id(3548275312774974389)
 ,p_db_column_name=>'DAY 1 DOSE 1'
 ,p_display_order=>30
 ,p_column_identifier=>'AS'
@@ -334,7 +334,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2447324658224470297)
+ p_id=>wwv_flow_imp.id(3548275426365974390)
 ,p_db_column_name=>'DAY 2 DOSE 1'
 ,p_display_order=>40
 ,p_column_identifier=>'AT'
@@ -344,7 +344,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2447324788549470298)
+ p_id=>wwv_flow_imp.id(3548275556690974391)
 ,p_db_column_name=>'DAY 3 DOSE 1'
 ,p_display_order=>50
 ,p_column_identifier=>'AU'
@@ -354,7 +354,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2447324829376470299)
+ p_id=>wwv_flow_imp.id(3548275597517974392)
 ,p_db_column_name=>'DAY 4 DOSE 1'
 ,p_display_order=>60
 ,p_column_identifier=>'AV'
@@ -364,7 +364,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2447325019792470300)
+ p_id=>wwv_flow_imp.id(3548275787933974393)
 ,p_db_column_name=>'DAY 5 DOSE 1'
 ,p_display_order=>70
 ,p_column_identifier=>'AW'
@@ -374,7 +374,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2447325035837470301)
+ p_id=>wwv_flow_imp.id(3548275803978974394)
 ,p_db_column_name=>'DAY 6 DOSE 1'
 ,p_display_order=>80
 ,p_column_identifier=>'AX'
@@ -384,7 +384,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2447325210617470302)
+ p_id=>wwv_flow_imp.id(3548275978758974395)
 ,p_db_column_name=>'DAY 7 DOSE 1'
 ,p_display_order=>90
 ,p_column_identifier=>'AY'
@@ -394,7 +394,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2447325220034470303)
+ p_id=>wwv_flow_imp.id(3548275988175974396)
 ,p_db_column_name=>'DAY 8 DOSE 1'
 ,p_display_order=>100
 ,p_column_identifier=>'AZ'
@@ -404,7 +404,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2447325408513470304)
+ p_id=>wwv_flow_imp.id(3548276176654974397)
 ,p_db_column_name=>'DAY 9 DOSE 1'
 ,p_display_order=>110
 ,p_column_identifier=>'BA'
@@ -414,7 +414,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(2447325452561470305)
+ p_id=>wwv_flow_imp.id(3548276220702974398)
 ,p_db_column_name=>'DAY 10 DOSE 1'
 ,p_display_order=>120
 ,p_column_identifier=>'BB'
@@ -424,7 +424,7 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_use_as_row_header=>'N'
 );
 wwv_flow_imp_page.create_worksheet_rpt(
- p_id=>wwv_flow_imp.id(10922006473023473368)
+ p_id=>wwv_flow_imp.id(12022957241164977461)
 ,p_application_user=>'APXWS_DEFAULT'
 ,p_report_seq=>10
 ,p_report_alias=>'2558285'
@@ -448,41 +448,41 @@ wwv_flow_imp_page.create_worksheet_rpt(
 ,p_break_enabled_on=>'0:0:0:0'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(10903126876604969984)
+ p_id=>wwv_flow_imp.id(12004077644746474077)
 ,p_plug_name=>'Breadcrumb'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_imp.id(11045179465801407886)
+,p_plug_template=>wwv_flow_imp.id(12146130233942911979)
 ,p_plug_display_sequence=>10
 ,p_plug_display_point=>'REGION_POSITION_01'
-,p_menu_id=>wwv_flow_imp.id(11045189164405407923)
+,p_menu_id=>wwv_flow_imp.id(12146139932546912016)
 ,p_plug_source_type=>'NATIVE_BREADCRUMB'
-,p_menu_template_id=>wwv_flow_imp.id(11045187162360407898)
+,p_menu_template_id=>wwv_flow_imp.id(12146137930501911991)
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(10903140638380029168)
+ p_id=>wwv_flow_imp.id(12004091406521533261)
 ,p_plug_name=>'Admin Reports List'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
 ,p_region_attributes=>'style="margin-right:5px;     width: 235px;"'
-,p_plug_template=>wwv_flow_imp.id(11045181058343407888)
+,p_plug_template=>wwv_flow_imp.id(12146131826484911981)
 ,p_plug_display_sequence=>10
 ,p_plug_new_grid=>true
 ,p_plug_display_column=>1
 ,p_plug_display_point=>'BODY_1'
-,p_list_id=>wwv_flow_imp.id(2451364379095083907)
+,p_list_id=>wwv_flow_imp.id(3552315147236588000)
 ,p_plug_source_type=>'NATIVE_LIST'
-,p_list_template_id=>wwv_flow_imp.id(11061512871844880215)
+,p_list_template_id=>wwv_flow_imp.id(12162463639986384308)
 ,p_plug_query_headings_type=>'QUERY_COLUMNS'
 ,p_plug_query_num_rows_type=>'NEXT_PREVIOUS_LINKS'
 ,p_plug_query_show_nulls_as=>' - '
 ,p_pagination_display_position=>'BOTTOM_RIGHT'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(2448388463650419590)
+ p_id=>wwv_flow_imp.id(3549339231791923683)
 ,p_name=>'P120_SITE_NAME'
 ,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(2447325842419470309)
+,p_item_plug_id=>wwv_flow_imp.id(3548276610560974402)
 ,p_prompt=>'<b>Site</b>'
 ,p_display_as=>'NATIVE_SELECT_LIST'
 ,p_lov=>wwv_flow_string.join(wwv_flow_t_varchar2(
@@ -497,7 +497,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cHeight=>1
 ,p_label_alignment=>'LEFT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
-,p_field_template=>wwv_flow_imp.id(11045185769059407896)
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_lov_display_extra=>'NO'
 ,p_encrypt_session_state_yn=>'N'
@@ -505,17 +505,17 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_03=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(2448388705156419592)
+ p_id=>wwv_flow_imp.id(3549339473297923685)
 ,p_name=>'P120_TOT_SUBJECTS_TST'
 ,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(2447325842419470309)
+,p_item_plug_id=>wwv_flow_imp.id(3548276610560974402)
 ,p_prompt=>'<b>Test Arm Subject Count</b>'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>30
 ,p_label_alignment=>'LEFT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
 ,p_read_only_when_type=>'ALWAYS'
-,p_field_template=>wwv_flow_imp.id(11045185769059407896)
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -524,17 +524,17 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(2448389136113419597)
+ p_id=>wwv_flow_imp.id(3549339904254923690)
 ,p_name=>'P120_TOT_SUBJECTS_REF'
 ,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(2447325842419470309)
+,p_item_plug_id=>wwv_flow_imp.id(3548276610560974402)
 ,p_prompt=>'<b>Reference Arm Subject Count</b>'
 ,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>30
 ,p_label_alignment=>'LEFT-CENTER'
 ,p_field_alignment=>'LEFT-CENTER'
 ,p_read_only_when_type=>'ALWAYS'
-,p_field_template=>wwv_flow_imp.id(11045185769059407896)
+,p_field_template=>wwv_flow_imp.id(12146136537200911989)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_encrypt_session_state_yn=>'N'
 ,p_attribute_01=>'N'
@@ -543,7 +543,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_process(
- p_id=>wwv_flow_imp.id(2448388986977419595)
+ p_id=>wwv_flow_imp.id(3549339755118923688)
 ,p_process_sequence=>10
 ,p_process_point=>'BEFORE_HEADER'
 ,p_process_type=>'NATIVE_PLSQL'

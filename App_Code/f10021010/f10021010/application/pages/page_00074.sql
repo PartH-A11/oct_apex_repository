@@ -8,7 +8,7 @@ wwv_flow_imp.component_begin (
 ,p_release=>'24.1.0'
 ,p_default_workspace_id=>666903967469575309
 ,p_default_application_id=>10021010
-,p_default_id_offset=>759714394172364641
+,p_default_id_offset=>1100950768141504093
 ,p_default_owner=>'SUN_21010_DEV'
 );
 wwv_flow_imp_page.create_page(
@@ -24,9 +24,9 @@ wwv_flow_imp_page.create_page(
 ,p_page_component_map=>'03'
 );
 wwv_flow_imp_page.create_report_region(
- p_id=>wwv_flow_imp.id(6652446541624910159)
+ p_id=>wwv_flow_imp.id(7753397309766414252)
 ,p_name=>'Unscheduled Visit(s)'
-,p_template=>wwv_flow_imp.id(11045181488778407888)
+,p_template=>wwv_flow_imp.id(12146132256919911981)
 ,p_display_sequence=>16
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
@@ -48,7 +48,7 @@ wwv_flow_imp_page.create_report_region(
 '   AND VISIT_TYPE = ''Unscheduled''',
 ''))
 ,p_lazy_loading=>false
-,p_query_row_template=>wwv_flow_imp.id(11045183173560407891)
+,p_query_row_template=>wwv_flow_imp.id(12146133941701911984)
 ,p_query_num_rows=>15
 ,p_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_query_no_data_found=>'No Unscheduled Visit Generated.'
@@ -61,11 +61,11 @@ wwv_flow_imp_page.create_report_region(
 ,p_plug_query_strip_html=>'Y'
 );
 wwv_flow_imp_page.set_region_column_width(
- p_id=>wwv_flow_imp.id(6652446541624910159)
+ p_id=>wwv_flow_imp.id(7753397309766414252)
 ,p_plug_column_width=>'style="width:750px"'
 );
 wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(6652447302895910162)
+ p_id=>wwv_flow_imp.id(7753398071037414255)
 ,p_query_column_id=>1
 ,p_column_alias=>'PATIENT_VISIT_ID'
 ,p_column_display_sequence=>1
@@ -80,7 +80,7 @@ wwv_flow_imp_page.create_report_columns(
 'APP_ID#:82:#APP_SESSION#::::P82_PATIENT_VISIT_ID:#PATIENT_VISIT_ID#'))
 );
 wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(6652447667855910163)
+ p_id=>wwv_flow_imp.id(7753398435997414256)
 ,p_query_column_id=>2
 ,p_column_alias=>'PATIENT_PROFILE_ID'
 ,p_column_display_sequence=>3
@@ -92,7 +92,7 @@ wwv_flow_imp_page.create_report_columns(
 ,p_ref_column_name=>'PATIENT_PROFILE_ID'
 );
 wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(6652448031507910164)
+ p_id=>wwv_flow_imp.id(7753398799649414257)
 ,p_query_column_id=>3
 ,p_column_alias=>'VISIT_NUMBER'
 ,p_column_display_sequence=>4
@@ -104,7 +104,7 @@ wwv_flow_imp_page.create_report_columns(
 ,p_ref_column_name=>'VISIT_NUMBER'
 );
 wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(6652448438382910164)
+ p_id=>wwv_flow_imp.id(7753399206524414257)
 ,p_query_column_id=>4
 ,p_column_alias=>'VISIT_TITLE'
 ,p_column_display_sequence=>5
@@ -116,7 +116,7 @@ wwv_flow_imp_page.create_report_columns(
 ,p_ref_column_name=>'VISIT_TITLE'
 );
 wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(6652448879031910165)
+ p_id=>wwv_flow_imp.id(7753399647173414258)
 ,p_query_column_id=>5
 ,p_column_alias=>'VISIT_TYPE'
 ,p_column_display_sequence=>6
@@ -128,7 +128,7 @@ wwv_flow_imp_page.create_report_columns(
 ,p_ref_column_name=>'VISIT_TYPE'
 );
 wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(6652449297947910165)
+ p_id=>wwv_flow_imp.id(7753400066089414258)
 ,p_query_column_id=>6
 ,p_column_alias=>'ACTUAL_DATE'
 ,p_column_display_sequence=>7
@@ -141,7 +141,7 @@ wwv_flow_imp_page.create_report_columns(
 ,p_ref_column_name=>'ACTUAL_DATE'
 );
 wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(6652449653820910165)
+ p_id=>wwv_flow_imp.id(7753400421962414258)
 ,p_query_column_id=>7
 ,p_column_alias=>'DESCRIPTION'
 ,p_column_display_sequence=>8
@@ -153,7 +153,7 @@ wwv_flow_imp_page.create_report_columns(
 ,p_ref_column_name=>'DESCRIPTION'
 );
 wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(4138818002204690706)
+ p_id=>wwv_flow_imp.id(5239768770346194799)
 ,p_query_column_id=>8
 ,p_column_alias=>'DR'
 ,p_column_display_sequence=>2
@@ -165,7 +165,7 @@ wwv_flow_imp_page.create_report_columns(
 ,p_include_in_export=>'Y'
 );
 wwv_flow_imp_page.create_report_columns(
- p_id=>wwv_flow_imp.id(6654046654861248365)
+ p_id=>wwv_flow_imp.id(7754997423002752458)
 ,p_query_column_id=>9
 ,p_column_alias=>'DERIVED$01'
 ,p_column_display_sequence=>9
@@ -177,25 +177,25 @@ wwv_flow_imp_page.create_report_columns(
 ,p_include_in_export=>'Y'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(6652452805180910174)
+ p_id=>wwv_flow_imp.id(7753403573322414267)
 ,p_plug_name=>'Breadcrumb'
 ,p_region_template_options=>'#DEFAULT#'
 ,p_component_template_options=>'#DEFAULT#'
-,p_plug_template=>wwv_flow_imp.id(11045179465801407886)
+,p_plug_template=>wwv_flow_imp.id(12146130233942911979)
 ,p_plug_display_sequence=>10
 ,p_plug_display_point=>'REGION_POSITION_01'
-,p_menu_id=>wwv_flow_imp.id(11045189164405407923)
+,p_menu_id=>wwv_flow_imp.id(12146139932546912016)
 ,p_plug_source_type=>'NATIVE_BREADCRUMB'
-,p_menu_template_id=>wwv_flow_imp.id(11045187162360407898)
+,p_menu_template_id=>wwv_flow_imp.id(12146137930501911991)
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(6652452108397910169)
+ p_id=>wwv_flow_imp.id(7753402876539414262)
 ,p_button_sequence=>30
-,p_button_plug_id=>wwv_flow_imp.id(6652446541624910159)
+,p_button_plug_id=>wwv_flow_imp.id(7753397309766414252)
 ,p_button_name=>'CREATE'
 ,p_button_action=>'REDIRECT_PAGE'
 ,p_button_template_options=>'#DEFAULT#'
-,p_button_template_id=>wwv_flow_imp.id(11045186175944407897)
+,p_button_template_id=>wwv_flow_imp.id(12146136944085911990)
 ,p_button_image_alt=>'Create'
 ,p_button_position=>'CREATE'
 ,p_button_alignment=>'RIGHT'
